@@ -30,6 +30,7 @@
     </div>
     
   </div>
+  <button type="button" class="btn btn-primary btn-lg botao" style="background-color: #05341D; border-color: #05341D"  >Boletim Portuário</button>
 </div>
 
 </template>
@@ -70,7 +71,7 @@ export default {
   .caixa{
     width:90%;
     margin-left:25px;
-    
+    float:left;
     margin-bottom:5%;
     
     text-transform: capitalize;

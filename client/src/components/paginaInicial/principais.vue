@@ -29,6 +29,7 @@
     </div>
     
   </div>
+  <anuncio class="img-anuncio1 anuncio1"></anuncio>
 </div>
 
 </template>
@@ -36,11 +37,12 @@
 
 import NoticiaService from "@/services/NoticiaService"
 import Panel from "@/components/Panel"
-
+import anuncio from "@/components/anuncio"
 export default {
   
   components:{
-    Panel
+    Panel,
+    anuncio
   }, 
   data () {
     return {
@@ -77,7 +79,11 @@ export default {
     text-transform: capitalize;
     border-radius: 7px 7px 0 0;
   }
- 
+  .img-anuncio1{
+      width:100%;
+      margin-top:25px;
+      margin-bottom: 20px;
+  }
   .info{
     width:100%;
     
@@ -129,5 +135,26 @@ export default {
   .principal h1 {
     margin-top:15px;
     margin-bottom:15px;
+  }
+  @media screen and (min-width: 992px){
+    .caixa{
+    width:50%;
+    float:left;
+  }
+  .anuncio1{
+      width:40%;
+      float:right;
+      margin-top:200px;
+      height:380px;
+    }
+  .principal h1 {
+    text-align: left;
+    margin-left:25px;
+    margin-bottom:0px;
+  }
+  .info h1{
+    margin-left:0;
+    
+  }
   }
 </style>

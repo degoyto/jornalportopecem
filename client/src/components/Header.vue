@@ -2,9 +2,21 @@
 
   <div class="container-flex" >
     <div class="container-flex cabecalho ">
+      <div class="acima">
+        <p class="data">Pecém,  {{date | horaAtual}}</p>
+        <div class="sociais">
+          <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook' }"/>
+          <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'instagram' }"/>
+        </div>
+        
+      </div>
       
-      <img class="logo" src="../assets/logo.png">
-      <anuncio class="img-anuncio1"></anuncio>
+      <div class="abaixo">
+        <img class="logo" src="../assets/logo.png">
+        <anuncio class="img-anuncio1"></anuncio>
+      </div>
+      
+     
     </div>
   <div class="container-flex ">
     
@@ -54,7 +66,8 @@ export default {
     data(){
       return{
         show: false,
-        type: "#fff"
+        type: "#fff",
+        
       }
       
     },
@@ -83,29 +96,48 @@ export default {
   .error{
     color: red;
   }
-
+  /*acima do cabeçalho*/
+  .acima{
+    width:100%;
+    
+  }
+  .data{
+    text-align: left;
+    margin-left:25px;
+    float:left;
+    
+    font-size:12px;
+  }
+  .sociais{
+    margin-left: 85%;
+  }
+  .abaixo{
+    width:100%;
+    margin-top:10px;
+  }
   /*cabeçalho celular*/
     .cabecalho{
       
       width:100%;
       
-      margin-top:-5%;
-      margin-bottom:5%;
+      margin-top:-40px;
+      margin-bottom:1%;
       
     }
     .logo{
       width:40vw;
       float:left;
-      margin-left:5%;
+      margin-left:25px;
+      margin-top:20px;
     }
     .anuncio-cabecalho{
       
       width:40vw;
-      margin-right:0%;
+      
     }
     
 
-  /*cabeçalho pc*/
+  
     
     
   /*barra menu*/
@@ -120,5 +152,44 @@ export default {
   .botao{
     margin-left:90%;
   }
+
+  /*versão pc*/
+  
+  @media screen and (min-width: 992px){
+    .acima{
+      
+    }
+    .logo{
+        width:35vw;
+        float:left;
+        margin-left:25px;
+        
+    }
+    .anuncio-cabecalho{
+        
+      width:40%;
+      height:15vh;
+      margin-right:-20%;
+      
+        
+    }
+
+    /*barra menu*/
+    .barra{
+      color:white;
+      text-transform: uppercase;
+      background-color:#06351d;
+    }
+    .itens{
+      font-size:0.7vw;
+    }
+    .botao{
+      margin-left:90%;
+    }
+    .navbar-dark .navbar-nav .nav-link:hover{
+      color:#8BB174;
+    }
+}
+
 
 </style>

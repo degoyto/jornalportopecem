@@ -11,7 +11,14 @@ import store from "@/store/store"
 import lineClamp from 'vue-line-clamp'
 import moment from 'moment'
 import axios from "axios"
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+library.add(faFacebook)
+library.add(faInstagram)
+
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 
 
@@ -21,6 +28,11 @@ Vue.filter('formatDate', function(value) {
   if (value) {
     return moment(String(value)).format('DD/MM/YYYY hh:mm')
   }
+});
+Vue.filter('horaAtual', function() {
+    moment.locale("pt-br");
+    return moment().format('LL'); 
+  
 });
 Vue.use(lineClamp, {
   // plugin options

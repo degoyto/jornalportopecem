@@ -1,10 +1,12 @@
 <template>
  <div class="container-flex">
+   
     <principais></principais>
     
-    <anuncio class="img-anuncio1"></anuncio>
+    
+
     <principais2></principais2>
-    <button type="button" class="btn btn-primary btn-lg botao" style="background-color: #05341D; border-color: #05341D"  >Boletim Portuário</button>
+    
     <anuncio class="img-anuncio1"></anuncio>
     <principais3></principais3>
     <anuncio class="img-anuncio1"></anuncio>
@@ -60,4 +62,5 @@ export default {
     padding-bottom:5px;
     margin-bottom: 5px;
   }
+ 
 </style>
