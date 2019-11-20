@@ -4,10 +4,10 @@
     <principais></principais>
     
     
-
+    
     <principais2></principais2>
     
-    <anuncio class="img-anuncio1"></anuncio>
+    <anuncio class="img-anuncio1 dois"></anuncio>
     <principais3></principais3>
     <anuncio class="img-anuncio1"></anuncio>
     <img src="../assets/destaquecaucaia.jpg" class="caucaia">
@@ -50,6 +50,7 @@ export default {
     width:100%;
     margin-top:25px;
     margin-bottom: 20px;
+    max-height:120px;
   }
   .caucaia{
     width:90%;

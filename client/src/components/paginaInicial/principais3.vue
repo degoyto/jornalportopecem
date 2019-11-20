@@ -1,7 +1,9 @@
 <template>
   <div class="container principal">
-    <h1>Últimas Notícias</h1>
+    <h1>OUTRAS NOTÍCIAS</h1>
+    <hr />
   <div class= "caixa" v-for="noticia in noticias" :key="noticia.id"  >
+    <router-link class="link" :to="{ name: 'noticia',  params:{noticiaId: noticia.id}}">
     <div >
       <div class="img"  v-bind:style="{ backgroundImage: 'url(' + noticia.fotoUrl + ')' }"></div>
     
@@ -21,14 +23,15 @@
         <!-- <div class="data">
           {{noticia.createdAt | formatDate}}
         </div>-->
-        <router-link :to="{ name: 'noticia',  params:{noticiaId: noticia.id}}">
+        
             
-        </router-link>
+        
       </div>
     </div>
     </div>
-    
+    </router-link>
   </div>
+
 </div>
 
 </template>
@@ -65,7 +68,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  hr{
+    display: none;
+  }
   .caixa{
     width:95%;
     margin-top:2%;
@@ -94,7 +99,7 @@ export default {
   }
   .info h1{
     font-size:100%;
-    
+    margin-left:0;
     
     
   }
@@ -133,5 +138,49 @@ export default {
   .principal h1 {
     margin-top:15px;
     margin-bottom:15px;
+    font-size:150%;
+  }
+   .link{
+    color:rgb(24, 23, 23);
+  }
+  .link:hover{
+    color:rgb(0, 0, 0);
+    text-decoration: none
+  }
+
+   @media screen and (min-width: 992px){
+    hr{
+      display:block;
+      border-top: 4px solid #8BB174;
+      margin-left:25px;
+      margin-top:3px;
+      margin-bottom:-2px;
+      width:53%;
+  }
+   
+  .principal h1 {
+    text-align: left;
+    margin-left:25px;
+    margin-bottom:0px;
+  }
+  .caixa{
+    width:55%;
+    margin-top:1%;
+    margin-bottom:3%;
+
+  }
+  .info h1{
+    font-size:130%;
+    margin-left:-1px;
+    
+    
+  }
+  .info p{
+    margin-top:9px;
+  }
+  .tipo{
+    margin-top:1%;
+  }
+ 
   }
 </style>

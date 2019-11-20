@@ -1,7 +1,7 @@
 <template>
 
   <div class="container-flex" >
-    <div class="container-flex cabecalho ">
+    <div class="container cabecalho ">
       <div class="acima">
         <p class="data">Pecém,  {{date | horaAtual}}</p>
         <div class="sociais">
@@ -18,31 +18,41 @@
       
      
     </div>
-  <div class="container-flex ">
-    
-    <div >
-  <b-navbar toggleable="lg" type="dark" class="barra">
+
+  <div class="container-flex back">
+    <div class="container">
+      <b-navbar toggleable="lg" type="dark" class="barra">
     
 
     <b-navbar-toggle target="nav-collapse" class="botao"></b-navbar-toggle>
 
-    <b-collapse id="nav-collapse" is-nav>
-      <b-navbar-nav class="itens" >
-        <b-nav-item active href="#">Destaques Portuários</b-nav-item>
-        <b-nav-item active href="#">Notícias Nacionais</b-nav-item>
-        <b-nav-item active href="#">Notícias Internacionais</b-nav-item>
-        <b-nav-item active href="#">Artigos e Opinião</b-nav-item>
-        <b-nav-item active href="#">Comércio Exterior</b-nav-item>
-        <b-nav-item active href="#">Logística e Transporte</b-nav-item>
-        <b-nav-item active href="#">Entrevistas</b-nav-item>
-        <b-nav-item active href="#">Portos do Brasil</b-nav-item>
-        <b-nav-item active href="#">Eventos Portuários</b-nav-item>
+    <b-collapse id="nav-collapse" class="menu" is-nav>
+      <ul>
+        <li><a href="#">destaques portuários</a></li>
+        <li class="noticias-btn"><a href="#">Notícias</a>
+                <ul>
+                      <li><a href="#">Nacionais</a></li>
+                      <li><a href="#">Internacionais</a></li>
+                                        
+                </ul>
+            </li>
         
-      </b-navbar-nav>
+        <li><a href="#">Artigos e Opinião</a></li>
+        <li><a href="#"> turismo</a></li>
+
+        <li><a href="#">Comércio exterior</a></li>
+        <li><a href="#">logística e transporte</a></li>
+        <li><a href="#">entrevistas</a></li> 
+        <li><a href="#">Portos do Brasil</a></li>
+        <li><a href="#">Eventos</a></li>
+                                        
+                
+            
+      </ul>
 
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
-        <b-nav-form>
+        <b-nav-form class="pesquise">
           <b-form-input size="sm" class="mr-sm-2" placeholder="Pesquise"></b-form-input>
           <b-button size="sm" class="my-2 my-sm-0" type="submit">Pesquise</b-button>
         </b-nav-form>
@@ -51,6 +61,10 @@
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
+    </div>
+    
+  <div >
+  
 </div>
   </div>
   
@@ -93,8 +107,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .error{
-    color: red;
+  .back{
+    background-color:#06351d;
   }
   /*acima do cabeçalho*/
   .acima{
@@ -114,6 +128,7 @@ export default {
   .abaixo{
     width:100%;
     margin-top:10px;
+    display:flex;
   }
   /*cabeçalho celular*/
     .cabecalho{
@@ -126,12 +141,12 @@ export default {
     }
     .logo{
       width:40vw;
-      float:left;
-      margin-left:25px;
+      
+      
       margin-top:20px;
     }
     .anuncio-cabecalho{
-      
+      margin-left:10%;
       width:40vw;
       
     }
@@ -156,18 +171,19 @@ export default {
   /*versão pc*/
   
   @media screen and (min-width: 992px){
-    .acima{
-      
+    
+    .pesquise{
+      display:none;
     }
     .logo{
         width:35vw;
-        float:left;
-        margin-left:25px;
+        margin-left:22px;
+        
         
     }
     .anuncio-cabecalho{
         
-      width:40%;
+      width:39.5%;
       height:15vh;
       margin-right:-20%;
       
@@ -175,21 +191,91 @@ export default {
     }
 
     /*barra menu*/
-    .barra{
-      color:white;
-      text-transform: uppercase;
-      background-color:#06351d;
+    .menu ul {
+      padding:0px;
+      margin-left:0px;
+      margin-bottom:0px;
+      list-style:none;
     }
-    .itens{
-      font-size:0.7vw;
-    }
-    .botao{
-      margin-left:90%;
-    }
-    .navbar-dark .navbar-nav .nav-link:hover{
-      color:#8BB174;
-    }
+    .menu ul li { 
+      
+      display: inline; }
+    .menu ul li a {
+      margin-left:5px;
+      display: inline-block;
+
+      /* visual do link */
+      font-size: 65%;
+      color: white;
+      text-decoration: none;
+      
+  }
+  
+  
+  
+    .menu ul li a:hover {
+      color:#8BB174
+      
+  }
+  .noticias-btn ul {
+    position:absolute; 
+    top:28px; 
+    left:130px;
+    border:1px solid #c0c0c0; 
+    background-color: #06351d; 
+    display:none;
+  } 
+  	
+  .noticias-btn:hover ul, .menu li.over ul{display:block;}
+  .noticias-btn ul li{
+    
+    display:block; 
+    width:150px;
+  }
+  
+
+
+  .portos-btn ul {
+    position:absolute; 
+    top:28px; 
+    left:750px;
+    border:1px solid #c0c0c0; 
+    background-color: #06351d; 
+    display:none;
+  } 
+  	
+  .portos-btn:hover ul, .menu li.over ul{display:block;}
+  .portos-btn ul li{
+    
+    display:block; 
+    width:150px;
+  }
+
 }
 
+@media screen and (min-width: 1200px){
+  .menu ul {
+      
+      margin-left:20px;
+      margin-bottom:0px;
+      
+    }
+  .menu ul li a {
+      margin-left:8px;
+      /* visual do link */
+      font-size: 12px;
+      
+      
+  }
+  .portos-btn ul {
+    position:absolute; 
+    top:28px; 
+    left:950px;
+    border:1px solid #c0c0c0; 
+    background-color: #06351d; 
+    display:none;
+  } 
+  
+}
 
 </style>

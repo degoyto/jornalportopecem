@@ -1,37 +1,33 @@
 <template>
   <div class="container principal">
     
-  <div class= "caixa" v-for="noticia in noticias" :key="noticia.id"  >
-    <div >
+    <div class="noticia">
+      <div class= "caixa" v-for="noticia in noticias" :key="noticia.id"  >
+        <div class="info">
+          <router-link class="link" :to="{ name: 'noticia',  params:{noticiaId: noticia.id}}">
+              <div class="itens">
+                <h1 v-line-clamp:20="2" >{{noticia.title}}</h1>
+                <div class="tipo">
+                  {{noticia.tipo}}
+                </div>
+                <div class="conteudo" >
+                  <p v-line-clamp:20="4" v-html="noticia.conteudo" >{{noticia.conteudo}}</p> 
+                </div>
+                <!-- <div class="data">
+                  {{noticia.createdAt | formatDate}}
+                </div>-->
+            </div> 
+          </router-link>
+        </div>
+      </div>
+    </div>
+      
+    <button type="button" class="btn btn-primary btn-lg botao" style="background-color: #05341D; border-color: #05341D"  >Boletim Portuário</button>
+      
       
     
-    <div class="info">
-      <router-link class="link" :to="{ name: 'noticia',  params:{noticiaId: noticia.id}}">
-          <div class="itens">
-            <h1 v-line-clamp:20="2" >{{noticia.title}}</h1>
-            <div class="tipo">
-              
-              {{noticia.tipo}}
-              
-            </div>
-            
-            <div class="conteudo" >
-              <p v-line-clamp:20="3" v-html="noticia.conteudo" >{{noticia.conteudo}}</p>
-              
-            </div>
-            <!-- <div class="data">
-              {{noticia.createdAt | formatDate}}
-            </div>-->
-        
-        </div> 
-      </router-link>
-      
-    </div>
-    </div>
     
   </div>
-  <button type="button" class="btn btn-primary btn-lg botao" style="background-color: #05341D; border-color: #05341D"  >Boletim Portuário</button>
-</div>
 
 </template>
 <script>
@@ -114,14 +110,43 @@ export default {
     background-color:#05341D;
     border: #05341D;
     margin-bottom:5px;
-    font-size:70%; 
-    width:20%;
-    margin-left:80%;
+    font-size:100%; 
+    width:60%;
+    
   }
  
   .tipo{
     color:#8BB174;
     text-align: left;
+  }
+
+
+  @media screen and (min-width: 992px){
+    
+    .noticia{
+      display:flex;
+      float:left;
+      width:56%;
+      padding:0;
+      margin-left:-5px;
+     
+    }
+    
+    .itens{
+      width:100%;
+      padding-left:0%;
+      
+      padding-right: 0%;
+     
+      margin-left:0px;
+      
+
+    }
+    .botao{
+      float:right;
+      width:40%;
+    }
+    
   }
   
 </style>

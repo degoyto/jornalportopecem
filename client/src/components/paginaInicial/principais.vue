@@ -1,8 +1,10 @@
 <template>
   <div class="container principal">
-    <h1>Notícias Principais</h1>
+    <h1>NOTÍCIAS EM DESTAQUE</h1>
+    <hr />
   <div class= "caixa" v-for="noticia in noticias" :key="noticia.id"  >
-    <div >
+    <router-link class="link" :to="{ name: 'noticia',  params:{noticiaId: noticia.id}}">
+    
       <div class="img"  v-bind:style="{ backgroundImage: 'url(' + noticia.fotoUrl + ')' }"></div>
     
     <div class="info">
@@ -21,13 +23,13 @@
         <!-- <div class="data">
           {{noticia.createdAt | formatDate}}
         </div>-->
-        <router-link :to="{ name: 'noticia',  params:{noticiaId: noticia.id}}">
-            <button type="button" class="btn btn-primary btn-sm botao"   >LER MAIS</button>
-        </router-link>
+        
+            <button type="button" class="btn btn-primary btn-sm botao"   >Continue Lendo</button>
+        
       </div>
     </div>
-    </div>
     
+    </router-link>
   </div>
   <anuncio class="img-anuncio1 anuncio1"></anuncio>
 </div>
@@ -67,7 +69,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  hr{
+    display: none;
+  }
   .caixa{
     width:90%;
     margin-top:2%;
@@ -85,9 +89,9 @@ export default {
       margin-bottom: 20px;
   }
   .info{
-    width:100%;
+    width:102%;
     
-    padding-left:2%;
+    
     padding-right: 2%;
     text-align: left;
   }
@@ -103,9 +107,9 @@ export default {
     
   }
   .tipo{
-    font-size:70%;
+    font-size:50%;
     margin-bottom: 20px; 
-    margin-top:-10px;
+    margin-top:0.1%;
     text-transform: uppercase;
   }
   .botao{
@@ -133,18 +137,34 @@ export default {
     
   }
   .principal h1 {
-    margin-top:15px;
-    margin-bottom:15px;
+    margin-top:20px;
+    font-size: 150%;
+  }
+
+  .link{
+    color:rgb(24, 23, 23);
+  }
+  .link:hover{
+    color:rgb(0, 0, 0);
+    text-decoration: none
   }
   @media screen and (min-width: 992px){
+    hr{
+      display:block;
+      border-top: 4px solid #8BB174;
+      margin-left:25px;
+      margin-top:3px;
+      margin-bottom:-2px;
+      width:53%;
+  }
     .caixa{
-    width:50%;
+    width:53%;
     float:left;
   }
   .anuncio1{
       width:40%;
       float:right;
-      margin-top:200px;
+      margin-top:260px;
       height:380px;
     }
   .principal h1 {
