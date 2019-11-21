@@ -9,6 +9,10 @@ export default {
         
         return Api().get(`principais/${total}`)
     },
+    filtro (nome) {
+        
+        return Api().get(`filtro/${nome}`)
+    },
     novas (total) {
         
         return Api().get(`novas/${total}`)

@@ -1,6 +1,7 @@
 <template>
 
   <div class="container-flex" >
+    
     <div class="container cabecalho ">
       <div class="acima">
         <p class="data">Pecém,  {{date | horaAtual}}</p>
@@ -21,21 +22,46 @@
 
   <div class="container-flex back">
     <div class="container">
-      <b-navbar toggleable="lg" type="dark" class="barra">
+      <b-navbar toggleable="lg"  type="dark" class="barra">
     
 
     <b-navbar-toggle target="nav-collapse" class="botao"></b-navbar-toggle>
 
     <b-collapse id="nav-collapse" class="menu" is-nav>
-      <ul>
-        <li><a href="#">destaques portuários</a></li>
+      <ul class="pc">
+        <router-link class="link" :to="{ name: 'noticiasLista',  params:{nome: 'destaques-portuarios'}} ">
+          <li><a href="#">destaques portuários</a></li>
+        </router-link>
         <li class="noticias-btn"><a href="#">Notícias</a>
                 <ul>
                       <li><a href="#">Nacionais</a></li>
-                      <li><a href="#">Internacionais</a></li>
-                                        
+                      <router-link class="link" :to="{ name: 'noticiasLista',  params:{nome: 'internacional'}}">
+                        <li><a>Internacionais</a></li>
+                      </router-link>                 
                 </ul>
             </li>
+        <router-link class="link" :to="{ name: 'noticiasLista',  params:{nome: 'artigo'}}">
+          <li><a >Artigos e Opinião</a></li>
+        </router-link>  
+        <li><a href="#"> turismo</a></li>
+
+        <li><a href="#">Comércio exterior</a></li>
+        <li><a href="#">logística e transporte</a></li>
+        <li><a href="#">entrevistas</a></li> 
+        <li><a href="#">Portos do Brasil</a></li>
+        <li><a href="#">Eventos</a></li>
+                                        
+                
+            
+      </ul>
+
+      <ul class="cel">
+        
+          <li><a >destaques portuários</a></li>
+        
+
+        <li ><a href="#">Notícias Nacionais</a></li>
+        <li ><a href="#">Notícias Internacionais</a></li>
         
         <li><a href="#">Artigos e Opinião</a></li>
         <li><a href="#"> turismo</a></li>
@@ -109,7 +135,10 @@ export default {
 <style scoped>
   .back{
     background-color:#06351d;
+    
+    
   }
+  
   /*acima do cabeçalho*/
   .acima{
     width:100%;
@@ -150,23 +179,42 @@ export default {
       width:40vw;
       
     }
+
+    /*menu */
+    .noticias-btn{
+      display: none;
+    }
     
 
   
     
     
   /*barra menu*/
+  .pc{
+    display:none;
+  }
+  .cel{
+    display:block
+  }
   .barra{
     color:white;
     text-transform: uppercase;
     background-color:#06351d;
   }
-  .itens{
-    font-size:3vw;
+  .cel {
+    list-style: none;
+  }
+  .cel li a{
+    color:white;
+  }
+   .cel li a:hover{
+    color: #8BB174;
+    text-decoration: non
   }
   .botao{
     margin-left:90%;
   }
+ 
 
   /*versão pc*/
   
@@ -191,6 +239,14 @@ export default {
     }
 
     /*barra menu*/
+    .cel{
+      display:none;
+    }
+    .pc{display:block}
+    .noticias-btn{
+      display: block;
+    }
+    
     .menu ul {
       padding:0px;
       margin-left:0px;
@@ -232,24 +288,12 @@ export default {
     display:block; 
     width:150px;
   }
-  
-
-
-  .portos-btn ul {
-    position:absolute; 
-    top:28px; 
-    left:750px;
-    border:1px solid #c0c0c0; 
-    background-color: #06351d; 
+  .cel{
     display:none;
-  } 
-  	
-  .portos-btn:hover ul, .menu li.over ul{display:block;}
-  .portos-btn ul li{
-    
-    display:block; 
-    width:150px;
   }
+
+
+  
 
 }
 

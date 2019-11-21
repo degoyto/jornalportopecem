@@ -7,17 +7,20 @@
     
     <principais2></principais2>
     
-    <anuncio class="img-anuncio1 dois"></anuncio>
-    <principais3></principais3>
-    <anuncio class="img-anuncio1"></anuncio>
-    <img src="../assets/destaquecaucaia.jpg" class="caucaia">
-    <img src="../assets/complexo.jpg" class="caucaia">
-
-    <div class="colunas">
-      <a href="#">COLUNA DIREITO ADUANEIRO</a><br>
-      <a href="#">COLUNA MARKETING PORTUÁRIO</a>
+    <div class="div-anuncio container-flex">
+      <anuncio class="img-anuncio1 dois"></anuncio>
     </div>
-    <anuncio class="img-anuncio1"></anuncio>
+    <principais3></principais3>
+    <div class="container btn-destaques">
+      <img src="../assets/destaquecaucaia.jpg" class="caucaia cum">
+      <img src="../assets/complexo.jpg" class="caucaia cdois">
+    </div>
+    
+
+    <div class="div-anuncio">
+      <anuncio class="img-anuncio1"></anuncio>
+    </div>
+    
     <rodape></rodape>
  
  </div>
@@ -53,7 +56,7 @@ export default {
     max-height:120px;
   }
   .caucaia{
-    width:90%;
+    width:95%;
     margin-bottom: 15px;
   }
   .colunas{
@@ -62,6 +65,22 @@ export default {
     margin-top:5px;
     padding-bottom:5px;
     margin-bottom: 5px;
+  }
+  @media screen and (min-width: 992px){
+    .btn-destaques{
+      
+      display: flex;
+      justify-content: space-between;
+    }
+    .caucaia{
+      width:48%;
+      
+    }
+    .cum{
+      margin-left:25px;
+    }
+    
+    
   }
  
 </style>

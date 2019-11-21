@@ -21,6 +21,9 @@ module.exports = (app) =>{
     app.get('/novas/:total',
     NoticiasController.novas)
 
+    app.get('/filtro/:nome',
+    NoticiasController.filtro)
+
     app.get('/noticia/:noticiaId', 
     NoticiasController.show)
 

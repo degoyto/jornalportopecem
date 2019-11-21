@@ -4,7 +4,7 @@ const Sequelize = require("sequelize")
 module.exports = {
   async index (req, res) {
     try {
-      console.log(req.body)
+      
       const noticia = await Noticia.findAll({
         
       })
@@ -56,6 +56,23 @@ module.exports = {
       const total = parseInt(req.params.total) 
       const noticia = await Noticia.findAll({
         limit: total,
+        order: [['createdAt', 'DESC']]
+      })
+      res.send(noticia)  
+    } catch (err) {
+      res.status(500).send({
+        error: "Erro get"
+      })
+    }
+  },
+  async filtro (req, res) {
+    try {
+      console.log(req.params.nome)
+      const nome = req.params.nome
+      const noticia = await Noticia.findAll({
+        where: {
+          tipo: nome
+        },
         order: [['createdAt', 'DESC']]
       })
       res.send(noticia)  

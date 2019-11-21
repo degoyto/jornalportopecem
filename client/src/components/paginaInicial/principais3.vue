@@ -1,49 +1,70 @@
 <template>
-  <div class="container principal">
-    <h1>OUTRAS NOTÍCIAS</h1>
-    <hr />
-  <div class= "caixa" v-for="noticia in noticias" :key="noticia.id"  >
-    <router-link class="link" :to="{ name: 'noticia',  params:{noticiaId: noticia.id}}">
-    <div >
-      <div class="img"  v-bind:style="{ backgroundImage: 'url(' + noticia.fotoUrl + ')' }"></div>
-    
-    <div class="info">
-      <div class="itens">
-        <h1 v-line-clamp:20="2" >{{noticia.title}}</h1>
-        <div class="tipo">
-          
-          {{noticia.tipo}}
-          
-        </div>
+  <div class="container pagina">
+    <div class="container principal">
+      <h1>OUTRAS NOTÍCIAS</h1>
+      <hr />
+      <div class= "caixa" v-for="noticia in noticias" :key="noticia.id"  >
+        <router-link class="link" :to="{ name: 'noticia',  params:{noticiaId: noticia.id}}">
+          <div class="img"  v-bind:style="{ backgroundImage: 'url(' + noticia.fotoUrl + ')' }"></div>
         
-        <div class="conteudo" >
-          <p v-line-clamp:20="5" v-html="noticia.conteudo" >{{noticia.conteudo}}</p>
-          
-        </div>
-        <!-- <div class="data">
-          {{noticia.createdAt | formatDate}}
-        </div>-->
-        
+          <div class="info">
+            <div class="itens">
+              <h1 v-line-clamp:20="2" >{{noticia.title}}</h1>
+              <div class="tipo">
+              
+                {{noticia.tipo}}
+              
+              </div>
             
+              <div class="conteudo" >
+                <p v-line-clamp:20="5" v-html="noticia.conteudo" >{{noticia.conteudo}}</p>
+              
+              </div>
+            <!-- <div class="data">
+              {{noticia.createdAt | formatDate}}
+            </div>-->
+            
+                
+            
+            </div>
+          </div>
+          
+        </router-link>
+      </div>
+      
+
+
+    </div>
+    <div class="anuncio-coluna">
+      
+      <div class="colunas">
+        <ul>
+          <li><a href="#">COLUNA DIREITO ADUANEIRO</a></li>
+          <li><a href="#">COLUNA MARKETING PORTUÁRIO</a></li>
+          
+        </ul>
+        
         
       </div>
+      <div class="div-anuncio">
+        <anuncio class="anuncio img-anuncio1"></anuncio>
+      </div>
+      
     </div>
-    </div>
-    </router-link>
+    
   </div>
-
-</div>
-
 </template>
 <script>
 
 import NoticiaService from "@/services/NoticiaService"
 import Panel from "@/components/Panel"
+import anuncio from "@/components/anuncio"
 
 export default {
   
   components:{
-    Panel
+    Panel,
+    anuncio
   }, 
   data () {
     return {
@@ -92,9 +113,9 @@ export default {
     margin-right:25px;
   }
   .info p{
-    margin-top: 5px;
+    margin-top: 4px;
     
-    font-size:80%;
+    font-size:78%;
 
   }
   .info h1{
@@ -148,39 +169,90 @@ export default {
     text-decoration: none
   }
 
-   @media screen and (min-width: 992px){
-    hr{
-      display:block;
-      border-top: 4px solid #8BB174;
-      margin-left:25px;
-      margin-top:3px;
-      margin-bottom:-2px;
-      width:53%;
+  .img-anuncio1{
+    width:100%;
+    margin-top:25px;
+    margin-bottom: 20px;
+    max-height:120px;
   }
-   
-  .principal h1 {
+  .colunas {
     text-align: left;
     margin-left:25px;
-    margin-bottom:0px;
+    margin-top:5px;
+    padding-bottom:5px;
+    margin-bottom: 5px;
   }
-  .caixa{
-    width:55%;
-    margin-top:1%;
-    margin-bottom:3%;
+  .colunas ul li{
+    color:#8BB174;
+  }
+  .colunas ul li a {
+    color:#05341D;
+  }
+  .colunas ul li a:hover {
+    color:#8BB174;
+    text-decoration:none;
+  }
 
-  }
-  .info h1{
-    font-size:130%;
-    margin-left:-1px;
-    
-    
-  }
-  .info p{
-    margin-top:9px;
-  }
-  .tipo{
-    margin-top:1%;
-  }
- 
-  }
+@media screen and (min-width: 992px){
+            hr{
+              display:block;
+              border-top: 4px solid #8BB174;
+              margin-left:25px;
+              margin-top:3px;
+              margin-bottom:10px;
+              width:95%;
+            }
+            .principal{
+              margin-left:-15px;
+              
+              width:95%;
+            }
+            .principal h1 {
+              text-align: left;
+              margin-left:25px;
+              margin-bottom:0px;
+            }
+            .caixa{
+              width:100%;
+              margin-top:1%;
+              margin-bottom:3%;
+              
+
+            }
+            .info h1{
+              font-size:130%;
+              margin-left:-1px;
+              
+              
+            }
+            .info p{
+              margin-top:9px;
+            }
+            .tipo{
+              margin-top:1%;
+            }
+            .pagina{
+              display:flex;
+              
+            }
+            .anuncio-coluna{
+              display:flex;
+              flex-direction: column;
+              padding-top:18px;
+              
+              
+            }
+            .colunas{
+              
+            }
+            .div-anuncio{
+              width:90%;
+              margin-left:48px;
+              height:100vh;
+              min-height:560px;
+              max-height:560px;
+              background-color:#8BB174;
+            }
+
+}
 </style>

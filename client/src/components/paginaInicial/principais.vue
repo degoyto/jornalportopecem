@@ -1,37 +1,52 @@
 <template>
   <div class="container principal">
-    <h1>NOTÍCIAS EM DESTAQUE</h1>
-    <hr />
-  <div class= "caixa" v-for="noticia in noticias" :key="noticia.id"  >
-    <router-link class="link" :to="{ name: 'noticia',  params:{noticiaId: noticia.id}}">
-    
-      <div class="img"  v-bind:style="{ backgroundImage: 'url(' + noticia.fotoUrl + ')' }"></div>
-    
-    <div class="info">
-      <div class="itens">
-        <h1 v-line-clamp:20="2" >{{noticia.title}}</h1>
-        <div class="tipo">
-          
-          {{noticia.tipo}}
-          
-        </div>
-        
-        <div class="conteudo" >
-          <p v-line-clamp:20="5" v-html="noticia.conteudo" >{{noticia.conteudo}}</p>
-          
-        </div>
-        <!-- <div class="data">
-          {{noticia.createdAt | formatDate}}
-        </div>-->
-        
-            <button type="button" class="btn btn-primary btn-sm botao"   >Continue Lendo</button>
-        
+    <div class="cabecalho">
+      <div class="titulo">
+        <h1>NOTÍCIAS EM DESTAQUE</h1>
+        <hr />
       </div>
+      <div class="pesquisa">
+        <b-form-input size="sm" class="mr-sm-2" placeholder="Pesquise"></b-form-input>
+        <b-button size="sm" class="my-2 my-sm-0" type="submit">Pesquise</b-button>
+      </div>
+      
     </div>
+      <div class= "caixa" v-for="noticia in noticias" :key="noticia.id"  >
+        <router-link class="link" :to="{ name: 'noticia',  params:{noticiaId: noticia.id}}">
+      
+          <div class="img"  v-bind:style="{ backgroundImage: 'url(' + noticia.fotoUrl + ')' }"></div>
+      
+          <div class="info">
+            <div class="itens">
+              <h1 v-line-clamp:20="2" >{{noticia.title}}</h1>
+              <div class="tipo">
+                
+              {{noticia.tipo}}
+            
+              </div>
+          
+              <div class="conteudo" >
+                <p v-line-clamp:20="5" v-html="noticia.conteudo" >{{noticia.conteudo}}</p>
+              
+              </div>
+              <!-- <div class="data">
+                {{noticia.createdAt | formatDate}}
+              </div>-->
+          
+              <button type="button" class="btn btn-primary btn-sm botao"   >Continue Lendo</button>
+          
+            </div>
+          </div>
+      
+        </router-link>
+      </div>
     
-    </router-link>
-  </div>
-  <anuncio class="img-anuncio1 anuncio1"></anuncio>
+
+    
+    
+    <div class="div-anuncio">
+        <anuncio class="anuncio1 img-anuncio1"></anuncio>
+    </div>
 </div>
 
 </template>
@@ -133,7 +148,7 @@ export default {
     min-height:300px;
     background-repeat: no-repeat;
     background-size: cover;
-    
+    max-height:350px;
     
   }
   .principal h1 {
@@ -149,23 +164,37 @@ export default {
     text-decoration: none
   }
   @media screen and (min-width: 992px){
+    .cabecalho{
+      display:flex;
+      justify-content: space-between;
+    }
+    .titulo{
+      
+      width:55%
+    }
+    .pesquisa{
+      display:flex;
+      margin-top:20px;
+      
+      width:40%;
+    }
     hr{
       display:block;
       border-top: 4px solid #8BB174;
       margin-left:25px;
       margin-top:3px;
       margin-bottom:-2px;
-      width:53%;
+      width:96%;
   }
     .caixa{
     width:53%;
     float:left;
   }
   .anuncio1{
-      width:40%;
-      float:right;
+      width:100%;
+      
       margin-top:260px;
-      height:380px;
+      
     }
   .principal h1 {
     text-align: left;
@@ -176,5 +205,17 @@ export default {
     margin-left:0;
     
   }
+  .div-anuncio{
+      width:40%;
+      float:right;
+      margin-top:365px;
+      margin-bottom: 20px;
+      height:380px;
+      
+      height:100vh;
+      min-height:360px;
+      max-height:360px;
+      background-color:#8BB174;
+    }
   }
 </style>

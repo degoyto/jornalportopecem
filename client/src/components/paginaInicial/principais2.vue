@@ -16,6 +16,7 @@
                 <!-- <div class="data">
                   {{noticia.createdAt | formatDate}}
                 </div>-->
+                <p class="btn-lendo">Continue Lendo</p>
             </div> 
           </router-link>
         </div>
@@ -105,13 +106,14 @@ export default {
     margin-top:-10px;
     text-transform: uppercase;
   }
-  .botao{
-    margin-top:0px;
-    background-color:#05341D;
-    border: #05341D;
-    margin-bottom:5px;
-    font-size:100%; 
-    width:60%;
+  .btn-lendo{
+    color:#8BB174; 
+    font-size:15px;
+    
+  }
+  .btn-lendo:hover{
+    color: #05341D;
+    
     
   }
  
