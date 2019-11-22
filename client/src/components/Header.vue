@@ -29,27 +29,27 @@
 
     <b-collapse id="nav-collapse" class="menu" is-nav>
       <ul class="pc">
-        <router-link class="link" :to="{ name: 'noticiasLista',  params:{nome: 'destaques-portuarios'}} ">
-          <li><a href="#">destaques portuários</a></li>
-        </router-link>
-        <li class="noticias-btn"><a href="#">Notícias</a>
+        
+        <li><a @click="navigateTo('destaques')">destaques portuários</a></li>
+       
+        <li class="noticias-btn"><a @click="navigateTo('noticias')">Notícias</a>
                 <ul>
-                      <li><a href="#">Nacionais</a></li>
-                      <router-link class="link" :to="{ name: 'noticiasLista',  params:{nome: 'internacional'}}">
-                        <li><a>Internacionais</a></li>
-                      </router-link>                 
+                      <li><a @click="navigateTo('nacionais')">Nacionais</a></li>
+                      
+                      <li><a @click="navigateTo('internacionais')">Internacionais</a></li>
+                                    
                 </ul>
             </li>
-        <router-link class="link" :to="{ name: 'noticiasLista',  params:{nome: 'artigo'}}">
-          <li><a >Artigos e Opinião</a></li>
-        </router-link>  
-        <li><a href="#"> turismo</a></li>
+        
+        <li><a @click="navigateTo('artigos')">Artigos e Opinião</a></li>
+        
+        <li><a @click="navigateTo('turismo')"> turismo</a></li>
 
-        <li><a href="#">Comércio exterior</a></li>
-        <li><a href="#">logística e transporte</a></li>
-        <li><a href="#">entrevistas</a></li> 
-        <li><a href="#">Portos do Brasil</a></li>
-        <li><a href="#">Eventos</a></li>
+        <li><a @click="navigateTo('comex')">Comércio exterior</a></li>
+        <li><a @click="navigateTo('logistica')">logística e transporte</a></li>
+        <li><a @click="navigateTo('entrevistas')">entrevistas</a></li> 
+        <li><a @click="navigateTo('portos')">Portos do Brasil</a></li>
+        <li><a @click="navigateTo('eventos')">Eventos</a></li>
                                         
                 
             
@@ -57,20 +57,22 @@
 
       <ul class="cel">
         
-          <li><a >destaques portuários</a></li>
+        <li><a @click="navigateTo('destaques')">destaques portuários</a></li>
         
 
-        <li ><a href="#">Notícias Nacionais</a></li>
-        <li ><a href="#">Notícias Internacionais</a></li>
+        <li><a @click="navigateTo('nacionais')">Nacionais</a></li>
+                      
+        <li><a @click="navigateTo('internacionais')">Internacionais</a></li>
         
-        <li><a href="#">Artigos e Opinião</a></li>
-        <li><a href="#"> turismo</a></li>
+        <li><a @click="navigateTo('artigos')">Artigos e Opinião</a></li>
+        
+        <li><a @click="navigateTo('turismo')"> turismo</a></li>
 
-        <li><a href="#">Comércio exterior</a></li>
-        <li><a href="#">logística e transporte</a></li>
-        <li><a href="#">entrevistas</a></li> 
-        <li><a href="#">Portos do Brasil</a></li>
-        <li><a href="#">Eventos</a></li>
+        <li><a @click="navigateTo('comex')">Comércio exterior</a></li>
+        <li><a @click="navigateTo('logistica')">logística e transporte</a></li>
+        <li><a @click="navigateTo('entrevistas')">entrevistas</a></li> 
+        <li><a @click="navigateTo('portos')">Portos do Brasil</a></li>
+        <li><a @click="navigateTo('eventos')">Eventos</a></li>
                                         
                 
             
@@ -114,16 +116,16 @@ export default {
     components:{
       anuncio,
     },
+    
     methods: {
-      navigateTo (route){
-        this.$route.push(route)
+      navigateTo (recebido){
+        this.$router.push({ name: 'noticiasLista', params: { nome: recebido  } })
+        this.$router.go(1)
       },
       logout(){
         this.$store.dispatch("setToken", null)
         this.$store.dispatch("setUser", null)
-        this.$router.push({
-          name: "root"
-        })
+        this.$router.push({ name: 'noticiasLista', params: { nome: recebido  } })
       }
     }
   }

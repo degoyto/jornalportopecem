@@ -50,12 +50,17 @@ export default {
     },
     async mounted (){
         const nome = this.$store.state.route.params.nome
+        
         this.noticias = (await NoticiaService.filtro(nome)).data
         
 
     },
-    watch:{
+    async updated(){
+        const nome = this.$store.state.route.params.nome
+    
+        this.noticias = (await NoticiaService.filtro(nome)).data
     }
+    
         
     }
 </script>
@@ -115,6 +120,9 @@ export default {
         background-size: cover;
         max-height:350px;
     
+    }
+    @media screen and (min-width: 992px){
+        
     }
     
     

@@ -4,21 +4,21 @@
     <div class="noticia">
       <div class= "caixa" v-for="noticia in noticias" :key="noticia.id"  >
         <div class="info">
-          <router-link class="link" :to="{ name: 'noticia',  params:{noticiaId: noticia.id}}">
+          
               <div class="itens">
-                <h1 v-line-clamp:20="2" >{{noticia.title}}</h1>
+                <h1 @click="navigateTo(noticia.id)" v-line-clamp:20="2" >{{noticia.title}}</h1>
                 <div class="tipo">
                   {{noticia.tipo}}
                 </div>
                 <div class="conteudo" >
-                  <p v-line-clamp:20="4" v-html="noticia.conteudo" >{{noticia.conteudo}}</p> 
+                  <p @click="navigateTo(noticia.id)" v-line-clamp:20="4" v-html="noticia.conteudo" >{{noticia.conteudo}}</p> 
                 </div>
                 <!-- <div class="data">
                   {{noticia.createdAt | formatDate}}
                 </div>-->
-                <p class="btn-lendo">Continue Lendo</p>
+                <p @click="navigateTo(noticia.id)" class="btn-lendo">Continue Lendo</p>
             </div> 
-          </router-link>
+          
         </div>
       </div>
     </div>
@@ -49,7 +49,10 @@ export default {
     }  
   },
   methods:{
-       
+       navigateTo (recebido){
+        this.$router.push({ name: 'noticia', params: { noticiaId: recebido  } })
+        this.$router.go(1)
+      }
   },
   async mounted (){
     const total = 3;
@@ -82,13 +85,7 @@ export default {
     padding-right: 2%;
     text-align: left;
   }
-  .link{
-    color:rgb(24, 23, 23);
-  }
-  .link:hover{
-    color:rgb(0, 0, 0);
-    text-decoration: none
-  }
+ 
   .info p{
     margin-top: 5px;
     font-size:75%;

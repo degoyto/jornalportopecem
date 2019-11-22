@@ -12,33 +12,34 @@
       
     </div>
       <div class= "caixa" v-for="noticia in noticias" :key="noticia.id"  >
-        <router-link class="link" :to="{ name: 'noticia',  params:{noticiaId: noticia.id}}">
+        
       
-          <div class="img"  v-bind:style="{ backgroundImage: 'url(' + noticia.fotoUrl + ')' }"></div>
-      
+          <div class="img" @click="navigateTo(noticia.id)" v-bind:style="{ backgroundImage: 'url(' + noticia.fotoUrl + ')' }"></div>
+        
           <div class="info">
             <div class="itens">
-              <h1 v-line-clamp:20="2" >{{noticia.title}}</h1>
+              <h1 @click="navigateTo(noticia.id)" v-line-clamp:20="2" >{{noticia.title}}</h1>
+              
               <div class="tipo">
                 
               {{noticia.tipo}}
             
               </div>
-          
+            
               <div class="conteudo" >
-                <p v-line-clamp:20="5" v-html="noticia.conteudo" >{{noticia.conteudo}}</p>
+                <p @click="navigateTo(noticia.id)" v-line-clamp:20="5" v-html="noticia.conteudo" >{{noticia.conteudo}}</p>
               
               </div>
               <!-- <div class="data">
                 {{noticia.createdAt | formatDate}}
               </div>-->
           
-              <button type="button" class="btn btn-primary btn-sm botao"   >Continue Lendo</button>
+              <button @click="navigateTo(noticia.id)" type="button" class="btn btn-primary btn-sm botao"   >Continue Lendo</button>
           
             </div>
           </div>
       
-        </router-link>
+       
       </div>
     
 
@@ -69,7 +70,10 @@ export default {
     }  
   },
   methods:{
-       
+       navigateTo (recebido){
+        this.$router.push({ name: 'noticia', params: { noticiaId: recebido  } })
+        this.$router.go(1)
+      }
   },
   async mounted (){
     const total = 1;
@@ -162,6 +166,9 @@ export default {
   .link:hover{
     color:rgb(0, 0, 0);
     text-decoration: none
+  }
+  .pesquisa{
+    display:none;
   }
   @media screen and (min-width: 992px){
     .cabecalho{

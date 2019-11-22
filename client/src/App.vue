@@ -3,17 +3,19 @@
     
     <page-header />
     <router-view/>
+    <rodape/>
   </div>
 </template>
 
 <script>
 
 import PageHeader from "@/components/Header.vue"
-
+import rodape from "@/components/rodape"
 export default {
   name: 'App',
   components: {
-    PageHeader
+    PageHeader,
+    rodape
   }
 }
 </script>

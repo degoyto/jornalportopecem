@@ -21,7 +21,7 @@
       <anuncio class="img-anuncio1"></anuncio>
     </div>
     
-    <rodape></rodape>
+    
  
  </div>
 
@@ -31,7 +31,7 @@ import principais from "@/components/paginaInicial/principais"
 import principais2 from "@/components/paginaInicial/principais2"
 import principais3 from "@/components/paginaInicial/principais3"
 import anuncio from "@/components/anuncio"
-import rodape from "@/components/rodape"
+
 
 export default {
   components:{
@@ -39,7 +39,7 @@ export default {
     anuncio,
     principais2,
     principais3,
-    rodape
+    
   }
     
   }

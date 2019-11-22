@@ -67,15 +67,27 @@ module.exports = {
   },
   async filtro (req, res) {
     try {
-      console.log(req.params.nome)
+      const Op = Sequelize.Op;
       const nome = req.params.nome
-      const noticia = await Noticia.findAll({
-        where: {
-          tipo: nome
-        },
-        order: [['createdAt', 'DESC']]
-      })
-      res.send(noticia)  
+      if (nome=="noticias"){
+        const noticia = await Noticia.findAll({
+          where: {
+            [Op.or]: [{tipo: 'internacionais'}, {tipo: 'nacionais'}]
+          },
+          order: [['createdAt', 'DESC']]
+        })
+        res.send(noticia)  
+      }
+      else{
+        const noticia = await Noticia.findAll({
+          where: {
+            tipo: nome
+          },
+          order: [['createdAt', 'DESC']]
+        })
+        res.send(noticia)  
+      }
+      
     } catch (err) {
       res.status(500).send({
         error: "Erro get"

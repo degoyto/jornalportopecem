@@ -4,32 +4,30 @@
       <h1>OUTRAS NOTÍCIAS</h1>
       <hr />
       <div class= "caixa" v-for="noticia in noticias" :key="noticia.id"  >
-        <router-link class="link" :to="{ name: 'noticia',  params:{noticiaId: noticia.id}}">
-          <div class="img"  v-bind:style="{ backgroundImage: 'url(' + noticia.fotoUrl + ')' }"></div>
+        
+          <div @click="navigateTo(noticia.id)" class="img"  v-bind:style="{ backgroundImage: 'url(' + noticia.fotoUrl + ')' }"></div>
         
           <div class="info">
             <div class="itens">
-              <h1 v-line-clamp:20="2" >{{noticia.title}}</h1>
+              <h1 @click="navigateTo(noticia.id)" v-line-clamp:20="2" >{{noticia.title}}</h1>
               <div class="tipo">
               
                 {{noticia.tipo}}
               
               </div>
             
-              <div class="conteudo" >
-                <p v-line-clamp:20="5" v-html="noticia.conteudo" >{{noticia.conteudo}}</p>
+              <div @click="navigateTo(noticia.id)" class="conteudo" >
+                <p v-line-clamp:20="3" v-html="noticia.conteudo" >{{noticia.conteudo}}</p>
               
               </div>
             <!-- <div class="data">
               {{noticia.createdAt | formatDate}}
             </div>-->
             
-                
+                <p @click="navigateTo(noticia.id)" class="btn-lendo">Continue Lendo</p>
             
             </div>
           </div>
-          
-        </router-link>
       </div>
       
 
@@ -74,7 +72,10 @@ export default {
     }  
   },
   methods:{
-       
+       navigateTo (recebido){
+        this.$router.push({ name: 'noticia', params: { noticiaId: recebido  } })
+        this.$router.go(1)
+      }
   },
   async mounted (){
     const total = 4;
@@ -161,12 +162,15 @@ export default {
     margin-bottom:15px;
     font-size:150%;
   }
-   .link{
-    color:rgb(24, 23, 23);
+  .btn-lendo{
+    color:#8BB174; 
+    font-size:15px;
+    
   }
-  .link:hover{
-    color:rgb(0, 0, 0);
-    text-decoration: none
+  .btn-lendo:hover{
+    color: #05341D;
+    
+    
   }
 
   .img-anuncio1{

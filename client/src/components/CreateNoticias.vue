@@ -30,15 +30,18 @@
                       <label for="materialRegisterFormLastName">Tipo</label>
                       <select class="form-control" id="exampleFormControlSelect1" v-model="noticias.tipo" required>
                         <option value="" selected disabled hidden>Escolha um tipo</option>
-                        <option value="nacional">Notícia Nacional</option> 
-                        <option value="internacional" >Notícial Internacional</option>
-                        <option value="artigo">Artigos</option>
-                        <option value="porto e turismo">Porto e Turismo</option> 
+                        <option value="destaques">Destaques Portuários</option> 
+                        <option value="nacionais">Notícia Nacional</option> 
+                        <option value="internacionais" >Notícial Internacional</option>
+                        <option value="artigos">Artigos</option>
+                        <option value="turismo">Porto e Turismo</option> 
                         <option value="comex" >Comércio Exterior</option>
                         <option value="logistica">Logística e Transporte</option>
                         <option value="entrevistas">Entrevistas</option> 
-                        <option value="portos do Brasil" >Portos do Brasil</option>
+                        <option value="portos" >Portos do Brasil</option>
                         <option value="eventos">Eventos</option>
+                        <option value="caucaia-sao-goncalo">Caucaia/São Gonçalo</option>
+                        <option value="complexo-portuario">Complexo Portuário</option>
                       </select>
                       <span>Selecionado: {{ noticias.tipo }}</span>
                     </div>
