@@ -1,9 +1,9 @@
 <template>
     <div class="container caixa">
-        
+        <h1 class="titulo">{{titulo}}</h1>
         <div class= "caixa" v-for="noticia in noticias" :key="noticia.id"  >
         <router-link class="link" :to="{ name: 'noticia',  params:{noticiaId: noticia.id}}">
-      
+            <anuncio v-if="conta==3" class="img-anuncio1"></anuncio>
           <div class="img"  v-bind:style="{ backgroundImage: 'url(' + noticia.fotoUrl + ')' }"></div>
       
           <div class="info">
@@ -19,15 +19,11 @@
                 <p v-line-clamp:20="5" v-html="noticia.conteudo" >{{noticia.conteudo}}</p>
               
               </div>
-              <!-- <div class="data">
-                {{noticia.createdAt | formatDate}}
-              </div>-->
-          
               <button type="button" class="btn btn-primary btn-sm botao"   >Continue Lendo</button>
           
             </div>
           </div>
-      
+            
         </router-link>
       </div>
     </div>
@@ -36,14 +32,18 @@
 <script>
 import NoticiaService from "@/services/NoticiaService"
 import Panel from "@/components/Panel"
-
+import anuncio from "@/components/anuncio"
 export default {
     data(){
         return{
             noticias:{
                 
-            }
+            },
+            titulo:null
         }
+    },
+    components:{
+        anuncio
     },
     methods: {
         
@@ -57,7 +57,7 @@ export default {
     },
     async updated(){
         const nome = this.$store.state.route.params.nome
-    
+        this.titulo=nome;
         this.noticias = (await NoticiaService.filtro(nome)).data
     }
     
@@ -68,9 +68,18 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+    .img-anuncio1{
+      width:100%;
+      margin-top:25px;
+      margin-bottom: 20px;
+      max-height:120px;
+    }
+    .titulo{
+        
+    }
     .caixa{
         margin-top:50px;
-        
+        text-align: left;
         
         
     }

@@ -13,7 +13,7 @@
       </div>
       
       <div class="abaixo">
-        <img class="logo" src="../assets/logo.png">
+        <img @click="navigateTu()" class="logo" src="../assets/logo.png">
         <anuncio class="img-anuncio1"></anuncio>
       </div>
       
@@ -122,6 +122,10 @@ export default {
         this.$router.push({ name: 'noticiasLista', params: { nome: recebido  } })
         this.$router.go(1)
       },
+      navigateTu (){
+        this.$router.push({ name: 'root'})
+        
+      },
       logout(){
         this.$store.dispatch("setToken", null)
         this.$store.dispatch("setUser", null)
@@ -176,6 +180,9 @@ export default {
       
       margin-top:20px;
     }
+    .logo:hover{
+      cursor:pointer;
+    }
     .anuncio-cabecalho{
       margin-left:10%;
       width:40vw;
@@ -211,7 +218,7 @@ export default {
   }
    .cel li a:hover{
     color: #8BB174;
-    text-decoration: non
+    text-decoration: none;
   }
   .botao{
     margin-left:90%;
@@ -261,7 +268,7 @@ export default {
     .menu ul li a {
       margin-left:5px;
       display: inline-block;
-
+      cursor:pointer;
       /* visual do link */
       font-size: 65%;
       color: white;

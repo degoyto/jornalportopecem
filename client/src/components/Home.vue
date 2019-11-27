@@ -17,9 +17,7 @@
     </div>
     
 
-    <div class="div-anuncio">
-      <anuncio class="img-anuncio1"></anuncio>
-    </div>
+    
     
     
  

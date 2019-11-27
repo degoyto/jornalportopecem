@@ -1,6 +1,7 @@
 <template>
 
   <div class="container-flex" >
+    <anuncio class="img-anuncio1"></anuncio>
     
     <div class="rodape ">
       <div class="itens">
@@ -71,6 +72,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .img-anuncio1{
+      width:100%;
+      margin-top:25px;
+      margin-bottom: 20px;
+      max-height:120px;
+    }
   .itens{
     display:none;
     
@@ -101,6 +108,7 @@ export default {
     width:100%;
     background-color:#06351d;
     color:white;
+    margin-bottom:-250px;
   }
   .menu-rodape {
     padding:10px;
