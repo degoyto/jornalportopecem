@@ -20,14 +20,14 @@
      
     </div>
 
-  <div class="container-flex back">
+  <div class="container-flex back  ">
     <div class="container">
-      <b-navbar toggleable="lg"  type="dark" class="barra">
+      <b-navbar toggleable="lg"  type="dark" class="barra " >
     
 
     <b-navbar-toggle target="nav-collapse" class="botao"></b-navbar-toggle>
 
-    <b-collapse id="nav-collapse" class="menu" is-nav>
+    <b-collapse id="nav-collapse" class="menu" is-nav >
       <ul class="pc">
         
         <li><a @click="navigateTo('destaques')">destaques portuários</a></li>
@@ -139,9 +139,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+html {
+  scroll-behavior: smooth;
+}
   .back{
     background-color:#06351d;
     
+    position: sticky;
+    margin-top:10px; /* altura que está do topo */
+    top: 10px; /* altura que vai parar antes do topo */
     
   }
   
@@ -206,6 +212,8 @@ export default {
     display:block
   }
   .barra{
+    
+    
     color:white;
     text-transform: uppercase;
     background-color:#06351d;

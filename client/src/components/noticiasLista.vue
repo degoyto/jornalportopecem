@@ -1,31 +1,44 @@
 <template>
-    <div class="container caixa">
+    <div class="container">
         <h1 class="titulo">{{titulo}}</h1>
-        <div class= "caixa" v-for="noticia in noticias" :key="noticia.id"  >
-        <router-link class="link" :to="{ name: 'noticia',  params:{noticiaId: noticia.id}}">
-            <anuncio v-if="conta==3" class="img-anuncio1"></anuncio>
-          <div class="img"  v-bind:style="{ backgroundImage: 'url(' + noticia.fotoUrl + ')' }"></div>
-      
-          <div class="info">
-            <div class="itens">
-              <h1 v-line-clamp:20="2" >{{noticia.title}}</h1>
-              <div class="tipo">
-                
-              {{noticia.tipo}}
-            
-              </div>
-          
-              <div class="conteudo" >
-                <p v-line-clamp:20="5" v-html="noticia.conteudo" >{{noticia.conteudo}}</p>
-              
-              </div>
-              <button type="button" class="btn btn-primary btn-sm botao"   >Continue Lendo</button>
-          
+        <div class="teste">
+            <div class="noti">
+                <div class= "caixa" v-for="noticia in noticias" :key="noticia.id"  >
+                    
+                        
+                        <div class="fotoInfo">
+                            <div class="img" @click="navigateTo(noticia.id)"  v-bind:style="{ backgroundImage: 'url(' + noticia.fotoUrl + ')' }"></div>
+
+
+                            <div class="info" >
+                                <div class="itens">
+                                <h1 v-line-clamp:20="2" @click="navigateTo(noticia.id)" >{{noticia.title}}</h1>
+                                <div class="tipo">
+                                    
+                                    {{noticia.tipo}}
+                                
+                                </div>
+                            
+                                <div class="conteudo"  @click="navigateTo(noticia.id)">
+                                    <p v-line-clamp:20="5" v-html="noticia.conteudo" >{{noticia.conteudo}}</p>
+                                
+                                </div>
+                                <button type="button" class="btn btn-primary btn-sm botao"  @click="navigateTo(noticia.id)" >Continue Lendo</button>
+                            
+                                </div>
+                            </div>
+                        </div>   
+                    
+                </div>
             </div>
-          </div>
-            
-        </router-link>
-      </div>
+        
+            <div class="propaganda">
+                <anuncio class="anuncio"></anuncio>
+                <anuncio class="anuncio"></anuncio>
+                <anuncio class="anuncio"></anuncio>
+            </div>
+        </div>
+        
     </div>
 
 </template>
@@ -46,7 +59,10 @@ export default {
         anuncio
     },
     methods: {
-        
+        navigateTo (recebido){
+            this.$router.push({ name: 'noticia', params: { noticiaId: recebido  } })
+            this.$router.go(1)
+      },
     },
     async mounted (){
         const nome = this.$store.state.route.params.nome
@@ -74,14 +90,17 @@ export default {
       margin-bottom: 20px;
       max-height:120px;
     }
-    .titulo{
-        
+    .container::first-letter{
+        text-transform: uppercase;
     }
     .caixa{
         margin-top:50px;
         text-align: left;
         
         
+    }
+    .botao{
+        margin-top:-10px;
     }
     .cabecalho{
        text-align: left;
@@ -130,8 +149,53 @@ export default {
         max-height:350px;
     
     }
+    .tipo{
+        text-transform: capitalize;
+    }
     @media screen and (min-width: 992px){
-        
+        .fotoInfo{
+            display:flex;
+            width:100%;
+            
+            
+        }
+        .img{
+            width:45%;
+        }
+        .info{
+                width:45%;
+                margin-left:20px;
+                margin-top:-10px;
+            }
+        .teste{
+            text-align:left;
+            display:flex;
+        }
+        .propaganda{
+            display:flex;
+            flex-direction: column;
+            
+            width:30%;
+            padding-left:40px;
+            height:800px;
+            
+            margin-top:0px; /* altura que está do topo */
+            top: 0px; /* altura que vai parar antes do topo */
+            position: sticky;
+            
+        }
+        .anuncio{
+            
+            width:100%;
+            height:20vh;
+        }
+        .noti{
+            
+            width:70%;
+            
+        }
+       
+
     }
     
     
