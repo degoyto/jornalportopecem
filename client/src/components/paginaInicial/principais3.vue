@@ -9,7 +9,7 @@
         
           <div class="info">
             <div class="itens">
-              <h1 @click="navigateTo(noticia.id)" v-line-clamp:20="2" >{{noticia.title}}</h1>
+              <h1 class="titulon" @click="navigateTo(noticia.id)" v-line-clamp:20="2" >{{noticia.title}}</h1>
               <div class="tipo">
               
                 {{noticia.tipo}}
@@ -93,6 +93,22 @@ export default {
   hr{
     display: none;
   }
+  .img, .titulon, .tipo, .conteudo:hover{
+    cursor:pointer;
+  }
+  .img:hover{
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+  .titulon:hover{
+    color:#8BB174;
+  }
+  .tipo:hover{
+    color:#05341D;
+  }
   .caixa{
     width:95%;
     margin-top:2%;
@@ -149,7 +165,7 @@ export default {
     width:40%;
     height: 25vh;
     min-height: 100px;
-    border-radius: 7px 0px 0 0;
+    border-radius: 7px;
     max-height:135px;
     
     background-repeat: no-repeat;
@@ -169,7 +185,7 @@ export default {
   }
   .btn-lendo:hover{
     color: #05341D;
-    
+    cursor:pointer;
     
   }
 

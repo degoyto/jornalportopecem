@@ -82,7 +82,7 @@
       <b-navbar-nav class="ml-auto">
         <b-nav-form class="pesquise">
           <b-form-input size="sm" class="mr-sm-2" placeholder="Pesquise"></b-form-input>
-          <b-button size="sm" class="my-2 my-sm-0" type="submit">Pesquise</b-button>
+          <b-button size="sm" class="my-2 my-sm-0 btn-pesquisa" type="submit">Pesquise</b-button>
         </b-nav-form>
 
        
@@ -139,9 +139,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-html {
-  scroll-behavior: smooth;
-}
+  .btn-pesquisa{
+    background-color:#8BB174;
+    border-color:#8BB174;
+  }
+
   .back{
     background-color:#06351d;
     

@@ -6,7 +6,7 @@
         <div class="info">
           
               <div class="itens">
-                <h1 @click="navigateTo(noticia.id)" v-line-clamp:20="2" >{{noticia.title}}</h1>
+                <h1 class="titulon" @click="navigateTo(noticia.id)" v-line-clamp:20="2" >{{noticia.title}}</h1>
                 <div class="tipo">
                   {{noticia.tipo}}
                 </div>
@@ -23,7 +23,7 @@
       </div>
     </div>
       
-    <button type="button" class="btn btn-primary btn-lg botao" style="background-color: #05341D; border-color: #05341D"  >Boletim Portuário</button>
+    <button type="button" class="btn btn-primary btn-lg botao" >Boletim Portuário</button>
       
       
     
@@ -67,7 +67,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  .botao{
+    background-color: #05341D; border-color: #05341D
+  }
+  .botao:hover{
+    background-color:#8BB174; 
+    border-color:#8BB174;
+  }
   .caixa{
     width:90%;
     margin-left:25px;
@@ -77,7 +83,15 @@ export default {
     text-transform: capitalize;
     
   }
- 
+ .titulon, .tipo, .conteudo:hover{
+    cursor:pointer;
+  }
+  .titulon:hover{
+    color:#8BB174;
+  }
+  .tipo:hover{
+    color:#05341D;
+  }
   .info{
     width:100%;
     
@@ -110,7 +124,7 @@ export default {
   }
   .btn-lendo:hover{
     color: #05341D;
-    
+    cursor:pointer;
     
   }
  

@@ -1,6 +1,7 @@
 <template>
     <div class="container">
         <h1 class="titulo">{{titulo}}</h1>
+        <hr class="linhat" />
         <div class="teste">
             <div class="noti">
                 <div class= "caixa" v-for="noticia in noticias" :key="noticia.id"  >
@@ -23,15 +24,25 @@
                                     <p v-line-clamp:20="5" v-html="noticia.conteudo" >{{noticia.conteudo}}</p>
                                 
                                 </div>
-                                <button type="button" class="btn btn-primary btn-sm botao"  @click="navigateTo(noticia.id)" >Continue Lendo</button>
+                                <div class="botao-data">
+                                    <div class="data texto">
+                                        {{noticia.createdAt | formatDate}}
+                                    </div>
+                                    <div class="botaozito">
+                                         <button type="button" class="btn btn-primary btn-sm botao"  @click="navigateTo(noticia.id)" >Continue Lendo</button>
+                                    </div>
+                                   
+                                </div>
+                                
                             
                                 </div>
                             </div>
                         </div>   
-                    
+                    <hr />
                 </div>
+                
             </div>
-        
+            
             <div class="propaganda">
                 <anuncio class="anuncio"></anuncio>
                 <anuncio class="anuncio"></anuncio>
@@ -84,23 +95,50 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+    .titulo{
+        margin-top:20px;
+        margin-bottom:-40px;
+        text-transform: uppercase;  
+        font-size:150%;
+    }
+    .botao-data{
+        display:flex;
+        justify-content: space-between;
+    
+    }
+    .linhat{
+        display:none;
+    }
     .img-anuncio1{
       width:100%;
       margin-top:25px;
       margin-bottom: 20px;
       max-height:120px;
     }
+    .caixa hr{
+        margin-left:0px;
+        width:100%;
+        border-top: 1px solid #8BB174;
+    }
+    .fotoInfo{
+        margin-bottom: 5%;
+    }
     .container::first-letter{
         text-transform: uppercase;
     }
     .caixa{
+        margin-left:25px;
         margin-top:50px;
-        text-align: left;
-        
-        
     }
     .botao{
-        margin-top:-10px;
+       
+        background-color:#05341D;
+        border-color:#05341D;
+        margin-left:-20px;
+    }
+    .botao:hover{
+        background-color:#8BB174;
+        border-color:#8BB174;
     }
     .cabecalho{
        text-align: left;
@@ -142,7 +180,7 @@ export default {
     .img{
         width:100%;
         height: 40vh;
-        border-radius: 7px 7px 0 0;
+        border-radius: 7px;
         min-height:300px;
         background-repeat: no-repeat;
         background-size: cover;
@@ -151,6 +189,14 @@ export default {
     }
     .tipo{
         text-transform: capitalize;
+        color:#8BB174;
+        
+    }
+    .data{
+        font-size:11px;
+        color:gray;
+        margin-top:2%;
+
     }
     @media screen and (min-width: 992px){
         .fotoInfo{
@@ -158,6 +204,30 @@ export default {
             width:100%;
             
             
+        }
+        .caixa hr{
+            width:93%;
+            
+        }
+        .container{
+            text-align: left;
+        }
+        .caixa{
+            text-align: left;
+        }
+        .linhat{
+            display:block;
+            border-top: 4px solid #8BB174;
+            margin-left:25px;
+            margin-top:-5px;
+            margin-bottom:-25px;
+            width:65%;
+        }
+        .titulo{
+            margin-top:20px;
+            margin-bottom:8px;
+                     
+            margin-left:25px;
         }
         .img{
             width:45%;
@@ -193,6 +263,13 @@ export default {
             
             width:70%;
             
+        }
+        .tipo{
+            margin-top:-8px;
+            font-size:12px;
+        }
+        .conteudo{
+            margin-top:15px;
         }
        
 

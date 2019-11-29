@@ -7,18 +7,22 @@
       </div>
       <div class="pesquisa">
         <b-form-input size="sm" class="mr-sm-2" placeholder="Pesquise"></b-form-input>
-        <b-button size="sm" class="my-2 my-sm-0" type="submit">Pesquise</b-button>
+        <b-button size="sm" class="my-2 my-sm-0 btn-pesquisa" type="submit">Pesquise</b-button>
       </div>
       
     </div>
       <div class= "caixa" v-for="noticia in noticias" :key="noticia.id"  >
         
       
-          <div class="img" @click="navigateTo(noticia.id)" v-bind:style="{ backgroundImage: 'url(' + noticia.fotoUrl + ')' }"></div>
+          <div class="img" 
+            @click="navigateTo(noticia.id)" 
+            v-bind:style="{ backgroundImage: 'url(' + noticia.fotoUrl + ')' }"
+            
+            ></div>
         
           <div class="info">
             <div class="itens">
-              <h1 @click="navigateTo(noticia.id)" v-line-clamp:20="2" >{{noticia.title}}</h1>
+              <h1 class="titulon" @click="navigateTo(noticia.id)" v-line-clamp:20="2" >{{noticia.title}}</h1>
               
               <div class="tipo">
                 
@@ -35,7 +39,7 @@
               </div>-->
           
               <button @click="navigateTo(noticia.id)" type="button" class="btn btn-primary btn-sm botao"   >Continue Lendo</button>
-          
+              
             </div>
           </div>
       
@@ -73,7 +77,8 @@ export default {
        navigateTo (recebido){
         this.$router.push({ name: 'noticia', params: { noticiaId: recebido  } })
         this.$router.go(1)
-      }
+      },
+      
   },
   async mounted (){
     const total = 1;
@@ -100,7 +105,23 @@ export default {
     padding-bottom:10px;
     min-height:500px;
     text-transform: capitalize;
-    border-radius: 7px 7px 0 0;
+    
+  }
+  .img, .titulon, .tipo, .conteudo:hover{
+    cursor:pointer;
+  }
+  .img:hover{
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+  .titulon:hover{
+    color:#8BB174;
+  }
+  .tipo:hover{
+    color:#05341D;
   }
   .img-anuncio1{
       width:100%;
@@ -134,11 +155,14 @@ export default {
   .botao{
     margin-top:0px;
     background-color:#05341D;
-    border: #05341D;
+    border: #8BB174;
     float:right;
     font-size:70%; 
     width:20%;
     
+  }
+  .botao:hover{
+    background-color:#8BB174;
   }
  
   .tipo{
@@ -153,7 +177,7 @@ export default {
     background-repeat: no-repeat;
     background-size: cover;
     max-height:350px;
-    
+    border-radius: 7px;
   }
   .principal h1 {
     margin-top:20px;
@@ -171,6 +195,13 @@ export default {
     display:none;
   }
   @media screen and (min-width: 992px){
+    .btn-pesquisa{
+      background-color:#05341D; border-color:#05341D;
+    }
+    .btn-pesquisa:hover{
+      background-color:#8BB174; ; 
+      border-color:#8BB174;
+    }
     .cabecalho{
       display:flex;
       justify-content: space-between;
