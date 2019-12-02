@@ -26,6 +26,7 @@ Vue.use(moment);
 Vue.use(axios);
 Vue.filter('formatDate', function(value) {
   if (value) {
+    moment.locale("pt-br");
     return moment(String(value)).format('DD/MM/YYYY hh:mm')
   }
 });

@@ -95,6 +95,27 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+    .caixa:hover{
+        cursor:pointer;
+    }
+    .propaganda{
+            display:flex;
+            justify-content: space-between;
+            
+            width:100%;
+            
+            
+            
+            margin-top:0px; /* altura que está do topo */
+            top: 0px; /* altura que vai parar antes do topo */
+            
+            
+        }
+        .anuncio{
+            
+            
+            
+        }
     .titulo{
         margin-top:20px;
         margin-bottom:-40px;
@@ -168,11 +189,10 @@ export default {
     }
     .anuncio{
         margin-top:20px;
-        float:right;
         background-color:#05341D;
         color:white;
-        height:30vh;
-        width:20vw;
+        
+        width:33%;
     }
     .conteudo-texto img{
         width:20%;

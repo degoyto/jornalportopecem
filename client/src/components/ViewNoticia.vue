@@ -1,14 +1,21 @@
 <template>
     <div class="container caixa">
         <div class="cabecalho">
-            <h1>{{noticia.title}}</h1>
-            <div class="data texto">
-                {{noticia.createdAt | formatDate}}
+            <div class="tipo">
+                {{noticia.tipo}}
             </div>
-            <div class="autor texto"> 
+            <h1 class="titulo">{{noticia.title}}</h1>
+            <div class="autor"> 
                 Por {{noticia.autor}}
-                Por {{noticia.fotoUrl}}
+                
             </div>
+            <div class="data">
+                 {{noticia.createdAt | formatDate}}
+            </div>
+            
+            
+            
+            
         </div>
 
         <div class="noticia">
@@ -18,9 +25,7 @@
             
             </div>
         </div>
-        <div class="anuncio">
-            Anuncie aqui
-        </div>
+        
         
     </div>
 
@@ -54,47 +59,49 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
     .caixa{
-        margin-top:50px;
+        width:100%;
         
-        
-        
+        padding-left:40px;
     }
     .cabecalho{
-       text-align: left;
+        text-align: left;
+        margin-top:100px;
+
     }
-    .cabecalho h1{
-        color:black;
+    .tipo{
+        text-transform: uppercase;
+        margin-bottom:-5px;
+        color:#8BB174;
     }
-    .texto{
-        font-size:12px;
+    
+    .titulo{
+        font-size:50px;
+        margin-bottom:20px;
+    }
+    .autor{
+        color:gray;
+        font-size:20px;
         
     }
-    .imagem{
-        margin-top:20px;
-        width:100%;
-    }
-    .conteudo{
-        margin-top: 40px;
-        text-align: left;
-        color:#2A2B2E;
-        font-size: 18px;
+    
+    .data{
+        color:gray;
+        font-size:20px;
         margin-bottom:40px;
+        
     }
     .noticia{
-        width:60%;
-        float:left;
-        
+        text-align: left;
+        width:70%;
+       
     }
-    .anuncio{
-        margin-top:20px;
-        float:right;
-        background-color:#05341D;
-        color:white;
-        height:30vh;
-        width:20vw;
+    
+    .noticia img{
+        width:100%;
+        margin-bottom:60px;
     }
-    .conteudo-texto img{
-        width:20%;
+    .conteudo{
+        font-size:20px;
     }
     
     
