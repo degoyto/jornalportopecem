@@ -9,22 +9,19 @@
         
           <div class="info">
             <div class="itens">
-              <h1 class="titulon" @click="navigateTo(noticia.id)" v-line-clamp:20="2" >{{noticia.title}}</h1>
+              <v-clamp autoresize :max-lines="3" class="titulon">{{ noticia.title }}</v-clamp>
               <div class="tipo">
               
                 {{noticia.tipo}}
               
               </div>
             
-              <div @click="navigateTo(noticia.id)" class="conteudo" >
-                <p v-line-clamp:20="3" v-html="noticia.conteudo" >{{noticia.conteudo}}</p>
               
-              </div>
             <!-- <div class="data">
               {{noticia.createdAt | formatDate}}
             </div>-->
             
-                <p @click="navigateTo(noticia.id)" class="btn-lendo">Continue Lendo</p>
+                
             
             </div>
           </div>
@@ -90,6 +87,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .titulon{
+    font-size:18px;
+    font-weight: 800;
+  
+    
+  }
   hr{
     display: none;
   }
@@ -125,7 +128,7 @@ export default {
     width:50%;
     text-align: left;
     float:right;
-    margin-top:-18px;
+    margin-top:20px;
     
     margin-right:25px;
   }

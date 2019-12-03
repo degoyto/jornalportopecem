@@ -43,7 +43,20 @@
                         <option value="caucaia-sao-goncalo">Caucaia/São Gonçalo</option>
                         <option value="complexo-portuario">Complexo Portuário</option>
                       </select>
-                      <span>Selecionado: {{ noticias.tipo }}</span>
+                      
+                    </div>
+                </div>
+                <div class="col">
+                    <!-- Tipo -->
+                    <div class="md-form">
+                      <label for="materialRegisterFormLastName">Destacar na tela inicial</label>
+                      <select class="form-control" id="exampleFormControlSelect1" v-model="noticias.destaque" required>
+                        
+                        <option value=false>Não</option> 
+                        <option value=true>Sim</option> 
+                        
+                      </select>
+                      {{noticias.destaque}}
                     </div>
                 </div>
             </div>
@@ -61,6 +74,26 @@
                 
                 <img :src="imagemHora" style="margin-top:20px; width:20vw">
             </div>
+
+            <div class="col">
+                    <!-- Título -->
+                    <div class="md-form">
+                        <label for="materialRegisterFormFirstName">Legenda Foto</label>
+                        <input type="text" id="materialRegisterFormFirstName" class="form-control" v-model="noticias.legenda" required>
+                        
+                    </div>
+                </div>
+            <!-- Conteudo -->
+            
+                <br><label for="materialRegisterFormPassword"><h3>Resumo</h3>
+                Dica: Em caso de adicionar um novo título no texto use &lth2&gt Exemplo: &lth2&gt Novo Título &lt/h2&gt. <br>
+                O mesmo para negrito. Exemplo: &ltb&gt Negrito &lt/b&gt<br>
+                O mesmo para itálico. Exemplo: &lti&gt Itálico &lt/i&gt<br><br>
+                <b>Não esqueça de fechar a tag com</b> </>
+                <textarea class="form-control" rows="10" id="comment" v-model="noticias.resumo" required></textarea>
+                
+                <br>
+                </label>
 
             <!-- Conteudo -->
             <div class="md-form">
@@ -118,6 +151,9 @@ export default {
         fotoUrl: null,
         tipo: null,
         autor: null,
+        legenda:null,
+        resumo:null,
+        destaque:null
       },
       imagemHora:null,
       selectFile: null,

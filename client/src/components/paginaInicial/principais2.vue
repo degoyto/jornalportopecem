@@ -6,17 +6,12 @@
         <div class="info">
           
               <div class="itens">
-                <h1 class="titulon" @click="navigateTo(noticia.id)" v-line-clamp:20="2" >{{noticia.title}}</h1>
+                <v-clamp autoresize :max-lines="3" class="titulon">{{ noticia.title }}</v-clamp>
                 <div class="tipo">
                   {{noticia.tipo}}
                 </div>
-                <div class="conteudo" >
-                  <p @click="navigateTo(noticia.id)" v-line-clamp:20="4" v-html="noticia.conteudo" >{{noticia.conteudo}}</p> 
-                </div>
-                <!-- <div class="data">
-                  {{noticia.createdAt | formatDate}}
-                </div>-->
-                <p @click="navigateTo(noticia.id)" class="btn-lendo">Continue Lendo</p>
+        
+                
             </div> 
           
         </div>
@@ -83,7 +78,12 @@ export default {
     text-transform: capitalize;
     
   }
- .titulon, .tipo, .conteudo:hover{
+  .titulon{
+    font-size:15px;
+    font-weight: 800;
+    
+  }
+  .titulon, .tipo, .conteudo:hover{
     cursor:pointer;
   }
   .titulon:hover{
@@ -98,23 +98,33 @@ export default {
     padding-left:2%;
     padding-right: 2%;
     text-align: left;
+    
   }
  
   .info p{
     margin-top: 5px;
     font-size:75%;
+    
+    
 
   }
   .info h1{
-    font-size:150%;
-    
+    font-size:100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+  /* Adds a hyphen where the word breaks */
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
     margin-top:5px;
     
   }
   .tipo{
     font-size:50%;
     margin-bottom: 10px; 
-    margin-top:-10px;
+    margin-top:0px;
     text-transform: uppercase;
   }
   .btn-lendo{

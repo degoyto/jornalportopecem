@@ -22,7 +22,9 @@
         
           <div class="info">
             <div class="itens">
-              <h1 class="titulon" @click="navigateTo(noticia.id)" v-line-clamp:20="2" >{{noticia.title}}</h1>
+              <h1 class="titulon" @click="navigateTo(noticia.id)"  >
+                <v-clamp autoresize :max-lines="3" >{{ noticia.title }}</v-clamp>
+              </h1>
               
               <div class="tipo">
                 
@@ -31,7 +33,9 @@
               </div>
             
               <div class="conteudo" >
-                <p @click="navigateTo(noticia.id)" v-line-clamp:20="5" v-html="noticia.conteudo" >{{noticia.conteudo}}</p>
+                <p @click="navigateTo(noticia.id)" >
+                  <v-clamp autoresize :max-lines="5" v-html="noticia.conteudo">{{ noticia.conteudo}}</v-clamp>
+                </p>
               
               </div>
               <!-- <div class="data">
@@ -60,11 +64,13 @@
 import NoticiaService from "@/services/NoticiaService"
 import Panel from "@/components/Panel"
 import anuncio from "@/components/anuncio"
+import VClamp from 'vue-clamp'
 export default {
   
   components:{
     Panel,
-    anuncio
+    anuncio,
+    VClamp
   }, 
   data () {
     return {
@@ -141,7 +147,8 @@ export default {
 
   }
   .info h1{
-    font-size:200%;
+    font-size:15px;
+    font-weight: 300;
     
     margin-top:5px;
     
