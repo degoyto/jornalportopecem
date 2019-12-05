@@ -33,9 +33,9 @@
               </div>
             
               <div class="conteudo" >
-                <p @click="navigateTo(noticia.id)" >
-                  <v-clamp autoresize :max-lines="5" v-html="noticia.conteudo">{{ noticia.conteudo}}</v-clamp>
-                </p>
+                <div @click="navigateTo(noticia.id)" >
+                  <v-clamp autoresize :max-lines="4" >{{ noticia.conteudo}}</v-clamp>
+                </div>
               
               </div>
               <!-- <div class="data">
@@ -253,7 +253,7 @@ export default {
   .div-anuncio{
       width:40%;
       float:right;
-      margin-top:365px;
+      margin-top:300px;
       margin-bottom: 20px;
       height:380px;
       

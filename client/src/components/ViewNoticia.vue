@@ -20,10 +20,16 @@
 
         <div class="noticia">
             <img class="imagem" :src="noticia.fotoUrl">
+            <div class="legenda">
+                {{noticia.legenda}}
+            </div>
+            
             <div class="conteudo" >
-                <div class="conteudo-texto" v-html="noticia.conteudo" >{{noticia.conteudo}}</div>
+                <div class="conteudo-texto" v-html="noticia.resumo" >{{noticia.resumo}}</div>
             
             </div>
+
+            
         </div>
         
         
@@ -92,14 +98,20 @@ export default {
     }
     .noticia{
         text-align: left;
-        width:70%;
+        width:100%;
        
     }
     
     .noticia img{
         width:100%;
+        margin-bottom:0px;
+    }
+
+    .legenda{
+        font-size:12px;
         margin-bottom:60px;
     }
+
     .conteudo{
         font-size:20px;
     }

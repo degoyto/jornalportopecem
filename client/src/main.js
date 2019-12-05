@@ -14,6 +14,7 @@ import axios from "axios"
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import CKEditor from '@ckeditor/ckeditor5-vue';
 
 library.add(faFacebook)
 library.add(faInstagram)
@@ -21,7 +22,7 @@ library.add(faInstagram)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 
-
+Vue.use( CKEditor );
 Vue.use(moment);
 Vue.use(axios);
 Vue.filter('formatDate', function(value) {

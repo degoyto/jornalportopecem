@@ -53,13 +53,15 @@
 
 import NoticiaService from "@/services/NoticiaService"
 import Panel from "@/components/Panel"
+import VClamp from 'vue-clamp'
 import anuncio from "@/components/anuncio"
 
 export default {
   
   components:{
     Panel,
-    anuncio
+    anuncio,
+    VClamp
   }, 
   data () {
     return {

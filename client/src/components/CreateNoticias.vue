@@ -83,26 +83,19 @@
                         
                     </div>
                 </div>
-            <!-- Conteudo -->
+            <!-- Resumo-->
             
                 <br><label for="materialRegisterFormPassword"><h3>Resumo</h3>
-                Dica: Em caso de adicionar um novo título no texto use &lth2&gt Exemplo: &lth2&gt Novo Título &lt/h2&gt. <br>
-                O mesmo para negrito. Exemplo: &ltb&gt Negrito &lt/b&gt<br>
-                O mesmo para itálico. Exemplo: &lti&gt Itálico &lt/i&gt<br><br>
-                <b>Não esqueça de fechar a tag com</b> </>
-                <textarea class="form-control" rows="10" id="comment" v-model="noticias.resumo" required></textarea>
-                
+               
+                <!-- <textarea class="form-control" rows="10" id="comment" v-model="noticias.resumo" required></textarea> -->
+                 <ckeditor :editor="editor" v-model="noticias.resumo" :config="editorConfig" class="input-resumo"></ckeditor>
                 <br>
                 </label>
 
             <!-- Conteudo -->
             <div class="md-form">
                 <br><label for="materialRegisterFormPassword"><h3>Conteúdo</h3>
-                Dica: Em caso de adicionar um novo título no texto use &lth2&gt Exemplo: &lth2&gt Novo Título &lt/h2&gt. <br>
-                O mesmo para negrito. Exemplo: &ltb&gt Negrito &lt/b&gt<br>
-                O mesmo para itálico. Exemplo: &lti&gt Itálico &lt/i&gt<br><br>
-                <b>Não esqueça de fechar a tag com</b> </>
-                <textarea class="form-control" rows="20" id="comment" v-model="noticias.conteudo" required></textarea>
+                <ckeditor :editor="editor" v-model="noticias.conteudo" :config="editorConfig" class="input-resumo"></ckeditor>
                 
                 <br>
                 </label>
@@ -139,6 +132,7 @@
 import NoticiaService from "@/services/NoticiaService"
 import Panel from "@/components/Panel"
 import axios from "axios"
+ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 export default {
   components:{
     Panel
@@ -158,7 +152,12 @@ export default {
       imagemHora:null,
       selectFile: null,
       files:null,
-      image: null
+      image: null,
+      editor: ClassicEditor,
+      
+      editorConfig: {
+                    
+                }
       
       
     }
@@ -230,6 +229,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .ck-editor__editable {
+    min-height: 500px;
+}
   .card p{
     font: normal 13px Arial;
     line-height: 13px;

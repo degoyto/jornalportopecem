@@ -30,11 +30,12 @@
 
 import NoticiaService from "@/services/NoticiaService"
 import Panel from "@/components/Panel"
-
+import VClamp from 'vue-clamp'
 export default {
   
   components:{
-    Panel
+    Panel,
+    VClamp
   }, 
   data () {
     return {
@@ -63,7 +64,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .botao{
-    background-color: #05341D; border-color: #05341D
+    background-color: #05341D; border-color: #05341D;
+    float:right;
   }
   .botao:hover{
     background-color:#8BB174; 
