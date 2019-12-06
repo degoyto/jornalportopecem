@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h1 class="titulo">{{titulo}}</h1>
+        <h1 class="titulo">{{nome}}</h1>
         <hr class="linhat" />
         <div class="teste">
             <div class="noti">
@@ -13,15 +13,17 @@
 
                             <div class="info" >
                                 <div class="itens">
-                                <h1 v-line-clamp:20="2" @click="navigateTo(noticia.id)" >{{noticia.title}}</h1>
+                                <h1  @click="navigateTo(noticia.id)" >{{noticia.title}}</h1>
                                 <div class="tipo">
                                     
                                     {{noticia.tipo}}
                                 
                                 </div>
                             
-                                <div class="conteudo"  @click="navigateTo(noticia.id)">
-                                    <p v-line-clamp:20="5" v-html="noticia.conteudo" >{{noticia.conteudo}}</p>
+                               <div class="conteudo" >
+                                    <div @click="navigateTo(noticia.id)" >
+                                        <v-clamp autoresize :max-lines="4"  >{{ noticia.conteudo}}</v-clamp>
+                                    </div>
                                 
                                 </div>
                                 <div class="botao-data">
@@ -57,17 +59,21 @@
 import NoticiaService from "@/services/NoticiaService"
 import Panel from "@/components/Panel"
 import anuncio from "@/components/anuncio"
+import VClamp from 'vue-clamp'
 export default {
+    
     data(){
         return{
             noticias:{
                 
             },
-            titulo:null
+            titulo:null,
+            nome:null
         }
     },
     components:{
-        anuncio
+        anuncio,
+        VClamp
     },
     methods: {
         navigateTo (recebido){
@@ -76,18 +82,12 @@ export default {
       },
     },
     async mounted (){
-        const nome = this.$store.state.route.params.nome
-        
-        this.noticias = (await NoticiaService.filtro(nome)).data
+        this.nome = this.$store.state.route.params.nome
+    
+        this.noticias = (await NoticiaService.filtro(this.nome)).data
         
 
     },
-    async updated(){
-        const nome = this.$store.state.route.params.nome
-        this.titulo=nome;
-        this.noticias = (await NoticiaService.filtro(nome)).data
-    }
-    
         
     }
 </script>
@@ -111,11 +111,7 @@ export default {
             
             
         }
-        .anuncio{
-            
-            
-            
-        }
+       
     .titulo{
         margin-top:20px;
         margin-bottom:-40px;

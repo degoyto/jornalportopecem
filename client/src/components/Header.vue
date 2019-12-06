@@ -120,7 +120,7 @@ export default {
     methods: {
       navigateTo (recebido){
         this.$router.push({ name: 'noticiasLista', params: { nome: recebido  } })
-        this.$router.go(1)
+        window.location.reload()
       },
       navigateTu (){
         this.$router.push({ name: 'root'})

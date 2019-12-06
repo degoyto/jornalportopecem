@@ -34,7 +34,7 @@
             
               <div class="conteudo" >
                 <div @click="navigateTo(noticia.id)" >
-                  <v-clamp autoresize :max-lines="4" >{{ noticia.conteudo}}</v-clamp>
+                  <v-clamp autoresize :max-lines="4"  >{{ noticia.conteudo}}</v-clamp>
                 </div>
               
               </div>
@@ -101,6 +101,10 @@ export default {
 <style scoped>
   hr{
     display: none;
+  }
+  .conteudo{
+    
+    height:120px;
   }
   .caixa{
     width:90%;

@@ -5,6 +5,9 @@
                 {{noticia.tipo}}
             </div>
             <h1 class="titulo">{{noticia.title}}</h1>
+            <div class="resumo">
+                <div class="conteudo-texto" v-html="noticia.resumo" >{{noticia.resumo}}</div>
+            </div>
             <div class="autor"> 
                 Por {{noticia.autor}}
                 
@@ -25,7 +28,7 @@
             </div>
             
             <div class="conteudo" >
-                <div class="conteudo-texto" v-html="noticia.resumo" >{{noticia.resumo}}</div>
+                <div class="conteudo-texto" v-html="noticia.conteudo" >{{noticia.conteudo}}</div>
             
             </div>
 
@@ -84,15 +87,20 @@ export default {
         font-size:50px;
         margin-bottom:20px;
     }
-    .autor{
+    .resumo{
         color:gray;
         font-size:20px;
+        margin-bottom:40px;
+    }
+    .autor{
+        color:gray;
+        font-size:15px;
         
     }
     
     .data{
         color:gray;
-        font-size:20px;
+        font-size:15px;
         margin-bottom:40px;
         
     }
@@ -110,6 +118,8 @@ export default {
     .legenda{
         font-size:12px;
         margin-bottom:60px;
+        background-color:#C3DFE0;
+        color:black;
     }
 
     .conteudo{
