@@ -13,27 +13,22 @@
 
                             <div class="info" >
                                 <div class="itens">
-                                <h1  @click="navigateTo(noticia.id)" >{{noticia.title}}</h1>
+                                    <h1  @click="navigateTo(noticia.id)" >{{noticia.title}}</h1>
                                 <div class="tipo">
                                     
                                     {{noticia.tipo}}
                                 
                                 </div>
-                            
-                               <div class="conteudo" >
+                                <div class="conteudo" >
                                     <div @click="navigateTo(noticia.id)" >
-                                        <v-clamp autoresize :max-lines="4"  >{{ noticia.conteudo}}</v-clamp>
+                                        <v-clamp autoresize :max-lines="4"  >{{ noticia.resumo}}</v-clamp>
                                     </div>
                                 
                                 </div>
                                 <div class="botao-data">
                                     <div class="data texto">
                                         {{noticia.createdAt | formatDate}}
-                                    </div>
-                                    <div class="botaozito">
-                                         <button type="button" class="btn btn-primary btn-sm botao"  @click="navigateTo(noticia.id)" >Continue Lendo</button>
-                                    </div>
-                                   
+                                    </div>   
                                 </div>
                                 
                             
@@ -171,13 +166,7 @@ export default {
         margin-top:20px;
         width:100%;
     }
-    .conteudo{
-        margin-top: 40px;
-        text-align: left;
-        color:#2A2B2E;
-        font-size: 18px;
-        margin-bottom:40px;
-    }
+    
     .noticia{
         width:60%;
         float:left;
@@ -189,6 +178,13 @@ export default {
         color:white;
         
         width:33%;
+    }
+     .conteudo{
+        margin-top: 40px;
+        text-align: left;
+        color:#2A2B2E;
+        font-size: 15px;
+       
     }
     .conteudo-texto img{
         width:20%;
@@ -211,8 +207,7 @@ export default {
     .data{
         font-size:11px;
         color:gray;
-        margin-top:2%;
-
+        margin-top:25px;
     }
     @media screen and (min-width: 992px){
         .fotoInfo{
@@ -281,11 +276,16 @@ export default {
             
         }
         .tipo{
-            margin-top:-8px;
+            margin-top:0px;
             font-size:12px;
         }
         .conteudo{
             margin-top:15px;
+        }
+        .itens h1{
+            font-size:30px;
+            
+            height:150px;
         }
        
 

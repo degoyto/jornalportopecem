@@ -35,13 +35,14 @@
             
         </div>
         
-        
+        <principais4></principais4>
     </div>
 
 </template>
 <script>
 import NoticiaService from "@/services/NoticiaService"
 import Panel from "@/components/Panel"
+import principais4 from "@/components/paginaInicial/principais4"
 
 export default {
     data(){
@@ -50,6 +51,9 @@ export default {
                 
             }
         }
+    },
+    components:{
+        principais4
     },
     methods: {
         

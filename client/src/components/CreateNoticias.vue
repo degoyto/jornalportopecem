@@ -88,7 +88,9 @@
                 <br><label for="materialRegisterFormPassword"><h3>Resumo</h3>
                
                 <!-- <textarea class="form-control" rows="10" id="comment" v-model="noticias.resumo" required></textarea> -->
-                 <ckeditor :editor="editor" v-model="noticias.resumo" :config="editorConfig" class="input-resumo"></ckeditor>
+                 <textarea rows="4" cols="80">
+                    
+                 </textarea>
                 <br>
                 </label>
 
