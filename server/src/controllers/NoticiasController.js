@@ -20,30 +20,33 @@ module.exports = {
     try {
       console.log(req.params.total)
       const total = parseInt(req.params.total)
-      
+      const noticia = await Noticia.findAll({
+        limit: total,
+        order: [['createdAt', 'DESC']],
+        where:{
+          destaque:1
 
-      if (total>1){
-        const Op = Sequelize.Op;
-        const noticia = await Noticia.findAll({
-          where: {
-            id: {
-              [Op.gt]: 1
-            }
-          },
-          limit: total
-        })
-        res.send(noticia)
-      }
-      else{
-        
-        const noticia = await Noticia.findAll({
-          limit: total
-        })
-        res.send(noticia)
-      }
-      
-      
-      
+        }
+      })
+      res.send(noticia)
+    } catch (err) {
+      res.status(500).send({
+        error: "Erro get"
+      })
+    }
+  },
+  async principais2 (req, res) {
+    try {
+      console.log(req.params.exceto)
+      const exceto = parseInt(req.params.exceto)
+      const Op = Sequelize.Op;
+      const noticia = await Noticia.findAll({
+        limit: 3,
+        where:{
+          id:{[Op.ne]:exceto} 
+        }
+      })
+      res.send(noticia)
     } catch (err) {
       res.status(500).send({
         error: "Erro get"
@@ -94,6 +97,30 @@ module.exports = {
       })
     }
   },
+  async outras (req, res) {
+    try {
+      const Op = Sequelize.Op;
+      
+      const exceto = parseInt(req.params.exceto) 
+      const noticia = await Noticia.findAll({
+        limit: 5,
+        order: [
+          Sequelize.fn( 'RAND' ),
+        ],
+        where:{
+          id:{[Op.ne]:exceto} 
+          
+        }
+      })
+      console.log(noticia)
+      res.send(noticia)  
+    } catch (err) {
+      res.status(500).send({
+        error: "Erro get"
+      })
+    }
+  },
+  
   async show (req, res) {
     try {
       const noticia = await Noticia.findByPk(req.params.noticiaId)

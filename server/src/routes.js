@@ -18,11 +18,17 @@ module.exports = (app) =>{
     app.get('/principais/:total',
     NoticiasController.principais)
 
+    app.get('/principais2/:exceto',
+    NoticiasController.principais2)
+
     app.get('/novas/:total',
     NoticiasController.novas)
 
     app.get('/filtro/:nome',
     NoticiasController.filtro)
+
+    app.get('/outras/:exceto',
+    NoticiasController.outras)
 
     app.get('/noticia/:noticiaId', 
     NoticiasController.show)

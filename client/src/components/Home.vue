@@ -5,15 +5,15 @@
     
     
     
-    <principais2></principais2>
+    
     
     <div class="div-anuncio container-flex">
       <anuncio class="img-anuncio1 dois"></anuncio>
     </div>
     <principais3></principais3>
     <div class="container btn-destaques">
-      <img src="../assets/destaquecaucaia.jpg" class="caucaia cum">
-      <img src="../assets/complexo.jpg" class="caucaia cdois">
+      <img  @click="navigateTo('caucaia')"  src="../assets/destaquecaucaia.jpg" class="caucaia cum" >
+      <img @click="navigateTo('complexo')" src="../assets/complexo.jpg" class="caucaia cdois">
     </div>
     
 
@@ -38,6 +38,12 @@ export default {
     principais2,
     principais3,
     
+  }, 
+  methods:{
+      navigateTo (recebido){
+          this.$router.push({ name: 'noticiasLista', params: { nome: recebido  } })
+          window.location.reload()
+        },
   }
     
   }
@@ -53,6 +59,14 @@ export default {
     margin-bottom: 20px;
     max-height:120px;
   }
+  .btn-destaques img:hover{
+      -webkit-transform: scale(1.05);
+      -moz-transform: scale(1.05);
+      -o-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+      transform: scale(1.05);
+      cursor:pointer;
+    }
   .caucaia{
     width:95%;
     margin-bottom: 15px;
@@ -70,6 +84,7 @@ export default {
       display: flex;
       justify-content: space-between;
     }
+    
     .caucaia{
       width:48%;
       

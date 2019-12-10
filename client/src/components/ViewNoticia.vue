@@ -35,7 +35,7 @@
             
         </div>
         
-        <principais4></principais4>
+        <principais4 idNoticia="4"></principais4>
     </div>
 
 </template>
@@ -128,7 +128,14 @@ export default {
 
     .conteudo{
         font-size:20px;
+        margin-bottom:50px;
     }
-    
+    @media screen and (min-width: 992px){
+        .caixa{
+        width:50%;
+        
+        padding-left:40px;
+    }
+    }
     
 </style>

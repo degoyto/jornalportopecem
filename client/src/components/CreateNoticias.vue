@@ -40,8 +40,10 @@
                         <option value="entrevistas">Entrevistas</option> 
                         <option value="portos" >Portos do Brasil</option>
                         <option value="eventos">Eventos</option>
-                        <option value="caucaia-sao-goncalo">Caucaia/São Gonçalo</option>
-                        <option value="complexo-portuario">Complexo Portuário</option>
+                        <option value="caucaia">Caucaia/São Gonçalo</option>
+                        <option value="complexo">Complexo Portuário</option>
+                        <option value="direito">Direito Aduaneiro</option>
+                        <option value="marketing">Marketing Portuário</option>
                       </select>
                       
                     </div>
@@ -56,7 +58,7 @@
                         <option value=true>Sim</option> 
                         
                       </select>
-                      {{noticias.destaque}}
+                      
                     </div>
                 </div>
             </div>
@@ -88,7 +90,7 @@
                 <br><label for="materialRegisterFormPassword"><h3>Resumo</h3>
                
                 <!-- <textarea class="form-control" rows="10" id="comment" v-model="noticias.resumo" required></textarea> -->
-                 <textarea rows="4" cols="80">
+                 <textarea rows="4" cols="80" v-model="noticias.resumo">
                     
                  </textarea>
                 <br>

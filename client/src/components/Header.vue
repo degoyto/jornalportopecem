@@ -1,8 +1,8 @@
 <template>
-
   <div class="container-flex" >
     
     <div class="container cabecalho ">
+      <!-- Aqui fica os itens acima da logo, como data e redes sociais -->
       <div class="acima">
         <p class="data">Pecém,  {{date | horaAtual}}</p>
         <div class="sociais">
@@ -11,93 +11,96 @@
         </div>
         
       </div>
-      
+      <!-- Aqui se encontra a logo e o anuncio do cabeçalho -->
       <div class="abaixo">
         <img @click="navigateTu()" class="logo" src="../assets/logo.png">
         <anuncio class="img-anuncio1"></anuncio>
-      </div>
-      
-     
+      </div> 
     </div>
 
-  <div class="container-flex back  ">
-    <div class="container">
-      <b-navbar toggleable="lg"  type="dark" class="barra " >
-    
+    <div class="container-flex back  ">
+      <div class="container">
+        <!-- menu -->
+        <b-navbar toggleable="lg"  type="dark" class="barra " >
+      
 
-    <b-navbar-toggle target="nav-collapse" class="botao"></b-navbar-toggle>
-
-    <b-collapse id="nav-collapse" class="menu" is-nav >
-      <ul class="pc">
-        
-        <li><a @click="navigateTo('destaques')">destaques portuários</a></li>
-       
-        <li class="noticias-btn"><a @click="navigateTo('noticias')">Notícias</a>
-                <ul>
-                      <li><a @click="navigateTo('nacionais')">Nacionais</a></li>
-                      
-                      <li><a @click="navigateTo('internacionais')">Internacionais</a></li>
-                                    
-                </ul>
-            </li>
-        
-        <li><a @click="navigateTo('artigos')">Artigos e Opinião</a></li>
-        
-        <li><a @click="navigateTo('turismo')"> turismo</a></li>
-
-        <li><a @click="navigateTo('comex')">Comércio exterior</a></li>
-        <li><a @click="navigateTo('logistica')">logística e transporte</a></li>
-        <li><a @click="navigateTo('entrevistas')">entrevistas</a></li> 
-        <li><a @click="navigateTo('portos')">Portos do Brasil</a></li>
-        <li><a @click="navigateTo('eventos')">Eventos</a></li>
-                                        
-                
+          <b-navbar-toggle target="nav-collapse" class="botao"></b-navbar-toggle>
+          <!-- Itens do menu -->
+          <b-collapse id="nav-collapse" class="menu" is-nav >
+            <!-- Esse aparece na versão pc -->
+            <ul class="pc">
+              
+              <li><a @click="navigateTo('destaques')">destaques portuários</a></li>
             
-      </ul>
+              <li class="noticias-btn"><a @click="navigateTo('noticias')">Notícias</a>
+                      <ul>
+                            <li><a @click="navigateTo('nacionais')">Nacionais</a></li>
+                            
+                            <li><a @click="navigateTo('internacionais')">Internacionais</a></li>
+                                          
+                      </ul>
+                  </li>
+              
+              <li><a @click="navigateTo('artigos')">Artigos e Opinião</a></li>
+              
+              <li><a @click="navigateTo('turismo')"> turismo</a></li>
 
-      <ul class="cel">
-        
-        <li><a @click="navigateTo('destaques')">destaques portuários</a></li>
-        
-
-        <li><a @click="navigateTo('nacionais')">Nacionais</a></li>
+              <li><a @click="navigateTo('comex')">Comércio exterior</a></li>
+              <li><a @click="navigateTo('logistica')">logística e transporte</a></li>
+              <li><a @click="navigateTo('entrevistas')">entrevistas</a></li> 
+              <li><a @click="navigateTo('portos')">Portos do Brasil</a></li>
+              <li><a @click="navigateTo('eventos')">Eventos</a></li>
+                                              
                       
-        <li><a @click="navigateTo('internacionais')">Internacionais</a></li>
-        
-        <li><a @click="navigateTo('artigos')">Artigos e Opinião</a></li>
-        
-        <li><a @click="navigateTo('turismo')"> turismo</a></li>
+                  
+            </ul>
+            <!-- Esse so aparece na versão mobile -->
+            <ul class="cel">
+              
+              <li><a @click="navigateTo('destaques')">destaques portuários</a></li>
+              
 
-        <li><a @click="navigateTo('comex')">Comércio exterior</a></li>
-        <li><a @click="navigateTo('logistica')">logística e transporte</a></li>
-        <li><a @click="navigateTo('entrevistas')">entrevistas</a></li> 
-        <li><a @click="navigateTo('portos')">Portos do Brasil</a></li>
-        <li><a @click="navigateTo('eventos')">Eventos</a></li>
-                                        
-                
-            
-      </ul>
+              <li><a @click="navigateTo('nacionais')">Nacionais</a></li>
+                            
+              <li><a @click="navigateTo('internacionais')">Internacionais</a></li>
+              
+              <li><a @click="navigateTo('artigos')">Artigos e Opinião</a></li>
+              
+              <li><a @click="navigateTo('turismo')"> turismo</a></li>
 
-      <!-- Right aligned nav items -->
-      <b-navbar-nav class="ml-auto">
-        <b-nav-form class="pesquise">
+              <li><a @click="navigateTo('comex')">Comércio exterior</a></li>
+              <li><a @click="navigateTo('logistica')">logística e transporte</a></li>
+              <li><a @click="navigateTo('entrevistas')">entrevistas</a></li> 
+              <li><a @click="navigateTo('portos')">Portos do Brasil</a></li>
+              <li><a @click="navigateTo('eventos')">Eventos</a></li>
+                                              
+                      
+                  
+            </ul>
+
+          <!-- Right aligned nav items -->
+          <!-- inicio do navbar que deixa o "pesquise" do celular ok-->
+            <b-navbar-nav class="ml-auto">
+              <b-nav-form class="pesquise">
+                <b-form-input size="sm" class="mr-sm-2" placeholder="Pesquise"></b-form-input>
+                <b-button size="sm" class="my-2 my-sm-0 btn-pesquisa" type="submit">Pesquise</b-button>
+              </b-nav-form>
+            </b-navbar-nav>
+          </b-collapse>
+        </b-navbar><!-- fim do menu -->
+
+        <!-- Barra de pesquisa versão Pc -->
+        <div class="pesquisa">
           <b-form-input size="sm" class="mr-sm-2" placeholder="Pesquise"></b-form-input>
           <b-button size="sm" class="my-2 my-sm-0 btn-pesquisa" type="submit">Pesquise</b-button>
-        </b-nav-form>
+        </div>
 
-       
-      </b-navbar-nav>
-    </b-collapse>
-  </b-navbar>
-    </div>
+      </div> <!-- fim do container -->
+    </div><!-- fim do background que tem para deixar o menu com a tela toda -->
+
     
-  <div >
-  
-</div>
-  </div>
-  
-    
-</div>
+
+  </div> <!-- fim do container-flex -->
 </template>
 
 
@@ -119,6 +122,7 @@ export default {
     
     methods: {
       navigateTo (recebido){
+        
         this.$router.push({ name: 'noticiasLista', params: { nome: recebido  } })
         window.location.reload()
       },
@@ -139,6 +143,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.pesquisa{
+  display:none;
+}
   .btn-pesquisa{
     background-color:#8BB174;
     border-color:#8BB174;
@@ -241,6 +248,17 @@ export default {
     
     .pesquise{
       display:none;
+      
+    }
+    .pesquisa{
+      
+      display:flex;
+      width:300px;
+      float:right;
+      margin-top:20px;
+      
+     
+      
     }
     .logo{
         width:35vw;

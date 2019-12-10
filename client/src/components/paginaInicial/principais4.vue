@@ -11,7 +11,7 @@
             <div class="itens">
               <v-clamp autoresize :max-lines="3" class="titulon">{{ noticia.title }}</v-clamp>
               <div class="tipo">
-              
+                
                 {{noticia.tipo}}
               
               </div>
@@ -44,19 +44,21 @@ export default {
   data () {
     return {
       noticias:null,
-      so1: 1
+      exceto:null
       
     }  
   },
   methods:{
        navigateTo (recebido){
         this.$router.push({ name: 'noticia', params: { noticiaId: recebido  } })
+        window.location.reload()
         this.$router.go(1)
       }
   },
   async mounted (){
-    const total = 4;
-    this.noticias = (await NoticiaService.novas(total)).data
+    
+    this.exceto = this.$store.state.route.params.noticiaId
+    this.noticias = (await NoticiaService.outras(this.exceto)).data
     
   }
   
@@ -200,19 +202,19 @@ export default {
             hr{
               display:block;
               border-top: 4px solid #8BB174;
-              margin-left:25px;
+              margin-left:0px;
               margin-top:3px;
               margin-bottom:10px;
               width:95%;
             }
             .principal{
-              margin-left:-15px;
+              margin-left:-30px;
               
               width:95%;
             }
             .principal h1 {
               text-align: left;
-              margin-left:25px;
+              margin-left:0px;
               margin-bottom:0px;
             }
             .caixa{

@@ -40,13 +40,30 @@
                         <option value="entrevistas">Entrevistas</option> 
                         <option value="portos" >Portos do Brasil</option>
                         <option value="eventos">Eventos</option>
-                        <option value="caucaia-sao-goncalo">Caucaia/São Gonçalo</option>
-                        <option value="complexo-portuario">Complexo Portuário</option>
+                        <option value="caucaia">Caucaia/São Gonçalo</option>
+                        <option value="complexo">Complexo Portuário</option>
+                        <option value="direito">Direito Aduaneiro</option>
+                        <option value="marketing">Marketing Portuário</option>
                       </select>
-                      <span>Selecionado: {{ noticias.tipo }}</span>
+                      
                     </div>
                 </div>
             </div>
+            <div class="col">
+                    <!-- Tipo -->
+                    <div class="md-form">
+                      <label for="materialRegisterFormLastName">Destacar na tela inicial</label>
+                      <select class="form-control" id="exampleFormControlSelect1" v-model="noticias.destaque" required>
+                        
+                        <option value=false>Não</option> 
+                        <option value=true>Sim</option> 
+                        
+                      </select>
+                      
+                    </div>
+                </div>
+
+
 
             <!-- Imagem-->
             <div class="md-form mt-0">
@@ -64,14 +81,21 @@
                 <img v-if="mudouFoto" :src="imagemHora" style="margin-top:20px; width:20vw">
             </div>
 
+             <!-- Resumo-->
+            
+                <br><label for="materialRegisterFormPassword"><h3>Resumo</h3>
+               
+                <!-- <textarea class="form-control" rows="10" id="comment" v-model="noticias.resumo" required></textarea> -->
+                 <textarea rows="4" cols="80" v-model="noticias.resumo">
+                    
+                 </textarea>
+                <br>
+                </label>
+
             <!-- Conteudo -->
             <div class="md-form">
                 <br><label for="materialRegisterFormPassword"><h3>Conteúdo</h3>
-                Dica: Em caso de adicionar um novo título no texto use &lth2&gt Exemplo: &lth2&gt Novo Título &lt/h2&gt. <br>
-                O mesmo para negrito. Exemplo: &ltb&gt Negrito &lt/b&gt<br>
-                O mesmo para itálico. Exemplo: &lti&gt Itálico &lt/i&gt<br><br>
-                <b>Não esqueça de fechar a tag com</b> </>
-                <textarea class="form-control" rows="20" id="comment" v-model="noticias.conteudo" required></textarea>
+                <ckeditor :editor="editor" v-model="noticias.conteudo" :config="editorConfig" class="input-resumo"></ckeditor>
                 
                 <br>
                 </label>
@@ -108,6 +132,7 @@
 import NoticiaService from "@/services/NoticiaService"
 import Panel from "@/components/Panel"
 import axios from "axios"
+ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 export default {
   components:{
     Panel
@@ -125,7 +150,13 @@ export default {
       selectFile: null,
       files:null,
       image: null,
-      mudouFoto: false
+      mudouFoto: false,
+      editor: ClassicEditor,
+      
+      editorConfig: {
+                    
+                }
+      
       
       
     }

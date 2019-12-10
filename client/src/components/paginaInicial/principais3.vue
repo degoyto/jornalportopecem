@@ -8,7 +8,7 @@
           <div @click="navigateTo(noticia.id)" class="img"  v-bind:style="{ backgroundImage: 'url(' + noticia.fotoUrl + ')' }"></div>
         
           <div class="info">
-            <div class="itens">
+            <div class="itens" @click="navigateTo(noticia.id)">
               <v-clamp autoresize :max-lines="3" class="titulon">{{ noticia.title }}</v-clamp>
               <div class="tipo">
               
@@ -34,8 +34,8 @@
       
       <div class="colunas">
         <ul>
-          <li><a href="#">COLUNA DIREITO ADUANEIRO</a></li>
-          <li><a href="#">COLUNA MARKETING PORTUÁRIO</a></li>
+          <li><a @click="navigateTu('direito')">COLUNA DIREITO ADUANEIRO</a></li>
+          <li><a @click="navigateTu('marketing')">COLUNA MARKETING PORTUÁRIO</a></li>
           
         </ul>
         
@@ -74,7 +74,12 @@ export default {
        navigateTo (recebido){
         this.$router.push({ name: 'noticia', params: { noticiaId: recebido  } })
         this.$router.go(1)
-      }
+      },
+      navigateTu (recebido){
+        
+        this.$router.push({ name: 'noticiasLista', params: { nome: recebido  } })
+        window.location.reload()
+      },
   },
   async mounted (){
     const total = 4;
@@ -216,6 +221,7 @@ export default {
   .colunas ul li a:hover {
     color:#8BB174;
     text-decoration:none;
+    cursor:pointer;
   }
 
 @media screen and (min-width: 992px){

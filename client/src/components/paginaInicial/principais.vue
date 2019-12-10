@@ -5,10 +5,7 @@
         <h1>NOTÍCIAS EM DESTAQUE</h1>
         <hr />
       </div>
-      <div class="pesquisa">
-        <b-form-input size="sm" class="mr-sm-2" placeholder="Pesquise"></b-form-input>
-        <b-button size="sm" class="my-2 my-sm-0 btn-pesquisa" type="submit">Pesquise</b-button>
-      </div>
+      
       
     </div>
       <div class= "caixa" v-for="noticia in noticias" :key="noticia.id"  >
@@ -34,13 +31,11 @@
             
               <div class="conteudo" >
                 <div @click="navigateTo(noticia.id)" >
-                  <v-clamp autoresize :max-lines="4"  >{{ noticia.conteudo}}</v-clamp>
+                  <v-clamp autoresize :max-lines="4"  >{{ noticia.resumo}}</v-clamp>
                 </div>
               
               </div>
-              <!-- <div class="data">
-                {{noticia.createdAt | formatDate}}
-              </div>-->
+              
           
               <button @click="navigateTo(noticia.id)" type="button" class="btn btn-primary btn-sm botao"   >Continue Lendo</button>
               
@@ -56,6 +51,7 @@
     <div class="div-anuncio">
         <anuncio class="anuncio1 img-anuncio1"></anuncio>
     </div>
+    <principais2 :exceto="noticias[0].id"></principais2>
 </div>
 
 </template>
@@ -65,12 +61,14 @@ import NoticiaService from "@/services/NoticiaService"
 import Panel from "@/components/Panel"
 import anuncio from "@/components/anuncio"
 import VClamp from 'vue-clamp'
+import principais2 from "@/components/paginaInicial/principais2"
 export default {
   
   components:{
     Panel,
     anuncio,
-    VClamp
+    VClamp,
+    principais2,
   }, 
   data () {
     return {
@@ -120,13 +118,7 @@ export default {
   .img, .titulon, .tipo, .conteudo:hover{
     cursor:pointer;
   }
-  .img:hover{
-    -webkit-transform: scale(1.05);
-    -moz-transform: scale(1.05);
-    -o-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    transform: scale(1.05);
-  }
+  
   .titulon:hover{
     color:#8BB174;
   }
@@ -233,7 +225,7 @@ export default {
       margin-left:25px;
       margin-top:3px;
       margin-bottom:-2px;
-      width:96%;
+      width:133%;
   }
     .caixa{
     width:53%;
@@ -257,7 +249,7 @@ export default {
   .div-anuncio{
       width:40%;
       float:right;
-      margin-top:300px;
+      margin-top:250px;
       margin-bottom: 20px;
       height:380px;
       

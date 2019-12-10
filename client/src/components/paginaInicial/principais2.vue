@@ -3,9 +3,9 @@
     
     <div class="noticia">
       <div class= "caixa" v-for="noticia in noticias" :key="noticia.id"  >
-        <div class="info">
-          
-              <div class="itens">
+        <div class="info" @click="navigateTo(noticia.id)" >
+              
+              <div  @click="navigateTo(noticia.id)" class="itens">
                 <v-clamp autoresize :max-lines="3" class="titulon">{{ noticia.title }}</v-clamp>
                 <div class="tipo">
                   {{noticia.tipo}}
@@ -37,10 +37,18 @@ export default {
     Panel,
     VClamp
   }, 
+   props: {
+    exceto: {
+      type: Number,
+      required: true,
+      default: 0
+    }
+  },
   data () {
     return {
       noticias:null,
-      so1: 1
+      so1: 1,
+      exceto:0
       
     }  
   },
@@ -52,7 +60,7 @@ export default {
   },
   async mounted (){
     const total = 3;
-    this.noticias = (await NoticiaService.principais(total)).data
+    this.noticias = (await NoticiaService.principais2(this.exceto)).data
     
   }
   
@@ -65,7 +73,9 @@ export default {
 <style scoped>
   .botao{
     background-color: #05341D; border-color: #05341D;
+    
     float:right;
+    margin-right:-15px;
   }
   .botao:hover{
     background-color:#8BB174; 
@@ -73,7 +83,7 @@ export default {
   }
   .caixa{
     width:90%;
-    margin-left:25px;
+    margin-left:12px;
     float:left;
     margin-bottom:5%;
     
@@ -169,7 +179,7 @@ export default {
     }
     .botao{
       float:right;
-      width:40%;
+      width:41%;
     }
     
   }

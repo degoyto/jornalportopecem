@@ -29,7 +29,14 @@ export default {
     },
     put (noticia) {
         return Api().put(`noticia/${noticia.id}`, noticia)
-      }
+    },
+    outras (exceto) {
+        return Api().get(`outras/${exceto}`)
+    },
+    principais2 (exceto) {
+        return Api().get(`principais2/${exceto}`)
+    },
+    
 }
 
 
