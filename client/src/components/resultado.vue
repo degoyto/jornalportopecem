@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h1 class="titulo">{{nome}}</h1>
+        <h1 class="titulo">resultados para "{{nome}}"</h1>
         
         <hr class="linhat" />
         <div class="teste">
@@ -81,7 +81,7 @@ export default {
     async mounted (){
         this.nome = this.$store.state.route.params.nome
     
-        this.noticias = (await NoticiaService.filtro(this.nome)).data
+        this.noticias = (await NoticiaService.resultado(this.nome)).data
         
 
     },
@@ -224,6 +224,7 @@ export default {
         }
         .container{
             text-align: left;
+             margin-top:60px;
         }
         .caixa{
             text-align: left;

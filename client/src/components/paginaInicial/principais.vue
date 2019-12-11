@@ -49,9 +49,19 @@
     
     
     <div class="div-anuncio">
+        <VueTradingView class="trading" :options="{
+                symbol: 'NASDAQ:AAPL',
+                theme: 'light',
+                locale: 'br',
+                width: 450,
+                height:305
+          }"/>
         <anuncio class="anuncio1 img-anuncio1"></anuncio>
+
     </div>
     <principais2 :exceto="noticias[0].id"></principais2>
+
+    
 </div>
 
 </template>
@@ -62,6 +72,7 @@ import Panel from "@/components/Panel"
 import anuncio from "@/components/anuncio"
 import VClamp from 'vue-clamp'
 import principais2 from "@/components/paginaInicial/principais2"
+import VueTradingView from 'vue-trading-view';
 export default {
   
   components:{
@@ -69,6 +80,7 @@ export default {
     anuncio,
     VClamp,
     principais2,
+    VueTradingView,
   }, 
   data () {
     return {
@@ -234,7 +246,7 @@ export default {
   .anuncio1{
       width:100%;
       
-      margin-top:260px;
+      margin-top:60px;
       
     }
   .principal h1 {
@@ -249,14 +261,17 @@ export default {
   .div-anuncio{
       width:40%;
       float:right;
-      margin-top:250px;
+      margin-top:350px;
       margin-bottom: 20px;
-      height:380px;
+      
       
       height:100vh;
-      min-height:360px;
-      max-height:360px;
+      min-height:250px;
+      max-height:250px;
       background-color:#8BB174;
+    }
+    .trading{
+      margin-top:-330px;
     }
   }
 </style>

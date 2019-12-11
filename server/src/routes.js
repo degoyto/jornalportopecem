@@ -27,6 +27,9 @@ module.exports = (app) =>{
     app.get('/filtro/:nome',
     NoticiasController.filtro)
 
+    app.get('/resultado/:nome',
+    NoticiasController.resultado)
+
     app.get('/outras/:exceto',
     NoticiasController.outras)
 

@@ -97,6 +97,28 @@ module.exports = {
       })
     }
   },
+  async resultado (req, res) {
+    try {
+      const Op = Sequelize.Op;
+      var nome = `%${req.params.nome}%`;
+      
+      console.log(nome)
+        const noticia = await Noticia.findAll({
+          where: {
+            title: {
+              [Op.like]: nome
+            }
+          },
+          order: [['createdAt', 'DESC']]
+        })
+        console.log(noticia)
+        res.send(noticia)   
+    } catch (err) {
+      res.status(500).send({
+        error: "Erro get"
+      })
+    }
+  },
   async outras (req, res) {
     try {
       const Op = Sequelize.Op;
@@ -112,7 +134,7 @@ module.exports = {
           
         }
       })
-      console.log(noticia)
+      
       res.send(noticia)  
     } catch (err) {
       res.status(500).send({

@@ -91,8 +91,8 @@
 
         <!-- Barra de pesquisa versão Pc -->
         <div class="pesquisa">
-          <b-form-input size="sm" class="mr-sm-2" placeholder="Pesquise"></b-form-input>
-          <b-button size="sm" class="my-2 my-sm-0 btn-pesquisa" type="submit">Pesquise</b-button>
+          <b-form-input size="sm" class="mr-sm-2" v-model="itemPesquisado" placeholder="Pesquise"></b-form-input>
+          <b-button size="sm" class="my-2 my-sm-0 btn-pesquisa" @click="pesquisa">Pesquise</b-button>
         </div>
 
       </div> <!-- fim do container -->
@@ -112,6 +112,7 @@ export default {
       return{
         show: false,
         type: "#fff",
+        itemPesquisado:null
         
       }
       
@@ -134,6 +135,10 @@ export default {
         this.$store.dispatch("setToken", null)
         this.$store.dispatch("setUser", null)
         this.$router.push({ name: 'noticiasLista', params: { nome: recebido  } })
+      },
+      pesquisa(){
+        this.$router.push({ name: 'resultado', params: { nome: this.itemPesquisado  } })
+        window.location.reload()
       }
     }
   }
@@ -253,7 +258,7 @@ export default {
     .pesquisa{
       
       display:flex;
-      width:300px;
+      width:445px;
       float:right;
       margin-top:20px;
       

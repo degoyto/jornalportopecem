@@ -224,6 +224,7 @@ export default {
         }
         .container{
             text-align: left;
+            margin-top:60px;
         }
         .caixa{
             text-align: left;

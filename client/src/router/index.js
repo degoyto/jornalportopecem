@@ -9,6 +9,7 @@ import ViewNoticia from '@/components/ViewNoticia'
 import Home from '@/components/Home'
 import EditNoticias from "@/components/EditNoticias"
 import noticiasLista from "@/components/noticiasLista"
+import resultado from "@/components/resultado"
 
 Vue.use(Router)
 
@@ -49,6 +50,11 @@ export default new Router({
       path: '/noticias/:nome',
       name: 'noticiasLista',
       component: noticiasLista
+    },
+    {
+      path: '/resultado/:nome',
+      name: 'resultado',
+      component: resultado
     },
     {
       path: '/home',

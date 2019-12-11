@@ -130,6 +130,9 @@ export default {
         font-size:20px;
         margin-bottom:50px;
     }
+    .conteudo a{
+        color:red;
+    }
     @media screen and (min-width: 992px){
         .caixa{
         width:50%;

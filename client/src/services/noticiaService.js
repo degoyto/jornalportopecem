@@ -13,6 +13,10 @@ export default {
         
         return Api().get(`filtro/${nome}`)
     },
+    resultado (nome) {
+        
+        return Api().get(`resultado/${nome}`)
+    },
     novas (total) {
         
         return Api().get(`novas/${total}`)

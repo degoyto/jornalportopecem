@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="margin-top:100px;">
     <panel>
         <!-- Material form register -->
 <div class="card">
@@ -99,7 +99,7 @@
             <!-- Conteudo -->
             <div class="md-form">
                 <br><label for="materialRegisterFormPassword"><h3>Conteúdo</h3>
-                <ckeditor :editor="editor" v-model="noticias.conteudo" :config="editorConfig" class="input-resumo"></ckeditor>
+                <ckeditor :editor="editor" v-model="noticias.conteudo" :config="editorConfig" class="input-conteudo"></ckeditor>
                 
                 <br>
                 </label>
@@ -236,6 +236,9 @@ export default {
   .ck-editor__editable {
     min-height: 500px;
 }
+.cke_skin_kama a:hover {
+background-color: red!important;
+}
   .card p{
     font: normal 13px Arial;
     line-height: 13px;
@@ -258,5 +261,8 @@ export default {
   }
   .card{
     margin-bottom:20px;
+  }
+  .input-conteudo a{
+    color:red;
   }
 </style>
