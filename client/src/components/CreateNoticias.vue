@@ -29,21 +29,24 @@
                     <div class="md-form">
                       <label for="materialRegisterFormLastName">Tipo</label>
                       <select class="form-control" id="exampleFormControlSelect1" v-model="noticias.tipo" required>
+                        
                         <option value="" selected disabled hidden>Escolha um tipo</option>
-                        <option value="destaques">Destaques Portuários</option> 
-                        <option value="nacionais">Notícia Nacional</option> 
-                        <option value="internacionais" >Notícial Internacional</option>
                         <option value="artigos">Artigos</option>
-                        <option value="turismo">Porto e Turismo</option> 
-                        <option value="comex" >Comércio Exterior</option>
-                        <option value="logistica">Logística e Transporte</option>
-                        <option value="entrevistas">Entrevistas</option> 
-                        <option value="portos" >Portos do Brasil</option>
-                        <option value="eventos">Eventos</option>
+                        <option value="boletim">Boletim Portuário</option>
                         <option value="caucaia">Caucaia/São Gonçalo</option>
+                        <option value="comex" >Comércio Exterior</option>
                         <option value="complexo">Complexo Portuário</option>
+                        <option value="destaques">Destaques Portuários</option> 
                         <option value="direito">Direito Aduaneiro</option>
+                        <option value="entrevistas">Entrevistas</option> 
+                        <option value="eventos">Eventos</option>
+                        <option value="logistica">Logística e Transporte</option>
                         <option value="marketing">Marketing Portuário</option>
+                        <option value="internacionais" >Notícia Internacional</option>
+                        <option value="nacionais">Notícia Nacional</option> 
+                        <option value="portos" >Portos do Brasil</option>
+                        <option value="turismo">Porto e Turismo</option> 
+                          
                       </select>
                       
                     </div>

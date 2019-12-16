@@ -8,8 +8,8 @@
           <div @click="navigateTo(noticia.id)" class="img"  v-bind:style="{ backgroundImage: 'url(' + noticia.fotoUrl + ')' }"></div>
         
           <div class="info">
-            <div class="itens">
-              <v-clamp autoresize :max-lines="3" class="titulon">{{ noticia.title }}</v-clamp>
+            <div class="itens" @click="navigateTo(noticia.id)">
+              <v-clamp  autoresize :max-lines="3" class="titulon">{{ noticia.title }}</v-clamp>
               <div class="tipo">
                 
                 {{noticia.tipo}}
@@ -102,7 +102,7 @@ export default {
     
     padding-bottom:10px;
     min-height:139px;
-    text-transform: capitalize;
+    
     border-radius: 7px 7px 0 0;
   }
  

@@ -1,7 +1,7 @@
 <template>
   <div class="container pagina">
     <div class="container principal">
-      <h1>OUTRAS NOTÍCIAS</h1>
+      <h1>ÚLTIMAS NOTÍCIAS</h1>
       <hr />
       <div class= "caixa" v-for="noticia in noticias" :key="noticia.id"  >
         
@@ -33,11 +33,7 @@
     <div class="anuncio-coluna">
       
       <div class="colunas">
-        <ul>
-          <li><a @click="navigateTu('direito')">COLUNA DIREITO ADUANEIRO</a></li>
-          <li><a @click="navigateTu('marketing')">COLUNA MARKETING PORTUÁRIO</a></li>
-          
-        </ul>
+        
         
         
       </div>
@@ -127,7 +123,7 @@ export default {
     margin-left:25px;
     padding-bottom:10px;
     min-height:139px;
-    text-transform: capitalize;
+    
     border-radius: 7px 7px 0 0;
   }
  
@@ -180,6 +176,7 @@ export default {
     
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     float:left;
     
   }

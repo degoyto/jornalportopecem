@@ -18,7 +18,7 @@
       </div>
     </div>
       
-    <button type="button" class="btn btn-primary btn-lg botao" >Boletim Portuário</button>
+    <button type="button" class="btn btn-primary btn-lg botao" >BOLETIM PORTUÁRIO</button>
       
       
     
@@ -87,7 +87,7 @@ export default {
     float:left;
     margin-bottom:5%;
     
-    text-transform: capitalize;
+    
     
   }
   .titulon{

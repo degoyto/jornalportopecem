@@ -50,7 +50,9 @@
     
     <div class="div-anuncio">
         <VueTradingView class="trading" :options="{
-                symbol: 'NASDAQ:AAPL',
+         
+                symbol: 'FX_IDC:USDBRL',
+                timezone: 'America/Sao_Paulo',
                 theme: 'light',
                 locale: 'br',
                 width: 450,
@@ -124,9 +126,10 @@ export default {
     margin-left:25px;
     padding-bottom:10px;
     min-height:500px;
-    text-transform: capitalize;
+    
     
   }
+  
   .img, .titulon, .tipo, .conteudo:hover{
     cursor:pointer;
   }
@@ -164,7 +167,7 @@ export default {
   .tipo{
     font-size:50%;
     margin-bottom: 20px; 
-    margin-top:0.1%;
+    margin-top:1%;
     text-transform: uppercase;
   }
   .botao{
@@ -191,6 +194,7 @@ export default {
     min-height:300px;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     max-height:350px;
     border-radius: 7px;
   }
@@ -256,7 +260,7 @@ export default {
   }
   .info h1{
     margin-left:0;
-    
+    font-weight:700;
   }
   .div-anuncio{
       width:40%;
