@@ -80,9 +80,43 @@ export default {
     },
     async mounted (){
         this.nome = this.$store.state.route.params.nome
-    
         this.noticias = (await NoticiaService.filtro(this.nome)).data
-        
+        if (this.nome=="destaques"){
+            this.nome="Destaques Portuários"
+        }
+        else if (this.nome=="noticias"){
+            this.nome="Notícias"
+        }
+        else if (this.nome=="nacionais"){
+            this.nome="Notícias Nacionais"
+        }
+        else if (this.nome=="internacionais"){
+            this.nome="Notícias Internacionais"
+        }
+        else if (this.nome=="artigos"){
+            this.nome="Artigos e Opinião"
+        }
+        else if (this.nome=="turismo"){
+            this.nome="Porto e Turismo"
+        }
+        else if (this.nome=="comex"){
+            this.nome="Comércio Exterior"
+        }
+        else if (this.nome=="logistica"){
+            this.nome="Logística e Transporte"
+        }
+        else if (this.nome=="entrevistas"){
+            this.nome="Entrevistas"
+        }
+        else if (this.nome=="portos"){
+            this.nome="Portos do Brasil"
+        }
+        else if (this.nome=="eventos"){
+            this.nome="Eventos"
+        }
+        else{
+            this.nome="Nada Encontrado"
+        }
 
     },
         

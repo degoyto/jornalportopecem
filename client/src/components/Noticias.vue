@@ -1,78 +1,49 @@
 <template>
   
-<div  >
-  <div class= "caixa" v-for="noticia in noticias" :key="noticia.id"  >
-    <div class="img" v-bind:style="{ backgroundImage: 'url(' + noticia.fotoUrl + ')' }"></div>
-    
-    <div class="info">
-      <div class="itens">
-        <h1 v-line-clamp:20="2" >{{noticia.title}}</h1>
-        <div class="tipo">
-          {{noticia.tipo}}
+  <div  >
+    <div class= "caixa" v-for="noticia in noticias" :key="noticia.id"  >
+      <div class="img" v-bind:style="{ backgroundImage: 'url(' + noticia.fotoUrl + ')' }"></div>
+      
+      <div class="info">
+        <div class="itens">
+          <h1 v-line-clamp:20="2" >{{noticia.title}}</h1>
+          <div class="tipo">
+            {{noticia.tipo}}
+            
+          </div>
           
-        </div>
-        
-        <div class="autor"> 
-          Autor: {{noticia.autor}}
+          <div class="autor"> 
+            Autor: {{noticia.autor}}
+            
+          </div>
           
+          <div class="conteudo" >
+            <v-clamp autoresize :max-lines="4"  >{{ noticia.resumo}}</v-clamp>
+            
+          </div>
+          <div class="data">
+            {{noticia.createdAt | formatDate}}
+          </div>
+          <router-link :to="{ name: 'noticia',  params:{noticiaId: noticia.id}}">
+              <button type="button" class="btn btn-primary btn-sm botao"   >Ler Mais</button>
+          </router-link>
+          <router-link :to="{ name: 'noticia-edit',  params:{noticiaId: noticia.id}}">
+              <button type="button" class="btn btn-primary btn-sm botao"   >Editar</button>
+          </router-link>
         </div>
-        
-        <div class="conteudo" >
-          <p v-line-clamp:20="5" v-html="noticia.conteudo" >{{noticia.conteudo}}</p>
-          
-        </div>
-        <div class="data">
-          {{noticia.createdAt | formatDate}}
-        </div>
-        <router-link :to="{ name: 'noticia',  params:{noticiaId: noticia.id}}">
-            <button type="button" class="btn btn-primary btn-sm botao"   >Ler Mais</button>
-        </router-link>
-        <router-link :to="{ name: 'noticia-edit',  params:{noticiaId: noticia.id}}">
-            <button type="button" class="btn btn-primary btn-sm botao"   >Editar</button>
-        </router-link>
       </div>
     </div>
   </div>
-</div>
-
-  <!--<div>
-    
-    
-      <div class= "caixa" v-for="noticia in noticias" :key="noticia.id" >
-        <img :src="noticia.fotoUrl">
-        <div class="caixa-texto" >
-          <h1 >{{noticia.title}}</h1>
-          {{noticia.createdAt}}<br>
-          {{noticia.tipo}}<br>
-          {{noticia.autor}}<br>
-          
-          
-          
-          <p   v-html="noticia.conteudo">{{noticia.conteudo}}</p>
-
-          <router-link :to="{ name: 'noticia',  params:{noticiaId: noticia.id}}">
-            <button type="button" class="btn btn-primary"  >Ler Mais</button>
-          </router-link>
-          
-          
-        </div>
-      </div>
-  
-
-      
-    
-    
-  </div>-->
-    
 </template>
 <script>
 import NoticiaService from "@/services/NoticiaService"
 import Panel from "@/components/Panel"
-
+import VClamp from 'vue-clamp'
 export default {
   
   components:{
-    Panel
+    Panel,
+    VClamp
   }, 
   data () {
     return {

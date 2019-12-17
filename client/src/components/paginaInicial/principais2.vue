@@ -9,6 +9,7 @@
                 <v-clamp autoresize :max-lines="3" class="titulon">{{ noticia.title }}</v-clamp>
                 <div class="tipo">
                   {{noticia.tipo}}
+                  
                 </div>
         
                 
@@ -18,7 +19,7 @@
       </div>
     </div>
       
-    <button type="button" class="btn btn-primary btn-lg botao" >BOLETIM PORTUÁRIO</button>
+    <button type="button" class="btn btn-primary btn-lg botao" @click="navigateTu('boletim')">BOLETIM PORTUÁRIO</button>
       
       
     
@@ -56,10 +57,15 @@ export default {
        navigateTo (recebido){
         this.$router.push({ name: 'noticia', params: { noticiaId: recebido  } })
         this.$router.go(1)
-      }
+      },
+      navigateTu (recebido){
+        
+        this.$router.push({ name: 'noticiasLista', params: { nome: recebido  } })
+        window.location.reload()
+      },
   },
   async mounted (){
-    const total = 3;
+    console.log(this.exceto)
     this.noticias = (await NoticiaService.principais2(this.exceto)).data
     
   }
@@ -74,7 +80,7 @@ export default {
   .botao{
     background-color: #05341D; border-color: #05341D;
     
-    float:right;
+    
     margin-right:-15px;
   }
   .botao:hover{

@@ -37,11 +37,11 @@
                         <option value="comex" >Comércio Exterior</option>
                         <option value="complexo">Complexo Portuário</option>
                         <option value="destaques">Destaques Portuários</option> 
-                        <option value="direito">Direito Aduaneiro</option>
+                        <!-- <option value="direito">Direito Aduaneiro</option> -->
                         <option value="entrevistas">Entrevistas</option> 
                         <option value="eventos">Eventos</option>
                         <option value="logistica">Logística e Transporte</option>
-                        <option value="marketing">Marketing Portuário</option>
+                        <!-- <option value="marketing">Marketing Portuário</option> -->
                         <option value="internacionais" >Notícia Internacional</option>
                         <option value="nacionais">Notícia Nacional</option> 
                         <option value="portos" >Portos do Brasil</option>

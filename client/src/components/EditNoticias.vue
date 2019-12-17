@@ -1,127 +1,128 @@
 <template>
-  <div>
+  <div class="tudo">
     <panel>
         <!-- Material form register -->
-<div class="card">
+      <div class="card">
 
-    <h5 class="card-header info-color white-text text-center py-4">
-        <strong>Adicionar Noticia</strong>
-    </h5>
+          <h5 class="card-header info-color white-text text-center py-4">
+              <strong>Adicionar Noticia</strong>
+          </h5>
 
-    <!--Card content-->
-    <div class="card-body px-lg-5 pt-0" >
+          <!--Card content-->
+          <div class="card-body px-lg-5 pt-0" >
 
-        <!-- Form -->
-        <form class="text-center" style="color: #757575;" @submit="save"   enctype="multipart/formdata">
+              <!-- Form -->
+              <form class="text-center" style="color: #757575;" @submit="save"   enctype="multipart/formdata">
 
-            <div class="form-row">
-                <div class="col">
-                    <!-- Título -->
-                    <div class="md-form">
-                        <label for="materialRegisterFormFirstName">Título</label>
-                        <input type="text" id="materialRegisterFormFirstName" class="form-control" v-model="noticias.title"         required>
+                  <div class="form-row">
+                      <div class="col">
+                          <!-- Título -->
+                          <div class="md-form">
+                              <label for="materialRegisterFormFirstName">Título</label>
+                              <input type="text" id="materialRegisterFormFirstName" class="form-control" v-model="noticias.title"         required>
+                              
+                          </div>
+                      </div>
+
+                      <div class="col">
+                          <!-- Tipo -->
+                          <div class="md-form">
+                            <label for="materialRegisterFormLastName">Tipo</label>
+                            <select class="form-control" id="exampleFormControlSelect1" v-model="noticias.tipo" required>
+                              <option value="" selected disabled hidden>Escolha um tipo</option>
+                              <option value="artigos">Artigos</option>
+                              <option value="boletim">Boletim Portuário</option>
+                              <option value="caucaia">Caucaia/São Gonçalo</option>
+                              <option value="comex" >Comércio Exterior</option>
+                              <option value="complexo">Complexo Portuário</option>
+                              <option value="destaques">Destaques Portuários</option> 
+                              <!-- <option value="direito">Direito Aduaneiro</option> -->
+                              <option value="entrevistas">Entrevistas</option> 
+                              <option value="eventos">Eventos</option>
+                              <option value="logistica">Logística e Transporte</option>
+                              <!-- <option value="marketing">Marketing Portuário</option> -->
+                              <option value="internacionais" >Notícia Internacional</option>
+                              <option value="nacionais">Notícia Nacional</option> 
+                              <option value="portos" >Portos do Brasil</option>
+                              <option value="turismo">Porto e Turismo</option> 
+                            </select>
+                            
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col">
+                          <!-- Tipo -->
+                          <div class="md-form">
+                            <label for="materialRegisterFormLastName">Destacar na tela inicial</label>
+                            <select class="form-control" id="exampleFormControlSelect1" v-model="noticias.destaque" required>
+                              
+                              <option value=false>Não</option> 
+                              <option value=true>Sim</option> 
+                              
+                            </select>
+                            
+                          </div>
+                      </div>
+
+
+
+                  <!-- Imagem-->
+                  <div class="md-form mt-0">
+                      <label for="materialRegisterFormEmail">Imagem</label>
+                      <input 
                         
-                    </div>
-                </div>
-
-                <div class="col">
-                    <!-- Tipo -->
-                    <div class="md-form">
-                      <label for="materialRegisterFormLastName">Tipo</label>
-                      <select class="form-control" id="exampleFormControlSelect1" v-model="noticias.tipo" required>
-                        <option value="" selected disabled hidden>Escolha um tipo</option>
-                        <option value="destaques">Destaques Portuários</option> 
-                        <option value="nacionais">Notícia Nacional</option> 
-                        <option value="internacionais" >Notícial Internacional</option>
-                        <option value="artigos">Artigos</option>
-                        <option value="turismo">Porto e Turismo</option> 
-                        <option value="comex" >Comércio Exterior</option>
-                        <option value="logistica">Logística e Transporte</option>
-                        <option value="entrevistas">Entrevistas</option> 
-                        <option value="portos" >Portos do Brasil</option>
-                        <option value="eventos">Eventos</option>
-                        <option value="caucaia">Caucaia/São Gonçalo</option>
-                        <option value="complexo">Complexo Portuário</option>
-                        <option value="direito">Direito Aduaneiro</option>
-                        <option value="marketing">Marketing Portuário</option>
-                      </select>
+                        ref="file" 
+                        type="file" 
+                        id="materialRegisterFormEmail" 
+                        class="form-control"
+                        
+                        @change="onFileSelected">
                       
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                    <!-- Tipo -->
-                    <div class="md-form">
-                      <label for="materialRegisterFormLastName">Destacar na tela inicial</label>
-                      <select class="form-control" id="exampleFormControlSelect1" v-model="noticias.destaque" required>
-                        
-                        <option value=false>Não</option> 
-                        <option value=true>Sim</option> 
-                        
-                      </select>
-                      
-                    </div>
-                </div>
+                      <img v-if="!mudouFoto" :src="noticias.fotoUrl" style="margin-top:20px; width:20vw">
+                      <img v-if="mudouFoto" :src="imagemHora" style="margin-top:20px; width:20vw">
+                  </div>
 
-
-
-            <!-- Imagem-->
-            <div class="md-form mt-0">
-                <label for="materialRegisterFormEmail">Imagem</label>
-                <input 
+                  <!-- Resumo-->
                   
-                  ref="file" 
-                  type="file" 
-                  id="materialRegisterFormEmail" 
-                  class="form-control"
-                  
-                  @change="onFileSelected">
-                
-                <img v-if="!mudouFoto" :src="noticias.fotoUrl" style="margin-top:20px; width:20vw">
-                <img v-if="mudouFoto" :src="imagemHora" style="margin-top:20px; width:20vw">
-            </div>
-
-             <!-- Resumo-->
-            
-                <br><label for="materialRegisterFormPassword"><h3>Resumo</h3>
-               
-                <!-- <textarea class="form-control" rows="10" id="comment" v-model="noticias.resumo" required></textarea> -->
-                 <textarea rows="4" cols="80" v-model="noticias.resumo">
+                      <br><label for="materialRegisterFormPassword"><h3>Resumo</h3>
                     
-                 </textarea>
-                <br>
-                </label>
+                      <!-- <textarea class="form-control" rows="10" id="comment" v-model="noticias.resumo" required></textarea> -->
+                      <textarea rows="4" cols="80" v-model="noticias.resumo">
+                          
+                      </textarea>
+                      <br>
+                      </label>
 
-            <!-- Conteudo -->
-            <div class="md-form">
-                <br><label for="materialRegisterFormPassword"><h3>Conteúdo</h3>
-                <ckeditor :editor="editor" v-model="noticias.conteudo" :config="editorConfig" class="input-resumo"></ckeditor>
-                
-                <br>
-                </label>
-                
-            </div>
+                  <!-- Conteudo -->
+                  <div class="md-form">
+                      <br><label for="materialRegisterFormPassword"><h3>Conteúdo</h3>
+                      <ckeditor :editor="editor" v-model="noticias.conteudo" :config="editorConfig" class="input-resumo"></ckeditor>
+                      
+                      <br>
+                      </label>
+                      
+                  </div>
 
-            <!-- Autor -->
-            <div class="md-form">
-              <label for="materialRegisterFormPhone">Autor</label>
-              <input id="materialRegisterFormPhone"  class="form-control" v-model="noticias.autor" >
-                
-                
-            </div>
+                  <!-- Autor -->
+                  <div class="md-form">
+                    <label for="materialRegisterFormPhone">Autor</label>
+                    <input id="materialRegisterFormPhone"  class="form-control" v-model="noticias.autor" >
+                      
+                      
+                  </div>
 
-            
-            <!-- Sign up button -->
-            <b-button  type="submit"  variant="primary" style="margin-top:20px;">Cadastrar Notícia</b-button>
+                  
+                  <!-- Sign up button -->
+                  <b-button  type="submit"  variant="primary" style="margin-top:20px;">Cadastrar Notícia</b-button>
 
-            {{noticias.fotoUrl}}
+                  {{noticias.fotoUrl}}
 
-        </form>
-        <!-- Form -->
+              </form>
+              <!-- Form -->
 
-    </div>
+          </div>
 
-</div>
+      </div>
 <!-- Material form register -->
     </panel>
     
@@ -246,9 +247,10 @@ export default {
     transition: max-height 1s, opacity 0.5s;
     line-height: 18px;
     max-height: 18px;
-    
+   
   }
   .card{
     margin-bottom:20px;
+    margin-top:60px;
   }
 </style>

@@ -150,8 +150,10 @@ export default {
   .tipo{
     font-size:50%;
     margin-bottom: 10px; 
-    margin-top:-10px;
+    margin-top:0px;
     text-transform: uppercase;
+    color:#8BB174;
+    text-align: left;
   }
   .botao{
     margin-top:0px;
@@ -163,10 +165,7 @@ export default {
     
   }
  
-  .tipo{
-    color:#8BB174;
-    text-align: left;
-  }
+  
   .img{
     width:40%;
     height: 25vh;

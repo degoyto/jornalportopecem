@@ -37,7 +37,7 @@
               </div>
               
           
-              <button @click="navigateTo(noticia.id)" type="button" class="btn btn-primary btn-sm botao"   >Continue Lendo</button>
+              
               
             </div>
           </div>
@@ -55,8 +55,8 @@
                 timezone: 'America/Sao_Paulo',
                 theme: 'light',
                 locale: 'br',
-                width: 450,
-                height:305
+                width: 360,
+                height:240
           }"/>
         <anuncio class="anuncio1 img-anuncio1"></anuncio>
 
