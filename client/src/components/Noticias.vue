@@ -100,8 +100,8 @@ export default {
   }
   .botao{
     margin-top:-25px;
-    background-color:#05341D;
-    border: #05341D;
+    background-color:#142248;
+    border: #142248;
     float:right;
     font-size:0.8vw; 
     width:20%;
@@ -112,7 +112,7 @@ export default {
   }
   .tipo{
     width:80px;
-    background-color:#05341D;
+    background-color:#142248;
     color:white;
     text-align: center;
   }

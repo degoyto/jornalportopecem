@@ -13,7 +13,7 @@
       </div>
       <!-- Aqui se encontra a logo e o anuncio do cabeçalho -->
       <div class="abaixo">
-        <img @click="navigateTu()" class="logo" src="../assets/logo.png">
+        <img @click="navigateTu()" class="logo" src="../assets/logo.svg">
         <anuncio class="img-anuncio1"></anuncio>
       </div> 
     </div>
@@ -82,8 +82,8 @@
           <!-- inicio do navbar que deixa o "pesquise" do celular ok-->
             <b-navbar-nav class="ml-auto">
               <b-nav-form class="pesquise">
-                <b-form-input size="sm" class="mr-sm-2" placeholder="Pesquise"></b-form-input>
-                <b-button size="sm" class="my-2 my-sm-0 btn-pesquisa" type="submit">Pesquise</b-button>
+                <b-form-input size="sm" class="mr-sm-2" v-model="itemPesquisado" @keyup.enter="pesquisa" placeholder="Pesquise"></b-form-input>
+                <b-button size="sm" class="my-2 my-sm-0 btn-pesquisa" @click="pesquisa">Pesquise</b-button>
               </b-nav-form>
             </b-navbar-nav>
           </b-collapse>
@@ -91,7 +91,7 @@
 
         <!-- Barra de pesquisa versão Pc -->
         <div class="pesquisa">
-          <b-form-input size="sm" class="mr-sm-2" v-model="itemPesquisado" placeholder="Pesquise"></b-form-input>
+          <b-form-input size="sm" class="mr-sm-2" v-model="itemPesquisado" @keyup.enter="pesquisa" placeholder="Pesquise"></b-form-input>
           <b-button size="sm" class="my-2 my-sm-0 btn-pesquisa" @click="pesquisa">Pesquise</b-button>
         </div>
 
@@ -152,12 +152,12 @@ export default {
   display:none;
 }
   .btn-pesquisa{
-    background-color:#8BB174;
-    border-color:#8BB174;
+    background-color:#009999;
+    border-color:#009999;
   }
 
   .back{
-    background-color:#06351d;
+    background-color:#142248;
     
     position: sticky;
     margin-top:10px; /* altura que está do topo */
@@ -182,8 +182,10 @@ export default {
   }
   .abaixo{
     width:100%;
-    margin-top:10px;
+    
+    
     display:flex;
+    justify-content: space-between;
   }
   /*cabeçalho celular*/
     .cabecalho{
@@ -191,22 +193,23 @@ export default {
       width:100%;
       
       margin-top:-40px;
-      margin-bottom:1%;
+      margin-bottom:-20px;
       
     }
     .logo{
-      width:40vw;
+      width:60%;
       
       
-      margin-top:20px;
+     
     }
     .logo:hover{
       cursor:pointer;
     }
     .anuncio-cabecalho{
-      margin-left:10%;
-      width:40vw;
       
+      width:30%;
+      height:50px;
+      margin-top:50px;
     }
 
     /*menu */
@@ -230,7 +233,7 @@ export default {
     
     color:white;
     text-transform: uppercase;
-    background-color:#06351d;
+    background-color:#142248;
   }
   .cel {
     list-style: none;
@@ -239,7 +242,7 @@ export default {
     color:white;
   }
    .cel li a:hover{
-    color: #8BB174;
+    color: #009999;
     text-decoration: none;
   }
   .botao{
@@ -266,16 +269,16 @@ export default {
       
     }
     .logo{
-        width:35vw;
-        margin-left:22px;
+        width:50%;
+        margin-left:0px;
         
         
     }
     .anuncio-cabecalho{
         
-      width:39.5%;
-      height:15vh;
-      margin-right:-20%;
+      width:35%;
+      min-height:120px;
+      margin-top:60spx;
       
         
     }
@@ -312,7 +315,7 @@ export default {
   
   
     .menu ul li a:hover {
-      color:#8BB174
+      color:#009999;
       
   }
   .noticias-btn ul {
@@ -320,7 +323,7 @@ export default {
     top:28px; 
     left:130px;
     border:1px solid #c0c0c0; 
-    background-color: #06351d; 
+    background-color: #142248; 
     display:none;
   } 
   	
@@ -358,7 +361,7 @@ export default {
     top:28px; 
     left:950px;
     border:1px solid #c0c0c0; 
-    background-color: #06351d; 
+    background-color: #142248; 
     display:none;
   } 
   

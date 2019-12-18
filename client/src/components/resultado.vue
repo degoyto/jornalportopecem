@@ -132,7 +132,7 @@ export default {
     .caixa hr{
         margin-left:0px;
         width:100%;
-        border-top: 1px solid #8BB174;
+        border-top: 1px solid #009999;
     }
     .fotoInfo{
         margin-bottom: 5%;
@@ -146,13 +146,13 @@ export default {
     }
     .botao{
        
-        background-color:#05341D;
-        border-color:#05341D;
+        background-color:#142248;
+        border-color:#142248;
         margin-left:-20px;
     }
     .botao:hover{
-        background-color:#8BB174;
-        border-color:#8BB174;
+        background-color:#009999;
+        border-color:#009999;
     }
     .cabecalho{
        text-align: left;
@@ -176,7 +176,7 @@ export default {
     }
     .anuncio{
         margin-top:20px;
-        background-color:#05341D;
+        background-color:#142248;
         color:white;
         
         width:33%;
@@ -203,7 +203,7 @@ export default {
     }
     .tipo{
         text-transform: capitalize;
-        color:#8BB174;
+        color:#009999;
         
     }
     .data{
@@ -231,7 +231,7 @@ export default {
         }
         .linhat{
             display:block;
-            border-top: 4px solid #8BB174;
+            border-top: 4px solid #009999;
             margin-left:25px;
             margin-top:-5px;
             margin-bottom:-25px;

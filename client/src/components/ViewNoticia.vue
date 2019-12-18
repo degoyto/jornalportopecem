@@ -84,7 +84,7 @@ export default {
     .tipo{
         text-transform: uppercase;
         margin-bottom:-5px;
-        color:#8BB174;
+        color:#009999;
     }
     
     .titulo{

@@ -110,10 +110,10 @@ export default {
     transform: scale(1.05);
   }
   .titulon:hover{
-    color:#8BB174;
+    color:#009999;
   }
   .tipo:hover{
-    color:#05341D;
+    color:#142248;
   }
   .caixa{
     width:95%;
@@ -152,13 +152,13 @@ export default {
     margin-bottom: 10px; 
     margin-top:0px;
     text-transform: uppercase;
-    color:#8BB174;
+    color:#009999;
     text-align: left;
   }
   .botao{
     margin-top:0px;
-    background-color:#05341D;
-    border: #05341D;
+    background-color:#142248;
+    border: #142248;
     float:right;
     font-size:70%; 
     width:20%;
@@ -185,12 +185,12 @@ export default {
     font-size:150%;
   }
   .btn-lendo{
-    color:#8BB174; 
+    color:#009999; 
     font-size:15px;
     
   }
   .btn-lendo:hover{
-    color: #05341D;
+    color: #142248;
     cursor:pointer;
     
   }
@@ -209,13 +209,13 @@ export default {
     margin-bottom: 5px;
   }
   .colunas ul li{
-    color:#8BB174;
+    color:#009999;
   }
   .colunas ul li a {
-    color:#05341D;
+    color:#142248;
   }
   .colunas ul li a:hover {
-    color:#8BB174;
+    color:#009999;
     text-decoration:none;
     cursor:pointer;
   }
@@ -223,7 +223,7 @@ export default {
 @media screen and (min-width: 992px){
             hr{
               display:block;
-              border-top: 4px solid #8BB174;
+              border-top: 4px solid #009999;
               margin-left:25px;
               margin-top:3px;
               margin-bottom:10px;
@@ -278,7 +278,7 @@ export default {
               height:100vh;
               min-height:560px;
               max-height:560px;
-              background-color:#8BB174;
+              background-color:#009999;
             }
 
 }

@@ -99,14 +99,14 @@ export default {
   }
    .itens ul li a:hover {
     
-    color:#8BB174;
+    color:#009999;
     text-decoration: none;
     
     
   }
   .rodape{
     width:100%;
-    background-color:#06351d;
+    background-color:#142248;
     color:white;
     margin-bottom:-250px;
   }
@@ -119,7 +119,7 @@ export default {
 
   }
   .menu-rodape a:hover{
-    color:#8BB174;
+    color:#009999;
     text-decoration: none;
     
   }

@@ -135,7 +135,7 @@ export default {
   }
   
   .titulon:hover{
-    color:#8BB174;
+    color:#009999;
   }
   .tipo:hover{
     color:#05341D;
@@ -173,18 +173,18 @@ export default {
   .botao{
     margin-top:0px;
     background-color:#05341D;
-    border: #8BB174;
+    border: #009999;
     float:right;
     font-size:70%; 
     width:20%;
     
   }
   .botao:hover{
-    background-color:#8BB174;
+    background-color:#009999;
   }
  
   .tipo{
-    color:#8BB174;
+    color:#009999;
     text-align: left;
   }
   .img{
@@ -218,8 +218,8 @@ export default {
       background-color:#05341D; border-color:#05341D;
     }
     .btn-pesquisa:hover{
-      background-color:#8BB174; ; 
-      border-color:#8BB174;
+      background-color:#009999; ; 
+      border-color:#009999;
     }
     .cabecalho{
       display:flex;
@@ -237,7 +237,7 @@ export default {
     }
     hr{
       display:block;
-      border-top: 4px solid #8BB174;
+      border-top: 4px solid #009999;
       margin-left:25px;
       margin-top:3px;
       margin-bottom:-2px;
@@ -272,7 +272,7 @@ export default {
       height:100vh;
       min-height:250px;
       max-height:250px;
-      background-color:#8BB174;
+      background-color:#009999;
     }
     .trading{
       margin-top:-330px;

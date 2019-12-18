@@ -78,14 +78,14 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .botao{
-    background-color: #05341D; border-color: #05341D;
+    background-color: #142248; border-color: #142248;
     
     
     margin-right:-15px;
   }
   .botao:hover{
-    background-color:#8BB174; 
-    border-color:#8BB174;
+    background-color:#009999; 
+    border-color:#009999;
   }
   .caixa{
     width:90%;
@@ -105,10 +105,10 @@ export default {
     cursor:pointer;
   }
   .titulon:hover{
-    color:#8BB174;
+    color:#009999;
   }
   .tipo:hover{
-    color:#05341D;
+    color:#142248;
   }
   .info{
     width:100%;
@@ -146,18 +146,18 @@ export default {
     text-transform: uppercase;
   }
   .btn-lendo{
-    color:#8BB174; 
+    color:#009999; 
     font-size:15px;
     
   }
   .btn-lendo:hover{
-    color: #05341D;
+    color: #142248;
     cursor:pointer;
     
   }
  
   .tipo{
-    color:#8BB174;
+    color:#009999;
     text-align: left;
   }
 
