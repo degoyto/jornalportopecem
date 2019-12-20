@@ -28,7 +28,7 @@
 import principais from "@/components/paginaInicial/principais"
 import principais2 from "@/components/paginaInicial/principais2"
 import principais3 from "@/components/paginaInicial/principais3"
-import anuncio from "@/components/anuncio"
+import anuncio from "@/components/anuncios/anuncio"
 
 
 export default {

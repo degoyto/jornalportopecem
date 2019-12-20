@@ -5,7 +5,17 @@
 <script>
 
 export default {
-  
+     
+      data () {
+        return {
+          url:'https://imagensportopecem2.s3.amazonaws.com/anuncios/anuncio.jpg'
+          
+        }  
+      },
+      async mounted (){
+
+        
+      }
     
   }
 </script>

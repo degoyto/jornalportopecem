@@ -14,7 +14,7 @@
       <!-- Aqui se encontra a logo e o anuncio do cabeçalho -->
       <div class="abaixo">
         <img @click="navigateTu()" class="logo" src="../assets/logo.svg">
-        <anuncio class="img-anuncio1"></anuncio>
+        <a href="http://www.rodopublis.com.br"><img class="anuncio" src="https://imagensportopecem2.s3.amazonaws.com/anuncios/rodo.jpg" /></a>
       </div> 
     </div>
 
@@ -106,14 +106,14 @@
 
 <script>
 import AuthenticationService from "@/services/AuthenticationService"
-import anuncio from "@/components/anuncio"
+import anuncio from "@/components/anuncios/anuncio"
 export default {
     data(){
       return{
         show: false,
         type: "#fff",
-        itemPesquisado:null
-        
+        itemPesquisado:null,
+        link:"https://http2.mlstatic.com/maquina-de-costura-reta-brother-usada-barata-anuncie-aqui-D_NQ_NP_892248-MLB31004356906_062019-F.jpg"
       }
       
     },
@@ -205,12 +205,7 @@ export default {
     .logo:hover{
       cursor:pointer;
     }
-    .anuncio-cabecalho{
-      
-      width:30%;
-      height:50px;
-      margin-top:50px;
-    }
+    
 
     /*menu */
     .noticias-btn{
@@ -248,12 +243,18 @@ export default {
   .botao{
     margin-left:90%;
   }
- 
+  .anuncio{
+    width: 100%;
+  }
 
   /*versão pc*/
   
   @media screen and (min-width: 992px){
-    
+    .anuncio{
+        width:60%;
+        margin-left:263px;
+        margin-top:60px;
+      }
     .pesquise{
       display:none;
       
@@ -274,14 +275,7 @@ export default {
         
         
     }
-    .anuncio-cabecalho{
-        
-      width:35%;
-      min-height:120px;
-      margin-top:60spx;
-      
-        
-    }
+    
 
     /*barra menu*/
     .cel{

@@ -71,7 +71,7 @@
 
 import NoticiaService from "@/services/NoticiaService"
 import Panel from "@/components/Panel"
-import anuncio from "@/components/anuncio"
+import anuncio from "@/components/anuncios/anuncio"
 import VClamp from 'vue-clamp'
 import principais2 from "@/components/paginaInicial/principais2"
 import VueTradingView from 'vue-trading-view';

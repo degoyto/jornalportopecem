@@ -32,7 +32,7 @@
 import NoticiaService from "@/services/NoticiaService"
 import Panel from "@/components/Panel"
 import VClamp from 'vue-clamp'
-import anuncio from "@/components/anuncio"
+import anuncio from "@/components/anuncios/anuncio"
 
 export default {
   

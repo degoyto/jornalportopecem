@@ -41,7 +41,7 @@
 </template>
 <script>
 import AuthenticationService from "@/services/AuthenticationService"
-import anuncio from "@/components/anuncio"
+import anuncio from "@/components/anuncios/anuncio"
 export default {
     data(){
       return{
