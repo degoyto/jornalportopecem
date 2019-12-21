@@ -93,6 +93,9 @@ export default {
         else if (this.nome=="internacionais"){
             this.nome="Notícias Internacionais"
         }
+        else if (this.nome=="boletim"){
+            this.nome="Boletim Portuário"
+        }
         else if (this.nome=="artigos"){
             this.nome="Artigos e Opinião"
         }
