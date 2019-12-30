@@ -42,8 +42,7 @@
     </div>
     <principais3></principais3>
     <div class="container btn-destaques">
-      <img  @click="navigateTo('caucaia')"  src="../assets/destaquecaucaia" class="caucaia cum" >
-      <img @click="navigateTo('complexo')" src="../assets/complexo.jpg" class="caucaia cdois">
+      
     </div>
     
 
@@ -95,16 +94,16 @@ export default {
   .capa{
     position:fixed;
 
-    width:80vw;
+    width:90vw;
     padding:50px;
     padding-top:0px;
     padding-bottom:10px;
-    left: calc(50vw - 540px);
+    left: calc(50vw - 230px);
     background:white;
     border-radius: 7px;
     top:20px;
     box-shadow: 0px 0px 5px black;
-    font-size:15px;
+    font-size:12px;
     background: #f1f1f1;;
   }
   .loguito{
@@ -150,6 +149,21 @@ export default {
     margin-bottom: 5px;
   }
   @media screen and (min-width: 992px){
+    .capa{
+      position:fixed;
+
+      width:80vw;
+      padding:50px;
+      padding-top:0px;
+      padding-bottom:10px;
+      left: calc(50vw - 540px);
+      background:white;
+      border-radius: 7px;
+      top:20px;
+      box-shadow: 0px 0px 5px black;
+      font-size:15px;
+      background: #f1f1f1;;
+    }
     .btn-destaques{
       
       display: flex;

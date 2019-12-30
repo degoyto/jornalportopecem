@@ -10,6 +10,7 @@ import Home from '@/components/Home'
 import EditNoticias from "@/components/EditNoticias"
 import noticiasLista from "@/components/noticiasLista"
 import resultado from "@/components/resultado"
+import Expediente from "@/components/expediente"
 
 Vue.use(Router)
 
@@ -60,6 +61,11 @@ export default new Router({
       path: '/home',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/expediente',
+      name: 'expediente',
+      component: Expediente
     }
   ]
 })
