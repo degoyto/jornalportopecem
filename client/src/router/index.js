@@ -11,6 +11,7 @@ import EditNoticias from "@/components/EditNoticias"
 import noticiasLista from "@/components/noticiasLista"
 import resultado from "@/components/resultado"
 import Expediente from "@/components/expediente"
+import Somos from "@/components/Somos"
 
 Vue.use(Router)
 
@@ -66,6 +67,11 @@ export default new Router({
       path: '/expediente',
       name: 'expediente',
       component: Expediente
+    },
+    {
+      path: '/somos',
+      name: 'somos',
+      component: Somos 
     }
   ]
 })
