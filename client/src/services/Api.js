@@ -2,6 +2,6 @@ import axios from 'axios'
 
 export default()=>{
      return axios.create({
-         baseURL: `https://jornal-porto-pecem-back.herokuapp.com/`
+         baseURL: `https://dev-aileron-262703.appspot.com/`
      })
 }
