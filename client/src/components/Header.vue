@@ -14,7 +14,7 @@
       <!-- Aqui se encontra a logo e o anuncio do cabeçalho -->
       <div class="abaixo">
         <img @click="navigateTu()" class="logo" src="../assets/logo.svg">
-        <a href="http://www.rodopublis.com.br"><img class="anuncio" src="https://imagensportopecem2.s3.amazonaws.com/anuncios/rodo.jpg" /></a>
+        <anuncio class="anuncio"></anuncio>
       </div> 
     </div>
 
@@ -148,6 +148,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
 .pesquisa{
   display:none;
 }
@@ -170,6 +171,7 @@ export default {
     width:100%;
     
   }
+  
   .data{
     text-align: left;
     margin-left:25px;
@@ -185,7 +187,7 @@ export default {
     
     
     display:flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
   }
   /*cabeçalho celular*/
     .cabecalho{
@@ -197,11 +199,11 @@ export default {
       
     }
     .logo{
-      width:60%;
-      
-      
-     
+      width:85%;
+      margin-left:-40px;
+      /* background:red; */
     }
+
     .logo:hover{
       cursor:pointer;
     }
@@ -211,10 +213,6 @@ export default {
     .noticias-btn{
       display: none;
     }
-    
-
-  
-    
     
   /*barra menu*/
   .pc{
@@ -244,16 +242,23 @@ export default {
     margin-left:90%;
   }
   .anuncio{
-    width: 100%;
+    margin-top:15%;
+    width: 30%;
+    height:5vh;
+    
+    margin-left:-15px;
   }
 
   /*versão pc*/
   
   @media screen and (min-width: 992px){
     .anuncio{
-        width:60%;
-        margin-left:263px;
-        margin-top:60px;
+        width:35%;
+        margin-left:70px;
+        margin-top:10%;
+        height:100vh;
+        max-height:100px;
+        
       }
     .pesquise{
       display:none;
@@ -270,8 +275,8 @@ export default {
       
     }
     .logo{
-        width:50%;
-        margin-left:0px;
+        width:65%;
+        margin-left:-70px;
         
         
     }

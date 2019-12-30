@@ -20,7 +20,7 @@
           <div class="info">
             <div class="itens">
               <h1 class="titulon" @click="navigateTo(noticia.id)"  >
-                <v-clamp autoresize :max-lines="3" >{{ noticia.title }}</v-clamp>
+                <v-clamp autoresize  >{{ noticia.title }}</v-clamp>
               </h1>
               
               <div class="tipo">
@@ -58,7 +58,9 @@
                 width: 360,
                 height:240
           }"/>
-        <anuncio class="anuncio1 img-anuncio1"></anuncio>
+          
+        <a href="http://www.rodopublis.com.br"><img class="anuncio" src="https://imagensportopecem2.s3.amazonaws.com/anuncios/rodo.jpg" /></a>
+
 
     </div>
     <principais2 :exceto="noticias[0].id"></principais2>
@@ -114,6 +116,7 @@ export default {
   hr{
     display: none;
   }
+  
   .conteudo{
     
     height:120px;
@@ -140,11 +143,7 @@ export default {
   .tipo:hover{
     color:#05341D;
   }
-  .img-anuncio1{
-      width:100%;
-      margin-top:25px;
-      margin-bottom: 20px;
-  }
+  
   .info{
     width:102%;
     
@@ -213,10 +212,16 @@ export default {
   .pesquisa{
     display:none;
   }
+  .div-anuncio img{
+      margin-top:20px;
+      margin-bottom: 20px;
+      width:100%;
+    }
   @media screen and (min-width: 992px){
     .btn-pesquisa{
       background-color:#05341D; border-color:#05341D;
     }
+   
     .btn-pesquisa:hover{
       background-color:#009999; ; 
       border-color:#009999;
@@ -265,17 +270,21 @@ export default {
   .div-anuncio{
       width:40%;
       float:right;
-      margin-top:350px;
+      margin-top:300px;
       margin-bottom: 20px;
-      
-      
-      height:100vh;
-      min-height:250px;
-      max-height:250px;
-      background-color:#009999;
+      min-height:300px;
+      max-height:300px;
+      border-style:solid;
+      border-width: 2px;
+      border-color: #05341D;
+      background-color: white; 
+    }
+    .div-anuncio img{
+      margin-top:130px;
+      width:100%;
     }
     .trading{
-      margin-top:-330px;
+      margin-top:-280px;
     }
   }
 </style>
