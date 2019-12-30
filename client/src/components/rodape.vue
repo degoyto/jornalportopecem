@@ -6,17 +6,21 @@
     <div class="rodape ">
       <div class="itens">
       <ul>
-        <li><a href="#">destaques portuários</a></li>
-        <li class="noticias-btn"><a href="#">Notícias</a></li>
+        <li><a @click="navigateTo('destaques')">destaques portuários</a></li>
+              
+        <li><a @click="navigateTo('nacionais')">Nacionais</a></li>
+                      
+        <li><a @click="navigateTo('internacionais')">Internacionais</a></li>
         
-        <li><a href="#">Artigos e Opinião</a></li>
-        <li><a href="#"> turismo</a></li>
+        <li><a @click="navigateTo('artigos')">Artigos e Opinião</a></li>
+        
+        <li><a @click="navigateTo('turismo')"> turismo</a></li>
 
-        <li><a href="#">Comércio exterior</a></li>
-        <li><a href="#">logística e transporte</a></li>
-        <li><a href="#">entrevistas</a></li> 
-        <li><a href="#">Portos do Brasil</a></li>
-        <li><a href="#">Eventos</a></li>
+        <li><a @click="navigateTo('comex')">Comércio exterior</a></li>
+        <li><a @click="navigateTo('logistica')">logística e transporte</a></li>
+        <li><a @click="navigateTo('entrevistas')">entrevistas</a></li> 
+        <li><a @click="navigateTo('portos')">Portos do Brasil</a></li>
+        <li><a @click="navigateTo('eventos')">Eventos</a></li>
                                         
                 
             
@@ -25,9 +29,11 @@
       
 			<ul class="menu-rodape" >
 
-		        <li><a class="primeiro-link" href="#">INFORMAÇÕES ÚTEIS</a></li>
-		        <li><a href="#">EMPREGOS NO PECÉM</a></li>   
-		        <li><a href="#">EXPEDIENTE</a></li>
+		        <!-- <li><a class="primeiro-link" href="#">INFORMAÇÕES ÚTEIS</a></li>
+		        <li><a href="#">EMPREGOS NO PECÉM</a></li>    -->
+
+		        <li><a href="#">QUEM SOMOS</a></li>
+		        <li><a href="#/expediente">EXPEDIENTE</a></li>
 		        <li><a href="#">CONTATO</a></li>
 		       
 	        </ul>
@@ -54,8 +60,9 @@ export default {
       anuncio,
     },
     methods: {
-      navigateTo (route){
-        this.$route.push(route)
+      navigateTo (recebido){
+        this.$router.push({ name: 'noticiasLista', params: { nome: recebido  } })
+        window.location.reload()
       },
       logout(){
         this.$store.dispatch("setToken", null)
@@ -73,11 +80,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .img-anuncio1{
-      width:100%;
-      margin-top:25px;
-      margin-bottom: 20px;
-      max-height:120px;
-    }
+    width:100%;
+    margin-top:25px;
+    margin-bottom: 20px;
+    max-height:120px;
+  }
   .itens{
     display:none;
     
