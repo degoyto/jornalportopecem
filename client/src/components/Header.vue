@@ -30,26 +30,26 @@
             <!-- Esse aparece na versão pc -->
             <ul class="pc">
               
-              <li><a @click="navigateTo('destaques')">destaques portuários</a></li>
+              <li><a href="#/noticias/destaques" @click="navigateTo()">destaques portuários</a></li>
             
-              <li class="noticias-btn"><a @click="navigateTo('noticias')">Notícias</a>
+              <li class="noticias-btn"><a href="#/noticias/noticias" @click="navigateTo()">Notícias</a>
                       <ul>
-                            <li><a @click="navigateTo('nacionais')">Nacionais</a></li>
+                            <li><a href="#/noticias/nacionais" @click="navigateTo()">Nacionais</a></li>
                             
-                            <li><a @click="navigateTo('internacionais')">Internacionais</a></li>
+                            <li><a href="#/noticias/internacionais" @click="navigateTo()">Internacionais</a></li>
                                           
                       </ul>
                   </li>
               
-              <li><a @click="navigateTo('artigos')">Artigos e Opinião</a></li>
+              <li><a href="#/noticias/artigos" @click="navigateTo()">Artigos e Opinião</a></li>
               
-              <li><a @click="navigateTo('turismo')"> turismo</a></li>
+              <li><a href="#/noticias/turismo" @click="navigateTo()"> turismo</a></li>
 
-              <li><a @click="navigateTo('comex')">Comércio exterior</a></li>
-              <li><a @click="navigateTo('logistica')">logística e transporte</a></li>
-              <li><a @click="navigateTo('entrevistas')">entrevistas</a></li> 
-              <li><a @click="navigateTo('portos')">Portos do Brasil</a></li>
-              <li><a @click="navigateTo('eventos')">Eventos</a></li>
+              <li><a href="#/noticias/comex" @click="navigateTo()">Comércio exterior</a></li>
+              <li><a href="#/noticias/logistica" @click="navigateTo()">logística e transporte</a></li>
+              <li><a href="#/noticias/entrevistas" @click="navigateTo()">entrevistas</a></li> 
+              <li><a href="#/noticias/portos" @click="navigateTo()">Portos do Brasil</a></li>
+              <li><a href="#/noticias/eventos" @click="navigateTo()">Eventos</a></li>
                                               
                       
                   
@@ -57,25 +57,22 @@
             <!-- Esse so aparece na versão mobile -->
             <ul class="cel">
               
-              <li><a @click="navigateTo('destaques')">destaques portuários</a></li>
+              <li><a href="#/noticias/destaques" @click="navigateTo()">destaques portuários</a></li>
               
-
-              <li><a @click="navigateTo('nacionais')">Nacionais</a></li>
+              <li><a href="#/noticias/nacionais" @click="navigateTo()">Nacionais</a></li>
                             
-              <li><a @click="navigateTo('internacionais')">Internacionais</a></li>
+              <li><a href="#/noticias/internacionais" @click="navigateTo()">Internacionais</a></li>
               
-              <li><a @click="navigateTo('artigos')">Artigos e Opinião</a></li>
+              <li><a href="#/noticias/artigos" @click="navigateTo()">Artigos e Opinião</a></li>
               
-              <li><a @click="navigateTo('turismo')"> turismo</a></li>
+              <li><a href="#/noticias/turismo" @click="navigateTo()"> turismo</a></li>
 
-              <li><a @click="navigateTo('comex')">Comércio exterior</a></li>
-              <li><a @click="navigateTo('logistica')">logística e transporte</a></li>
-              <li><a @click="navigateTo('entrevistas')">entrevistas</a></li> 
-              <li><a @click="navigateTo('portos')">Portos do Brasil</a></li>
-              <li><a @click="navigateTo('eventos')">Eventos</a></li>
-                                              
-                      
-                  
+              <li><a href="#/noticias/comex" @click="navigateTo()">Comércio exterior</a></li>
+              <li><a href="#/noticias/logistica" @click="navigateTo()">logística e transporte</a></li>
+              <li><a href="#/noticias/entrevistas" @click="navigateTo()">entrevistas</a></li> 
+              <li><a href="#/noticias/portos" @click="navigateTo()">Portos do Brasil</a></li>
+              <li><a href="#/noticias/eventos" @click="navigateTo()">Eventos</a></li>
+                                                   
             </ul>
 
           <!-- Right aligned nav items -->
@@ -112,6 +109,7 @@ export default {
       return{
         show: false,
         type: "#fff",
+        noticia:null,
         itemPesquisado:null,
         link:"https://http2.mlstatic.com/maquina-de-costura-reta-brother-usada-barata-anuncie-aqui-D_NQ_NP_892248-MLB31004356906_062019-F.jpg"
       }
@@ -122,10 +120,10 @@ export default {
     },
     
     methods: {
-      navigateTo (recebido){
+      navigateTo (){
         
-        this.$router.push({ name: 'noticiasLista', params: { nome: recebido  } })
-        window.location.reload()
+        
+        // window.location.reload()
       },
       navigateTu (){
         this.$router.push({ name: 'root'})
@@ -139,6 +137,11 @@ export default {
       pesquisa(){
         this.$router.push({ name: 'resultado', params: { nome: this.itemPesquisado  } })
         window.location.reload()
+      },
+      noticias(noticiaRecebida){
+        console.log(noticiaRecebida)
+        this.noticia = noticiaRecebida
+        this.$store.dispatch("setNoticia", this.noticia)
       }
     }
   }

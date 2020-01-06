@@ -13,7 +13,8 @@ export default new Vuex.Store({
         token:null,
         user: null,
         isUserLoggedIn: false,
-        nome:true
+        nome:true,
+        noticia:null,
     },
     mutations: {
         setToken(state, token){
@@ -29,6 +30,9 @@ export default new Vuex.Store({
         },
         setNome(state, nome){
             state.nome = nome
+        },
+        setNoticia(state, noticia){
+            state.noticia = noticia
         }
     },
     actions:{
@@ -40,6 +44,9 @@ export default new Vuex.Store({
         },
         setNome ({commit}, nome){
             commit("setNome", nome)
+        },
+        setNoticia(state, noticia){
+            state.noticia = noticia
         }
     }
 

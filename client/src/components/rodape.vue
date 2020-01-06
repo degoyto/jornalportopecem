@@ -32,7 +32,7 @@
 		        <!-- <li><a class="primeiro-link" href="#">INFORMAÇÕES ÚTEIS</a></li>
 		        <li><a href="#">EMPREGOS NO PECÉM</a></li>    -->
 
-		        <li><a href="#">QUEM SOMOS</a></li>
+		        <li><a href="#/quemsomos">QUEM SOMOS</a></li>
 		        <li><a href="#/expediente">EXPEDIENTE</a></li>
 		        <li><a href="#">CONTATO</a></li>
 		       

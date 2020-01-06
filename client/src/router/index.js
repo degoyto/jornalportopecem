@@ -69,7 +69,7 @@ export default new Router({
       component: Expediente
     },
     {
-      path: '/somos',
+      path: '/quemsomos',
       name: 'somos',
       component: Somos 
     }

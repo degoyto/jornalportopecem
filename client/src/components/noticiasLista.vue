@@ -64,7 +64,7 @@ export default {
                 
             },
             titulo:null,
-            nome:null,
+            nome:this.$store.state.route.params.nome,
             
         }
     },
@@ -77,9 +77,17 @@ export default {
             this.$router.push({ name: 'noticia', params: { noticiaId: recebido  } })
             this.$router.go(1)
       },
+      async att(){
+          this.noticias = (await NoticiaService.filtro(this.nome)).data
+      }
+
+    },
+    watch: {
+        '$store.state.route.params.nome': function (val) {
+            console.log($store.state.route.params.nome);
+        },
     },
     async mounted (){
-        this.nome = this.$store.state.route.params.nome
         this.noticias = (await NoticiaService.filtro(this.nome)).data
         if (this.nome=="destaques"){
             this.nome="Destaques Portuários"
