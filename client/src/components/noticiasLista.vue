@@ -56,6 +56,8 @@ import NoticiaService from "@/services/NoticiaService"
 import Panel from "@/components/Panel"
 import anuncio from "@/components/anuncios/anuncio"
 import VClamp from 'vue-clamp'
+
+
 export default {
     
     data(){
@@ -64,7 +66,7 @@ export default {
                 
             },
             titulo:null,
-            nome:this.$store.state.route.params.nome,
+            nome:this.$route.params.nome,
             
         }
     },
@@ -83,8 +85,8 @@ export default {
 
     },
     watch: {
-        '$store.state.route.params.nome': function (val) {
-            console.log($store.state.route.params.nome);
+        '$route.params.nome': function (val) {
+            window.location.reload();
         },
     },
     async mounted (){
