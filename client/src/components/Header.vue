@@ -57,21 +57,21 @@
             <!-- Esse so aparece na versão mobile -->
             <ul class="cel">
               
-              <li><a href="#/noticias/destaques" @click="navigateTo()">destaques portuários</a></li>
+              <li><a href="#/noticias/destaques" >destaques portuários</a></li>
               
-              <li><a href="#/noticias/nacionais" @click="navigateTo()">Nacionais</a></li>
+              <li><a href="#/noticias/nacionais" >Nacionais</a></li>
                             
-              <li><a href="#/noticias/internacionais" @click="navigateTo()">Internacionais</a></li>
+              <li><a href="#/noticias/internacionais" >Internacionais</a></li>
               
-              <li><a href="#/noticias/artigos" @click="navigateTo()">Artigos e Opinião</a></li>
+              <li><a href="#/noticias/artigos" >Artigos e Opinião</a></li>
               
-              <li><a href="#/noticias/turismo" @click="navigateTo()"> turismo</a></li>
+              <li><a href="#/noticias/turismo" > turismo</a></li>
 
-              <li><a href="#/noticias/comex" @click="navigateTo()">Comércio exterior</a></li>
-              <li><a href="#/noticias/logistica" @click="navigateTo()">logística e transporte</a></li>
-              <li><a href="#/noticias/entrevistas" @click="navigateTo()">entrevistas</a></li> 
-              <li><a href="#/noticias/portos" @click="navigateTo()">Portos do Brasil</a></li>
-              <li><a href="#/noticias/eventos" @click="navigateTo()">Eventos</a></li>
+              <li><a href="#/noticias/comex" >Comércio exterior</a></li>
+              <li><a href="#/noticias/logistica" >logística e transporte</a></li>
+              <li><a href="#/noticias/entrevistas" >entrevistas</a></li> 
+              <li><a href="#/noticias/portos" >Portos do Brasil</a></li>
+              <li><a href="#/noticias/eventos" >Eventos</a></li>
                                                    
             </ul>
 

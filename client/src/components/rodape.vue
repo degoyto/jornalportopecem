@@ -6,21 +6,21 @@
     <div class="rodape ">
       <div class="itens">
       <ul>
-        <li><a @click="navigateTo('destaques')">destaques portuários</a></li>
+        <li><a href="#/noticias/destaques" >destaques portuários</a></li>
               
-        <li><a @click="navigateTo('nacionais')">Nacionais</a></li>
+        <li><a href="#/noticias/nacionais" >Nacionais</a></li>
                       
-        <li><a @click="navigateTo('internacionais')">Internacionais</a></li>
+        <li><a href="#/noticias/internacionais" >Internacionais</a></li>
         
-        <li><a @click="navigateTo('artigos')">Artigos e Opinião</a></li>
+        <li><a href="#/noticias/artigos" >Artigos e Opinião</a></li>
         
-        <li><a @click="navigateTo('turismo')"> turismo</a></li>
+        <li><a href="#/noticias/turismo" > turismo</a></li>
 
-        <li><a @click="navigateTo('comex')">Comércio exterior</a></li>
-        <li><a @click="navigateTo('logistica')">logística e transporte</a></li>
-        <li><a @click="navigateTo('entrevistas')">entrevistas</a></li> 
-        <li><a @click="navigateTo('portos')">Portos do Brasil</a></li>
-        <li><a @click="navigateTo('eventos')">Eventos</a></li>
+        <li><a href="#/noticias/comex" >Comércio exterior</a></li>
+        <li><a href="#/noticias/logistica" >logística e transporte</a></li>
+        <li><a href="#/noticias/entrevistas" >entrevistas</a></li> 
+        <li><a href="#/noticias/portos" >Portos do Brasil</a></li>
+        <li><a href="#/noticias/eventos" >Eventos</a></li>
                                         
                 
             
