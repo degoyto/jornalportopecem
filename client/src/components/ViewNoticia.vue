@@ -58,6 +58,11 @@ export default {
     methods: {
         
     },
+    watch: {
+        '$route.params.noticiaId': function (val) {
+            window.location.reload();
+        },
+    },
     async mounted (){
         const noticiaId = this.$store.state.route.params.noticiaId
         this.noticia = (await NoticiaService.show(noticiaId)).data
