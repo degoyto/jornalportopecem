@@ -42,14 +42,16 @@
     </div>
     <principais3></principais3>
     <div class="container btn-destaques">
+      <a href="#/noticias/caucaia" class="caucaia">
+        <img src="../assets/complexo.jpg" />
+      </a>
+
+      <a href="#/noticias/caucaia" class="caucaia">
+        <img src="../assets/destaquecaucaia.jpg"  />
+      </a>
       
     </div>
     
-
-    
-    
-    
- 
  </div>
 
 </template>
@@ -75,10 +77,6 @@ export default {
       }
     },  
   methods:{
-      navigateTo (recebido){
-          this.$router.push({ name: 'noticiasLista', params: { nome: recebido  } })
-          window.location.reload()
-        },
         abre(){
           this.aberto=false;
           this.$store.dispatch("setNome", this.aberto)
@@ -138,8 +136,11 @@ export default {
       cursor:pointer;
     }
   .caucaia{
-    width:95%;
+    width:80%;
     margin-bottom: 15px;
+  }
+  .caucaia img{
+    width:100%;
   }
   .colunas{
     text-align: left;

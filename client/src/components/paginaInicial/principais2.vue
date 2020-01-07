@@ -3,19 +3,21 @@
     
     <div class="noticia">
       <div class= "caixa" v-for="noticia in noticias" :key="noticia.id"  >
-        <div class="info" @click="navigateTo(noticia.id)" >
-              
-              <div  @click="navigateTo(noticia.id)" class="itens">
-                <v-clamp autoresize :max-lines="3" class="titulon">{{ noticia.title }}</v-clamp>
-                <div class="tipo">
-                  {{noticia.tipo}}
-                  
-                </div>
-        
+        <router-link class="link-noticia" :to="{ name: 'noticia', params: { noticiaId: noticia.id}}">
+          <div class="info"  >
                 
-            </div> 
+                <div   class="itens">
+                  <v-clamp autoresize class="titulon">{{ noticia.title }}</v-clamp>
+                  <div class="tipo">
+                    {{noticia.tipo}}
+                    
+                  </div>
           
-        </div>
+                  
+              </div> 
+            
+          </div>
+        </router-link>
       </div>
     </div>
       
@@ -82,6 +84,10 @@ export default {
     
     
     margin-right:-15px;
+  }
+  .link-noticia{
+    text-decoration: none;
+    color:#212121;
   }
   .botao:hover{
     background-color:#009999; 
