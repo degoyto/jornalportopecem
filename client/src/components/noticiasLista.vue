@@ -14,12 +14,13 @@
 
                             <div class="info" >
                                 <div class="itens">
-                                    <h1  @click="navigateTo(noticia.id)" >{{noticia.title}}</h1>
-                                <div class="tipo">
+                                    <div class="tipo">
                                     
-                                    {{noticia.tipo}}
+                                        {{noticia.tipo}}
                                 
-                                </div>
+                                    </div>
+                                    <h1  @click="navigateTo(noticia.id)" >{{noticia.title}}</h1>
+                                
                                 <div class="conteudo" >
                                     <div @click="navigateTo(noticia.id)" >
                                         <v-clamp autoresize :max-lines="4"  >{{ noticia.resumo}}</v-clamp>
@@ -296,7 +297,7 @@ export default {
         .info{
                 width:45%;
                 margin-left:20px;
-                margin-top:-10px;
+                margin-top:0px;
             }
         .teste{
             text-align:left;
@@ -330,12 +331,13 @@ export default {
             font-size:12px;
         }
         .conteudo{
-            margin-top:15px;
+            margin-top:20px;
         }
         .itens h1{
-            font-size:30px;
+            font-size:28px;
             margin-top:5px;
             height:150px;
+            margin-bottom:10px;
         }
        
 
