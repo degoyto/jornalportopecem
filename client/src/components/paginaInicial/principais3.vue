@@ -4,11 +4,11 @@
       <h1>ÚLTIMAS NOTÍCIAS</h1>
       <hr />
       <div class= "caixa" v-for="noticia in noticias" :key="noticia.id"  >
-        
-          <div @click="navigateTo(noticia.id)" class="img"  v-bind:style="{ backgroundImage: 'url(' + noticia.fotoUrl + ')' }"></div>
+          <router-link class="link-noticia" :to="{ name: 'noticia', params: { noticiaId: noticia.id}}">
+          <div  class="img"  v-bind:style="{ backgroundImage: 'url(' + noticia.fotoUrl + ')' }"></div>
         
           <div class="info">
-            <div class="itens" @click="navigateTo(noticia.id)">
+            <div class="itens">
               <v-clamp autoresize :max-lines="3" class="titulon">{{ noticia.title }}</v-clamp>
               <div class="tipo">
               
@@ -25,6 +25,7 @@
             
             </div>
           </div>
+          </router-link>
       </div>
       
 
@@ -98,6 +99,10 @@ export default {
   }
   hr{
     display: none;
+  }
+  .link-noticia{
+    text-decoration: none;
+    color:#212121;
   }
   .img, .titulon, .tipo, .conteudo:hover{
     cursor:pointer;
