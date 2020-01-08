@@ -125,7 +125,7 @@ export default {
         // To use "this" in the component, it is necessary to return the object through a function
         title: function () {
         return {
-            inner: "teste"
+            inner: noticia.title
         }
         },
         meta: [
