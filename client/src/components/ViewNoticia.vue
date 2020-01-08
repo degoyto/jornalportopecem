@@ -1,5 +1,19 @@
 <template>
     <div class="container caixa">
+        
+
+
+        <!-- https://medium.com/@ramansah/server-side-rendered-open-graph-meta-tags-in-vue-js-31d864004306 -->
+
+
+
+
+
+        <!-- <vue-headful
+            :title="noticia.title"
+            description="Description from vue-headful"
+        /> -->
+        <meta property="og:title"              content="When Great Minds Don’t Think Alike" />
         <div class="cabecalho">
             <div class="tipo">
                 {{noticia.tipo}}
@@ -31,8 +45,61 @@
                 <div class="conteudo-texto" v-html="noticia.conteudo" >{{noticia.conteudo}}</div>
             
             </div>
-
-            
+            <fb-comment :url="essaUrl.href" />
+            <!-- <social-sharing url="http://jornalportodopecem.com.br/#/noticia/24"
+                      description="Intuitive, Fast and Composable MVVM for building interactive interfaces."
+                      quote="Vue is a progressive framework for building user interfaces."
+                      hashtags="vuejs,javascript,framework"
+                      twitter-user="vuejs"
+                      inline-template>
+                <div>
+                    <network network="email">
+                        <i class="fa fa-envelope"></i> Email
+                    </network>
+                    <network network="facebook">
+                        <i class="fa fa-facebook"></i> Facebook
+                    </network>
+                    <network network="googleplus">
+                        <i class="fa fa-google-plus"></i> Google +
+                    </network>
+                    <network network="line">
+                        <i class="fa fa-line"></i> Line
+                    </network>
+                    <network network="linkedin">
+                        <i class="fa fa-linkedin"></i> LinkedIn
+                    </network>
+                    <network network="odnoklassniki">
+                        <i class="fa fa-odnoklassniki"></i> Odnoklassniki
+                    </network>
+                    <network network="pinterest">
+                        <i class="fa fa-pinterest"></i> Pinterest
+                    </network>
+                    <network network="reddit">
+                        <i class="fa fa-reddit"></i> Reddit
+                    </network>
+                    <network network="skype">
+                        <i class="fa fa-skype"></i> Skype
+                    </network>
+                    <network network="sms">
+                        <i class="fa fa-commenting-o"></i> SMS
+                    </network>
+                    <network network="telegram">
+                        <i class="fa fa-telegram"></i> Telegram
+                    </network>
+                    <network network="twitter">
+                        <i class="fa fa-twitter"></i> Twitter
+                    </network>
+                    <network network="vk">
+                        <i class="fa fa-vk"></i> VKontakte
+                    </network>
+                    <network network="weibo">
+                        <i class="fa fa-weibo"></i> Weibo
+                    </network> 
+                    <network network="whatsapp">
+                        <i class="fa fa-whatsapp"></i> Whatsapp
+                    </network>
+                </div>
+            </social-sharing> -->
         </div>
         
         <principais4 idNoticia="4"></principais4>
@@ -43,31 +110,47 @@
 import NoticiaService from "@/services/NoticiaService"
 import Panel from "@/components/Panel"
 import principais4 from "@/components/paginaInicial/principais4"
-
+import { ShareFacebook } from 'vue-share-social'
 export default {
+    
     data(){
         return{
             noticia:{
                 
-            }
+            },essaUrl:null
         }
     },
+    // Usage with context the component
+    head: {
+        // To use "this" in the component, it is necessary to return the object through a function
+        title: function () {
+        return {
+            inner: "teste"
+        }
+        },
+        meta: [
+        { name: 'description', content: 'My description', id: 'desc' }
+        ]
+    },
     components:{
-        principais4
+        principais4,
+        ShareFacebook
     },
     methods: {
-        
+        myFunction() {
+            document.getElementById("mymetatag").setAttribute("content", "5;URL=http://google.co.in");
+        }
     },
     watch: {
         '$route.params.noticiaId': function (val) {
             window.location.reload();
-        },
+        }
     },
     async mounted (){
         const noticiaId = this.$store.state.route.params.noticiaId
         this.noticia = (await NoticiaService.show(noticiaId)).data
-        
-        console.log("noticias", this.noticias)
+        this.essaUrl = new URL(location.href);
+        console.log("noticias")
     }
         
     }

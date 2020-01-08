@@ -16,11 +16,28 @@ import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import CKEditor from '@ckeditor/ckeditor5-vue';
 
+import vueHeadful from 'vue-headful';
+
+import VueMeta from 'vue-meta';
+import VueHead from 'vue-head';
+import VueFacebook from 'vue-facebook';
+ 
+Vue.use(VueFacebook)
+
+Vue.use(VueHead)
+
+Vue.use(VueMeta);
+
+var SocialSharing = require('vue-social-sharing');
+Vue.use(SocialSharing);
+
+Vue.component('vue-headful', vueHeadful);
+
+
 library.add(faFacebook)
 library.add(faInstagram)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
-
 
 Vue.use( CKEditor );
 Vue.use(moment);

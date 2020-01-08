@@ -1,6 +1,10 @@
 <template>
     <div class="container">
         <h1 class="titulo">{{nome}}</h1>
+        <vue-headful
+            :title="nome"
+            description="Description from vue-headful"
+        />
         
         <hr class="linhat" />
         <div class="teste">
@@ -73,7 +77,8 @@ export default {
     },
     components:{
         anuncio,
-        VClamp
+        VClamp,
+        
     },
     methods: {
         navigateTo (recebido){
@@ -88,21 +93,22 @@ export default {
     watch: {
         '$route.params.nome': function (val) {
             window.location.reload();
-        },
+        }
     },
     async mounted (){
         this.noticias = (await NoticiaService.filtro(this.nome)).data
+        
         if (this.nome=="destaques"){
             this.nome="Destaques Portuários"
         }
         else if (this.nome=="noticias"){
-            this.nome="Notícias"
+            this.nome="Notícias - Nacionais e Internacionais"
         }
         else if (this.nome=="nacionais"){
-            this.nome="Notícias Nacionais"
+            this.nome="Notícias - Nacionais"
         }
         else if (this.nome=="internacionais"){
-            this.nome="Notícias Internacionais"
+            this.nome="Notícias - Internacionais"
         }
         else if (this.nome=="boletim"){
             this.nome="Boletim Portuário"
@@ -127,6 +133,9 @@ export default {
         }
         else if (this.nome=="eventos"){
             this.nome="Eventos"
+        }
+        else if(this.nome=="caucaia"){
+            this.nome="Destaques de Caucaia e São Gonçalo"
         }
         else{
             this.nome="Nada Encontrado"

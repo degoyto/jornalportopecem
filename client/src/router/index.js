@@ -46,7 +46,11 @@ export default new Router({
     {
       path: '/noticia/:noticiaId',
       name: 'noticia',
-      component: ViewNoticia
+      component: ViewNoticia,
+      meta: {
+        auth: true,
+        title: 'Dashboard'
+      }
     },
     {
       path: '/noticias/:nome',
@@ -75,3 +79,4 @@ export default new Router({
     }
   ]
 })
+
