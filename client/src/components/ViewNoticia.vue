@@ -45,7 +45,7 @@
                 <div class="conteudo-texto" v-html="noticia.conteudo" >{{noticia.conteudo}}</div>
             
             </div>
-            <fb-comment :url="essaUrl.href" />
+            <fb-comment :url="essaUrl.href"/>
             <!-- <social-sharing url="http://jornalportodopecem.com.br/#/noticia/24"
                       description="Intuitive, Fast and Composable MVVM for building interactive interfaces."
                       quote="Vue is a progressive framework for building user interfaces."
@@ -117,20 +117,8 @@ export default {
         return{
             noticia:{
                 
-            },essaUrl:null
+            },
         }
-    },
-    // Usage with context the component
-    head: {
-        // To use "this" in the component, it is necessary to return the object through a function
-        title: function () {
-        return {
-            inner: noticia.title
-        }
-        },
-        meta: [
-        { name: 'description', content: 'My description', id: 'desc' }
-        ]
     },
     components:{
         principais4,
@@ -149,11 +137,12 @@ export default {
     async mounted (){
         const noticiaId = this.$store.state.route.params.noticiaId
         this.noticia = (await NoticiaService.show(noticiaId)).data
-        this.essaUrl = new URL(location.href);
-        console.log("noticias")
+        this.essaUrl = await new URL(location.href);
+        console.log("noticias", this.essaUrl)
     }
         
     }
+
 </script>
 
 

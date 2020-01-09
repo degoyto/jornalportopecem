@@ -5,7 +5,8 @@
     <div class="container capa" v-show="$store.state.nome">
       <img class="loguito" src="../assets/logo.svg"/>
       <img @click="abre" class="delete" src="../assets/delete.svg"/>
-      <p>
+      
+       <p>
         O JORNAL PORTO DO PECÉM<br><br>
 
         Informar, reportar e opinar sobre todos os quadrantes da problemática econômica do Ceará,
@@ -30,9 +31,17 @@
         Por fim, transmitir através de uma informação jornalística de primeiro plano, novos mercados,
         novas oportunidades de negócios e o conhecimento real das potencialidades do Complexo
         Industrial Porto do Pecém.
-      </p>
+      </p> 
       
     </div>
+
+    <!-- <div class="container capa2" v-show="!$store.state.nome">
+      
+      <img @click="abre" class="delete" src="../assets/delete.svg"/>
+      <img  src="https://image.freepik.com/vetores-gratis/anuncio-de-sorvete-realista_52683-729.jpg?2"/>
+      
+      
+    </div> -->
     
     
     
@@ -71,16 +80,37 @@ export default {
 
     
   },
+  
   data () {
     return {
-        aberto: true
+        aberto: true,
+        timer:1,
       }
     },  
+    created () {
+        this.fetchEventsList();
+        this.timer = setInterval(this.fetchEventsList, 5000)
+        systemReset();
+    },
   methods:{
         abre(){
           this.aberto=false;
-          this.$store.dispatch("setNome", this.aberto)
+          
+        },
+        callFunction: function () {
+            var v = this;
+            setTimeout(function () {
+                v.aberto=false;
+            }, 3000);
         }
+  },
+  mounted () {
+      // this.callFunction()
+    },
+  watch:{
+      "aberto": function (val) {
+        this.$store.dispatch("setNome", this.aberto)
+      }
   }
     
   }
@@ -90,6 +120,21 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .capa{
+    position:fixed;
+
+    width:90vw;
+    padding:50px;
+    padding-top:0px;
+    padding-bottom:10px;
+    left: calc(50vw - 230px);
+    background:white;
+    border-radius: 7px;
+    top:20px;
+    box-shadow: 0px 0px 5px black;
+    font-size:12px;
+    background: #f1f1f1;;
+  }
+  .capa2{
     position:fixed;
 
     width:90vw;
@@ -164,6 +209,21 @@ export default {
       box-shadow: 0px 0px 5px black;
       font-size:15px;
       background: #f1f1f1;;
+    }
+    .capa2{
+      position:fixed;
+
+      width:auto;
+      padding:50px;
+      padding-top:0px;
+      padding-bottom:10px;
+      left: calc(50vw - 380px);
+      
+      border-radius: 7px;
+      top:20px;
+      box-shadow:none;
+      font-size:15px;
+      background: none;
     }
     .btn-destaques{
       
