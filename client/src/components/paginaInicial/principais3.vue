@@ -39,7 +39,14 @@
         
       </div>
       <div class="div-anuncio">
-        <anuncio class="anuncio img-anuncio1"></anuncio>
+        <a href="https://www.ignisfit.com/"><img src="https://firebasestorage.googleapis.com/v0/b/jornal-porto-do-pecem.appspot.com/o/ignis_1024.png?alt=media&token=212109ed-a7cd-47b5-89ad-0d28d0f894d2" 
+                  class="anuncio img-anuncio1"/></a>
+          
+      </div>
+      <div class="div-anuncio dois">
+        <img src="https://firebasestorage.googleapis.com/v0/b/jornal-porto-do-pecem.appspot.com/o/anuncio.jpg?alt=media&token=df4d99dd-84b5-4a9e-bda9-e15c12842135" 
+                  class="anuncio img-anuncio1"/>
+          
       </div>
       
     </div>
@@ -201,7 +208,7 @@ export default {
   }
 
   .img-anuncio1{
-    width:100%;
+    width:80%;
     margin-top:25px;
     margin-bottom: 20px;
     max-height:120px;
@@ -224,6 +231,27 @@ export default {
     text-decoration:none;
     cursor:pointer;
   }
+  .div-anuncio{
+              width:80%;
+              margin-left:48px;
+              border-style: solid;
+              border-color:#142248 ;
+              border-width: 1px;
+              padding:10px;
+              background-color:white;
+              margin-top:20px;
+              margin-bottom:40px;
+            }
+            .dois{
+              padding:0px;
+              background:none;
+              border:none;
+              background-color:#009999;
+            }
+            .dois img{
+              width:100%;
+              
+            }
 
 @media screen and (min-width: 992px){
             hr{
@@ -237,7 +265,8 @@ export default {
             .principal{
               margin-left:-15px;
               
-              width:95%;
+              width:160%;
+              
             }
             .principal h1 {
               text-align: left;
@@ -278,12 +307,20 @@ export default {
               
             }
             .div-anuncio{
-              width:90%;
-              margin-left:48px;
-              height:100vh;
-              min-height:560px;
-              max-height:560px;
+              
+              margin-top:60px;
+              margin-bottom:60px;
+            }
+            .dois{
+              padding:0px;
+              background:none;
+              border:none;
               background-color:#009999;
+              border-width: 1px;
+            }
+            .dois img{
+              width:100%;
+              
             }
 
 }

@@ -278,8 +278,8 @@ export default {
       min-height:300px;
       max-height:300px;
       border-style:solid;
-      border-width: 2px;
-      border-color: #05341D;
+      border-width: 1px;
+      border-color:#142248 ;
       background-color: white; 
     }
     .div-anuncio img{
