@@ -152,9 +152,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-.pesquisa{
-  display:none;
-}
+  .pesquisa{
+    display:none;
+  }
   .btn-pesquisa{
     background-color:#009999;
     border-color:#009999;

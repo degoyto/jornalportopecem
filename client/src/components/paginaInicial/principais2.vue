@@ -67,9 +67,12 @@ export default {
       },
   },
   async mounted (){
-    console.log(this.exceto)
-    this.noticias = (await NoticiaService.principais2(this.exceto)).data
     
+    this.noticias = (await NoticiaService.principais2(this.exceto)).data
+    console.log(this.noticias);
+    this.noticias.splice(3, 1);
+    console.log(this.noticias);
+    //
   }
   
     

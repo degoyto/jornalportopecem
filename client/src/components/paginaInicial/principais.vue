@@ -49,6 +49,7 @@
     
     
     <div class="div-anuncio">
+      
         <VueTradingView class="trading" :options="{
          
                 symbol: 'FX_IDC:USDBRL',
@@ -56,7 +57,10 @@
                 theme: 'light',
                 locale: 'br',
                 width: 360,
-                height:240
+                height:240,
+                style:2,
+                hide_top_toolbar: true,
+                
           }"/>
           
         <a href="http://www.rodopublis.com.br"><img class="anuncio" src="https://imagensportopecem2.s3.amazonaws.com/anuncios/rodo.jpg" /></a>

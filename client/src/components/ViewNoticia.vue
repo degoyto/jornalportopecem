@@ -45,7 +45,7 @@
                 <div class="conteudo-texto" v-html="noticia.conteudo" >{{noticia.conteudo}}</div>
             
             </div>
-            <fb-comment :url="essaUrl.href"/>
+            
             <!-- <social-sharing url="http://jornalportodopecem.com.br/#/noticia/24"
                       description="Intuitive, Fast and Composable MVVM for building interactive interfaces."
                       quote="Vue is a progressive framework for building user interfaces."

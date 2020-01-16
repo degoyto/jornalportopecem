@@ -15,6 +15,7 @@ export default new Vuex.Store({
         isUserLoggedIn: false,
         nome:true,
         noticia:null,
+        item: {}
     },
     mutations: {
         setToken(state, token){
@@ -33,7 +34,10 @@ export default new Vuex.Store({
         },
         setNoticia(state, noticia){
             state.noticia = noticia
-        }
+        },
+        SET_ITEM (state, item) {
+            state.item = item
+          }
     },
     actions:{
         setToken ({commit}, token){
