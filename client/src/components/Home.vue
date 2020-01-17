@@ -20,7 +20,7 @@
         Para obter a atenção de empresários, políticos, dirigentes governamentais, gestores,
         investidores, executivos, analistas de mercado, pretende-se que o Jornal Porto do Pecém seja
         um referencial para os órgãos de grande imprensa nacional. Destaque-se que nosso trabalho
-        será em torno do que ocorre com as movimentações do 2º maior porto do Brasil.<br>
+        será em torno do que ocorre com as movimentações do 2º maior porto do Brasil.<br><br>
 
         É missão do Jornal Porto do Pecém relacionar, em caráter de assessoria - sempre em uma linha
         de claro serviço de utilidade ao leitor -, todos os segmentos econômicos e financeiros, nacionais

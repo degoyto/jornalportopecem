@@ -13,7 +13,7 @@
                    
                         
                         <div class="fotoInfo">
-                            <div class="img" @click="navigateTo(noticia.id)"  v-bind:style="{ backgroundImage: 'url(' + noticia.fotoUrl + ')' }"></div>
+                            <div class="img"  v-bind:style="{ backgroundImage: 'url(' + noticia.fotoUrl + ')' }"></div>
 
 
                             <div class="info" >
@@ -23,14 +23,16 @@
                                         {{noticia.tipo}}
                                 
                                     </div>
-                                    <h1  @click="navigateTo(noticia.id)" >{{noticia.title}}</h1>
-                                
-                                <div class="conteudo" >
-                                    <div @click="navigateTo(noticia.id)" >
-                                        <v-clamp autoresize :max-lines="4"  >{{ noticia.resumo}}</v-clamp>
-                                    </div>
-                                
-                                </div>
+                                    <a class="link-noticia" :href="'https://jornalportodopecem.com.br/noticia/' + noticia.id">
+                                        <h1  >{{noticia.title}}</h1>
+                                    
+                                        <div class="conteudo" >
+                                            <div>
+                                                <v-clamp autoresize :max-lines="4"  >{{ noticia.resumo}}</v-clamp>
+                                            </div>
+                                        
+                                        </div>
+                                    </a>
                                 <div class="botao-data">
                                     <div class="data texto">
                                         {{noticia.createdAt | formatDate}}
@@ -42,6 +44,7 @@
                             </div>
                         </div>   
                     <hr />
+                    
                 </div>
                 
             </div>
@@ -151,6 +154,15 @@ export default {
 <style scoped>
     .caixa:hover{
         cursor:pointer;
+    }
+
+    .link-noticia{
+        text-decoration:none;
+        color:black;
+    }
+    .link-noticia:hover{
+        text-decoration:none;
+        color:#009999
     }
     .propaganda{
             display:flex;

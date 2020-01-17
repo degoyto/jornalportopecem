@@ -3,7 +3,7 @@
     
     <div class="noticia">
       <div class= "caixa" v-for="noticia in noticias" :key="noticia.id"  >
-        <router-link class="link-noticia" :to="{ name: 'noticia', params: { noticiaId: noticia.id}}">
+        <a class="link-noticia" :href="'https://jornalportodopecem.com.br/noticia/' + noticia.id">
           <div class="info"  >
                 
                 <div   class="itens">
@@ -17,7 +17,7 @@
               </div> 
             
           </div>
-        </router-link>
+        </a>
       </div>
     </div>
       

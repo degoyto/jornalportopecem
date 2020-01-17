@@ -10,7 +10,7 @@
     </div>
       <div class= "caixa" v-for="noticia in noticias" :key="noticia.id"  >
         
-          <router-link class="link-noticia" :to="{ name: 'noticia', params: { noticiaId: noticia.id}}">
+          <a class="link-noticia" :href="'https://jornalportodopecem.com.br/noticia/' + noticia.id">
           <div class="img" 
             
             v-bind:style="{ backgroundImage: 'url(' + noticia.fotoUrl + ')' }"
@@ -41,7 +41,7 @@
               
             </div>
           </div>
-      </router-link>
+      </a>
        
       </div>
     
