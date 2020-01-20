@@ -23,7 +23,7 @@
                                         {{noticia.tipo}}
                                 
                                     </div>
-                                    <a class="link-noticia" :href="'https://jornalportodopecem.com.br/noticia/' + noticia.id">
+                                    <a class="link-noticia" :href="'https://jornalportodopecem.com.br/noticia/'+noticia.id+'/' + converteString(noticia.title)">
                                         <h1  >{{noticia.title}}</h1>
                                     
                                         <div class="conteudo" >
@@ -87,10 +87,18 @@ export default {
         navigateTo (recebido){
             this.$router.push({ name: 'noticia', params: { noticiaId: recebido  } })
             this.$router.go(1)
-      },
-      async att(){
-          this.noticias = (await NoticiaService.filtro(this.nome)).data
-      }
+        },
+        async att(){
+            this.noticias = (await NoticiaService.filtro(this.nome)).data
+        },
+        converteString(str){
+            
+            var resultado = str.toLowerCase();
+            resultado = resultado.split(" ").join("-");
+            resultado = resultado.normalize('NFD').replace(/[\u0300-\u036f]/g, ''); 
+            return resultado; 
+        }
+
 
     },
     watch: {
